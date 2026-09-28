@@ -153,6 +153,29 @@ WORKDIR /app
 CMD ["python", "main.py"]
             </div>
         `
+    },
+    'thesis': {
+        tag: 'Modelo C4 (Simon Brown) + Microsoft Azure + IoT Edge',
+        title: 'Arquitectura C4 y Flujos de Despliegue — Tesis PFC 1 (Persona 1)',
+        repo: 'https://github.com/italo04',
+        body: `
+            <p><strong>Actor Principal (Persona 1):</strong> Comerciante o bodeguero en entornos rurales o con conectividad intermitente que realiza cobros digitales offline en su terminal portátil.</p>
+            
+            <h4 class="modal-section-title"><i class="fa-solid fa-sitemap"></i> Niveles del Modelo C4 (Simon Brown):</h4>
+            <ul>
+                <li><strong>C4 Nivel 1 (Contexto del Sistema):</strong> Mapea la interacción de <em>Persona 1</em> con el terminal IoT, clientes, redes celulares intermitentes, el Core Bancario y el regulador SBS (límite offline S/ 3,000).</li>
+                <li><strong>C4 Nivel 2 (Contenedores):</strong> Desacoplamiento entre la <em>Capa de Borde</em> (ESP32 con NVS cifrada AES-256-GCM y motor criptográfico ECDSA P-256) y la <em>Capa Cloud en Azure</em> (IoT Hub con mTLS, Event Grid, Azure Function Reconciliadora, Cosmos DB y Key Vault HSM).</li>
+                <li><strong>C4 Nivel 3 (Componentes):</strong> Desglose modular de la función serverless: <code>TriggerHandler</code>, <code>CryptoVerifier</code> (firma PKI), <code>IdempotencyGuard</code> (UUIDv4), <code>SBSValidator</code> y <code>SagaOrchestrator</code> (compensaciones y Dead-Letter Queue).</li>
+                <li><strong>C4 Nivel 4 (Despliegue e Infraestructura):</strong> Virtual Network (VNet) privada en Azure East US 2 con Private Endpoints, RBAC de mínimo privilegio y canal MQTT/TLS 1.3.</li>
+            </ul>
+
+            <h4 class="modal-section-title"><i class="fa-solid fa-rocket"></i> Flujos de Despliegue Automatizados:</h4>
+            <ul>
+                <li><strong>1. Infraestructura como Código (IaC):</strong> Aprovisionamiento con Terraform / Bicep en GitHub Actions con análisis de seguridad (Checkov).</li>
+                <li><strong>2. CI/CD Serverless:</strong> Pipeline de Azure Functions con pruebas unitarias, análisis estático SAST y slot swap sin caída de servicio (Zero-Downtime).</li>
+                <li><strong>3. Aprovisionamiento y Actualización de Firmware Edge (OTA):</strong> Inyección de claves PKI en fábrica y despliegue seguro Over-The-Air mediante Azure IoT Hub Device Twins.</li>
+            </ul>
+        `
     }
 };
 
