@@ -247,8 +247,19 @@ function initTerminal() {
                         • <strong>proyectos</strong>: Listado de repositorios destacados<br>
                         • <strong>tesis</strong>: Resumen de Tesis PFC 1 (PUCP)<br>
                         • <strong>skills</strong>: Resumen de tecnologías principales<br>
+                        • <strong>cv</strong>: Información del Curriculum Vitae (Harvard/ATS)<br>
                         • <strong>contacto</strong>: Datos de contacto directo<br>
                         • <strong>clear</strong>: Limpiar pantalla del terminal
+                    `;
+                    break;
+                case 'cv':
+                case 'curriculum':
+                case 'resume':
+                    responseDiv.innerHTML = `
+                        CV Formato Harvard ATS (PUCP - 9.° ciclo):<br>
+                        • Perfil: Ciberseguridad, Cloud Computing y Arquitectura Backend<br>
+                        • LinkedIn: linkedin.com/in/italo-mijail-ramos-diaz<br>
+                        • Disponibilidad: Inmediata para Convenio de Prácticas PUCP (30h/sem)
                     `;
                     break;
                 case 'whoami':
