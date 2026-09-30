@@ -56,6 +56,10 @@
                 <a href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/" target="_blank" rel="noopener noreferrer" class="btn-ghost-icon" title="Ver LinkedIn">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
+                <button class="btn-cv-quick" onclick="openCvModal()" title="Ver Curriculum Vitae Harvard ATS">
+                    <i class="fa-solid fa-file-invoice"></i>
+                    <span>CV ATS</span>
+                </button>
                 <a href="#contacto" class="btn-primary-sm">
                     <span>Contactar</span>
                     <i class="fa-solid fa-arrow-right"></i>
@@ -89,9 +93,13 @@
                         <i class="fa-solid fa-terminal"></i>
                         <span>Explorar Proyectos</span>
                     </a>
+                    <button class="btn-accent" onclick="openCvModal()">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        <span>Ver CV Harvard</span>
+                    </button>
                     <a href="https://github.com/italo04" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                         <i class="fa-brands fa-github"></i>
-                        <span>GitHub Profile</span>
+                        <span>GitHub</span>
                     </a>
                     <a href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/" target="_blank" rel="noopener noreferrer" class="btn-secondary">
                         <i class="fa-brands fa-linkedin-in"></i>
@@ -159,6 +167,16 @@
                         <span class="term-prompt">$</span>
                         <input type="text" id="terminalInput" placeholder="Escribe 'help', 'proyectos', 'tesis' o 'contacto'..." autocomplete="off">
                     </div>
+                </div>
+                <div class="term-chips-container">
+                    <span class="term-chips-label">Atajos:</span>
+                    <button class="term-chip" onclick="executeTermChip('whoami')">whoami</button>
+                    <button class="term-chip" onclick="executeTermChip('proyectos')">proyectos</button>
+                    <button class="term-chip" onclick="executeTermChip('tesis')">tesis</button>
+                    <button class="term-chip" onclick="executeTermChip('skills')">skills</button>
+                    <button class="term-chip" onclick="executeTermChip('cv')">cv</button>
+                    <button class="term-chip" onclick="executeTermChip('contacto')">contacto</button>
+                    <button class="term-chip" onclick="executeTermChip('clear')">clear</button>
                 </div>
             </div>
         </section>
@@ -644,6 +662,83 @@
                     <span>Abrir en GitHub</span>
                 </a>
                 <button class="btn-secondary-sm" onclick="closeProjectModal()">
+                    <span>Cerrar</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para Visualización Rápida del CV Harvard ATS -->
+    <div class="modal-backdrop" id="cvModal" aria-hidden="true">
+        <div class="modal-container">
+            <div class="modal-header">
+                <div class="modal-title-wrap">
+                    <span class="modal-tag" style="background: rgba(121, 40, 202, 0.2); color: #c084fc; border: 1px solid rgba(121, 40, 202, 0.4);">
+                        <i class="fa-solid fa-file-invoice"></i> Formato Harvard ATS (100% B&W)
+                    </span>
+                    <h3 class="modal-title">Italo Mijail Ramos Diaz — CV Ejecutivo</h3>
+                </div>
+                <button class="modal-close" onclick="closeCvModal()" aria-label="Cerrar modal CV">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="cv-preview-box">
+                    <div class="cv-header-line">
+                        <div>
+                            <strong style="color: #f8fafc; font-size: 1.05rem;">Italo Mijail Ramos Diaz</strong>
+                            <div class="cv-target-role">Practicante Preprofesional en Ciberseguridad, Cloud y DevSecOps</div>
+                        </div>
+                        <div class="cv-meta-pills">
+                            <span class="cv-pill"><i class="fa-solid fa-graduation-cap"></i> PUCP (9.° ciclo)</span>
+                            <span class="cv-pill"><i class="fa-solid fa-clock"></i> 30h / semana</span>
+                            <span class="cv-pill"><i class="fa-solid fa-location-dot"></i> Lima, Perú</span>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 1.2rem;">
+                        <h4 style="color: var(--accent-cyan); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">
+                            Perfil Profesional Sintético
+                        </h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55;">
+                            Estudiante de 9.° ciclo de Ingeniería Informática en la PUCP, enfocado en <strong>Ciberseguridad</strong>, <strong>Infraestructura Cloud (AWS/Azure)</strong> y <strong>DevSecOps</strong>. Sólida base en administración Linux, redes TCP/IP, automatización con Bash/Python y hardening. Experiencia coordinando equipos bajo Scrum, implementando políticas de seguridad y diagnosticando incidentes operativos.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 style="color: var(--accent-cyan); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem; letter-spacing: 0.05em;">
+                            Logros Clave con Evidencia Técnica & Métricas
+                        </h4>
+                        <div class="cv-bullet-item">
+                            • <strong>Motor Transaccional (FastAPI / PostgreSQL):</strong> Construyó API con <em>SELECT FOR UPDATE</em>, asegurando 100% consistencia contable ante 20 hilos concurrentes y 92% cobertura en Pytest.
+                        </div>
+                        <div class="cv-bullet-item">
+                            • <strong>Cloud & Hardening (AWS VPC / Linux):</strong> Desplegó servidores Linux con llaves SSH e IAM Least Privilege, reduciendo 80% superficie expuesta y mitigando ataques de fuerza bruta en &lt; 15 segundos con scripts Bash e <em>iptables</em>.
+                        </div>
+                        <div class="cv-bullet-item">
+                            • <strong>Pipeline DevSecOps (GitHub Actions):</strong> Implementó CI/CD con Semgrep y Trivy detectando 100% de vulnerabilidades críticas en &lt; 4 minutos y optimizando imágenes Docker en un 65% bajo usuario <em>non-root</em>.
+                        </div>
+                        <div class="cv-bullet-item">
+                            • <strong>Tesis PFC 1 (PUCP):</strong> Diseñó arquitectura IoT-Cloud con Wokwi ESP32 y MQTT, garantizando 0 pérdida de pagos offline mediante cifrado AES-256 bajo topes regulatorios SBS (S/ 3,000).
+                        </div>
+                        <div class="cv-bullet-item">
+                            • <strong>Comunidad & Liderazgo:</strong> Coordinó 4 talleres de Linux y redes para 180+ asistentes (96% satisfacción) y validó 18 requerimientos en incubadora EQUIPU (Proyecto Mi Derecho).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/" target="_blank" rel="noopener noreferrer" class="btn-primary-sm">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>Contactar en LinkedIn</span>
+                </a>
+                <a href="https://github.com/italo04" target="_blank" rel="noopener noreferrer" class="btn-secondary-sm">
+                    <i class="fa-brands fa-github"></i>
+                    <span>Ver Repositorios</span>
+                </a>
+                <button class="btn-secondary-sm" onclick="closeCvModal()">
                     <span>Cerrar</span>
                 </button>
             </div>

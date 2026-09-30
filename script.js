@@ -201,17 +201,38 @@ function closeProjectModal() {
     document.body.style.overflow = '';
 }
 
-// Cerrar modal al hacer clic fuera o pulsar Esc
+function openCvModal() {
+    const modal = document.getElementById('cvModal');
+    if (!modal) return;
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeCvModal() {
+    const modal = document.getElementById('cvModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+// Cerrar modales al hacer clic fuera o pulsar Esc
 window.addEventListener('click', (e) => {
-    const modal = document.getElementById('projectModal');
-    if (e.target === modal) {
+    const projectModal = document.getElementById('projectModal');
+    const cvModal = document.getElementById('cvModal');
+    if (e.target === projectModal) {
         closeProjectModal();
+    }
+    if (e.target === cvModal) {
+        closeCvModal();
     }
 });
 
 window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeProjectModal();
+        closeCvModal();
     }
 });
 
@@ -256,10 +277,13 @@ function initTerminal() {
                 case 'curriculum':
                 case 'resume':
                     responseDiv.innerHTML = `
-                        CV Formato Harvard ATS (PUCP - 9.° ciclo):<br>
-                        • Perfil: Ciberseguridad, Cloud Computing y Arquitectura Backend<br>
-                        • LinkedIn: linkedin.com/in/italo-mijail-ramos-diaz<br>
-                        • Disponibilidad: Inmediata para Convenio de Prácticas PUCP (30h/sem)
+                        <strong>CV Formato Harvard ATS (PUCP - 9.° ciclo):</strong><br>
+                        • Enfoque: Ciberseguridad, Infraestructura Cloud (AWS/Azure) y DevSecOps<br>
+                        • Motor Transaccional: 100% consistencia, 20 hilos concurrentes, Pytest 92%<br>
+                        • Cloud & Hardening: 80% reducción superficie expuesta, mitigación &lt; 15s con iptables<br>
+                        • DevSecOps: 100% vulnerabilidades críticas en &lt; 4 min, Docker multi-stage 65% reducción<br>
+                        • Tesis PFC 1: 0 pérdida offline, Wokwi ESP32, tope SBS S/ 3,000<br>
+                        👉 <a href="javascript:void(0)" onclick="openCvModal()" style="color: var(--accent-cyan); text-decoration: underline;">Haz clic aquí para abrir el visor del CV</a>
                     `;
                     break;
                 case 'whoami':
@@ -307,6 +331,13 @@ function initTerminal() {
             terminalBody.scrollTop = terminalBody.scrollHeight;
         }
     });
+}
+
+function executeTermChip(cmd) {
+    const terminalInput = document.getElementById('terminalInput');
+    if (!terminalInput) return;
+    terminalInput.value = cmd;
+    terminalInput.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter' }));
 }
 
 function escapeHtml(text) {

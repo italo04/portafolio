@@ -39,6 +39,16 @@
     box-sizing: border-box;
 }
 
+:focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+h1, h2, h3, .hero-title, .section-title, .modal-title {
+    text-wrap: balance;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -291,6 +301,89 @@ body {
 
 .btn-secondary-sm:hover {
     background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-accent {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.6rem;
+    background: linear-gradient(135deg, #7928ca, #6366f1);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(121, 40, 202, 0.35);
+    transition: all var(--transition-medium);
+}
+
+.btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(121, 40, 202, 0.55);
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+.btn-cv-quick {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.9rem;
+    background: rgba(121, 40, 202, 0.15);
+    color: #c084fc;
+    border: 1px solid rgba(121, 40, 202, 0.35);
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.btn-cv-quick:hover {
+    background: rgba(121, 40, 202, 0.3);
+    color: #ffffff;
+    border-color: #a855f7;
+    transform: translateY(-1px);
+}
+
+/* Chips de Ejecución Rápida en el Terminal */
+.term-chips-container {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 1rem;
+    background: rgba(0, 0, 0, 0.35);
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.term-chips-label {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.term-chip {
+    padding: 0.2rem 0.55rem;
+    background: rgba(0, 240, 255, 0.08);
+    border: 1px solid rgba(0, 240, 255, 0.22);
+    border-radius: 4px;
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.term-chip:hover {
+    background: rgba(0, 240, 255, 0.22);
+    border-color: var(--accent-cyan);
+    color: #ffffff;
+    transform: translateY(-1px);
 }
 
 /* Hero Section */
@@ -1308,4 +1401,74 @@ body {
     .skills-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* ==============================================================================
+   ACCESIBILIDAD — PREFERS-REDUCED-MOTION (WCAG 2.2 / UI-UX-PRO-MAX)
+   ============================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    .glow-orb {
+        display: none !important;
+    }
+    .status-pulse {
+        animation: none !important;
+    }
+}
+
+/* Modal CV Específico */
+.cv-preview-box {
+    background: rgba(5, 10, 20, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    margin-top: 1rem;
+    font-family: var(--font-sans);
+}
+
+.cv-header-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.cv-target-role {
+    font-size: 0.85rem;
+    color: var(--accent-cyan);
+    font-family: var(--font-mono);
+}
+
+.cv-meta-pills {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.cv-pill {
+    padding: 0.2rem 0.55rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.cv-bullet-item {
+    margin-bottom: 0.65rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.cv-bullet-item strong {
+    color: var(--text-primary);
 }
