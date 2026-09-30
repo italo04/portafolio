@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Italo Ramos | Portafolio de Ciberseguridad, Cloud y Backend</title>
-    <meta name="description" content="Portafolio profesional de Italo Mijail Ramos Diaz. Estudiante de Ingeniería Informática PUCP especializado en Ciberseguridad, Cloud Computing (AWS/Azure), DevSecOps y Arquitectura Backend.">
+    <meta name="description" content="Portafolio profesional de Italo Mijail Ramos Diaz. Estudiante de 9.º ciclo de Ingeniería Informática en PUCP. Ciberseguridad, Cloud Computing (AWS/Azure), DevSecOps, IEEE PUCP y Red EQUIPU.">
     <meta name="author" content="Italo Mijail Ramos Diaz">
     
     <!-- Open Graph / Meta Compartir -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Italo Ramos | Portafolio Profesional">
-    <meta property="og:description" content="Estudiante de Ingeniería Informática PUCP | Ciberseguridad, Cloud Computing y Arquitectura Backend">
+    <meta property="og:description" content="Estudiante de Ingeniería Informática PUCP | Ciberseguridad, Cloud Computing (AWS/Azure), DevSecOps y Backend">
     <meta property="og:url" content="https://italo04.github.io/portafolio/">
     
     <!-- Google Fonts -->
@@ -21,11 +21,15 @@
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- Three.js CDN para Fondo 3D Interactivo Procedural -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Background Animated Grid & Glow -->
+    <!-- Background Animated 3D Cyber Constellation & Glow -->
     <div class="bg-effects">
+        <canvas id="cyberCanvas" class="cyber-canvas"></canvas>
         <div class="glow-orb orb-1"></div>
         <div class="glow-orb orb-2"></div>
         <div class="glow-orb orb-3"></div>
@@ -43,13 +47,16 @@
             
             <ul class="nav-links">
                 <li><a href="#proyectos" class="nav-link">Proyectos</a></li>
-                <li><a href="#tesis" class="nav-link">Tesis PFC</a></li>
+                <li><a href="#tesis" class="nav-link">Tesis C4</a></li>
                 <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
                 <li><a href="#trayectoria" class="nav-link">Trayectoria</a></li>
                 <li><a href="#contacto" class="nav-link">Contacto</a></li>
             </ul>
 
             <div class="nav-actions">
+                <button class="btn-ghost-icon" id="soundToggleBtn" onclick="toggleAudio()" title="Efectos de sonido interactivos">
+                    <i class="fa-solid fa-volume-high" id="soundIcon"></i>
+                </button>
                 <a href="https://github.com/italo04" target="_blank" rel="noopener noreferrer" class="btn-ghost-icon" title="Ver GitHub">
                     <i class="fa-brands fa-github"></i>
                 </a>
@@ -72,20 +79,20 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
+        <!-- Hero Section con Grid & Terminal -->
         <section id="hero" class="hero-section container">
             <div class="hero-content">
                 <div class="badge-status">
                     <span class="status-pulse"></span>
-                    <span>Disponible para Prácticas Preprofesionales (Convenio PUCP)</span>
+                    <span>Disponible para Prácticas Preprofesionales (Convenio PUCP - 30h/sem)</span>
                 </div>
                 
                 <h1 class="hero-title">
-                    Construyendo soluciones resilientes en <span class="gradient-text">Ciberseguridad</span>, <span class="gradient-cyan">Cloud</span> y <span class="gradient-purple">Backend</span>
+                    Construyendo soluciones resilientes en <span class="gradient-cyan">Ciberseguridad</span>, <span class="gradient-purple">Cloud</span> y <span class="gradient-text">Backend</span>
                 </h1>
                 
                 <p class="hero-subtitle">
-                    Hola, soy <strong>Italo Mijail Ramos Diaz</strong>, estudiante de 9.º ciclo de Ingeniería Informática en la <strong>Pontificia Universidad Católica del Perú (PUCP)</strong>. Combino solvencia técnica en infraestructura segura, redes y desarrollo de alta concurrencia con capacidad probada para coordinar equipos y gestionar proyectos bajo marcos ágiles.
+                    Hola, soy <strong>Italo Mijail Ramos Diaz</strong>, estudiante de 9.º ciclo de Ingeniería Informática en la <strong>Pontificia Universidad Católica del Perú (PUCP)</strong>. Miembro del área de investigación en <strong>IEEE PUCP</strong> y participante en la Red de Emprendimiento Universitario <strong>EQUIPU</strong> (Proyecto <em>Mi Derecho</em>). Enfoque en infraestructura segura, redes, microservicios resilientes y arquitectura defensiva.
                 </p>
 
                 <div class="hero-cta-group">
@@ -107,24 +114,31 @@
                     </a>
                 </div>
 
+                <!-- Métricas animadas con CountUp -->
                 <div class="hero-stats">
-                    <div class="stat-card">
-                        <div class="stat-value">9.°</div>
+                    <div class="stat-card spotlight-card">
+                        <div class="stat-value">
+                            <span class="stat-number" data-target="9" data-suffix=".°">9.°</span>
+                        </div>
                         <div class="stat-label">Ciclo Ing. Informática PUCP</div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-value">180+</div>
+                    <div class="stat-card spotlight-card">
+                        <div class="stat-value">
+                            <span class="stat-number" data-target="180" data-suffix="+">180+</span>
+                        </div>
                         <div class="stat-label">Asistentes en talleres liderados</div>
                     </div>
-                    <div class="stat-card">
-                        <div class="stat-value">100%</div>
+                    <div class="stat-card spotlight-card">
+                        <div class="stat-value">
+                            <span class="stat-number" data-target="100" data-suffix="%">100%</span>
+                        </div>
                         <div class="stat-label">Enfoque Secure-by-Design</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Terminal Interactivo en el Hero -->
-            <div class="hero-terminal">
+            <!-- Terminal Interactivo en el Hero con Matrix Rain & Audio -->
+            <div class="hero-terminal spotlight-card">
                 <div class="terminal-header">
                     <div class="terminal-dots">
                         <span class="dot dot-red"></span>
@@ -134,14 +148,23 @@
                     <div class="terminal-title">
                         <i class="fa-solid fa-shield-halved"></i> italo@pucp-sec-ops:~
                     </div>
-                    <div class="terminal-badge">zsh</div>
+                    <div class="terminal-controls">
+                        <button class="term-tool-btn" onclick="toggleMatrixRain()" title="Activar/Desactivar Lluvia Matrix">
+                            <i class="fa-solid fa-code"></i> Matrix
+                        </button>
+                        <div class="terminal-badge">zsh</div>
+                    </div>
                 </div>
+
+                <!-- Canvas de lluvia digital Matrix -->
+                <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+
                 <div class="terminal-body" id="terminalBody">
                     <div class="terminal-line">
                         <span class="term-prompt">$</span> <span class="term-cmd">whoami</span>
                     </div>
                     <div class="term-output">
-                        Italo Mijail Ramos Diaz — PUCP Computer Engineering Student
+                        Italo Mijail Ramos Diaz — PUCP Computer Engineering Student (9th Term)
                     </div>
                     
                     <div class="terminal-line">
@@ -152,7 +175,7 @@
                         &nbsp;&nbsp;<span class="json-key">"security"</span>: <span class="json-val">["Hardening Linux", "OWASP Top 10", "Criptografía AES/RSA", "AppSec"]</span>,<br>
                         &nbsp;&nbsp;<span class="json-key">"cloud"</span>: <span class="json-val">["AWS (VPC, IAM, EC2)", "Azure", "Docker", "DevSecOps"]</span>,<br>
                         &nbsp;&nbsp;<span class="json-key">"backend"</span>: <span class="json-val">["Python / FastAPI", "Spring Boot", "PostgreSQL", "Idempotencia"]</span>,<br>
-                        &nbsp;&nbsp;<span class="json-key">"leadership"</span>: <span class="json-val">["Coordinación de Equipos", "Scrum SFC", "Comunicación Asertiva"]</span><br>
+                        &nbsp;&nbsp;<span class="json-key">"ecosystem"</span>: <span class="json-val">["IEEE PUCP Investigación", "EQUIPU Startup Mi Derecho"]</span><br>
                         }
                     </div>
 
@@ -165,31 +188,35 @@
 
                     <div class="terminal-interactive-line">
                         <span class="term-prompt">$</span>
-                        <input type="text" id="terminalInput" placeholder="Escribe 'help', 'proyectos', 'tesis' o 'contacto'..." autocomplete="off">
+                        <input type="text" id="terminalInput" placeholder="Escribe 'help', 'neofetch', 'scan', 'c4' o 'matrix'..." autocomplete="off">
                     </div>
                 </div>
+
+                <!-- Chips interactivos con comandos avanzados -->
                 <div class="term-chips-container">
                     <span class="term-chips-label">Atajos:</span>
-                    <button class="term-chip" onclick="executeTermChip('whoami')">whoami</button>
+                    <button class="term-chip" onclick="executeTermChip('neofetch')">neofetch</button>
+                    <button class="term-chip" onclick="executeTermChip('scan')">scan</button>
+                    <button class="term-chip" onclick="executeTermChip('matrix')">matrix</button>
+                    <button class="term-chip" onclick="executeTermChip('c4')">c4</button>
+                    <button class="term-chip" onclick="executeTermChip('ieee')">ieee</button>
+                    <button class="term-chip" onclick="executeTermChip('miderecho')">mi derecho</button>
                     <button class="term-chip" onclick="executeTermChip('proyectos')">proyectos</button>
-                    <button class="term-chip" onclick="executeTermChip('tesis')">tesis</button>
-                    <button class="term-chip" onclick="executeTermChip('skills')">skills</button>
                     <button class="term-chip" onclick="executeTermChip('cv')">cv</button>
-                    <button class="term-chip" onclick="executeTermChip('contacto')">contacto</button>
                     <button class="term-chip" onclick="executeTermChip('clear')">clear</button>
                 </div>
             </div>
         </section>
 
-        <!-- Sección de Proyectos Destacados -->
+        <!-- Sección de Proyectos Destacados (Con 3D Tilt y Spotlight) -->
         <section id="proyectos" class="section container">
             <div class="section-header">
                 <div class="section-tag">
                     <i class="fa-solid fa-code-branch"></i> Portafolio Técnico
                 </div>
-                <h2 class="section-title">Proyectos Destacados</h2>
+                <h2 class="section-title">Proyectos de Ingeniería Destacados</h2>
                 <p class="section-subtitle">
-                    Arquitecturas reales, código modular y buenas prácticas de ingeniería de software y seguridad aplicadas a problemas concretos.
+                    Arquitecturas reales con código modular, control de concurrencia y buenas prácticas de seguridad informática aplicadas.
                 </p>
                 
                 <!-- Filtros de Proyectos -->
@@ -203,7 +230,7 @@
 
             <div class="projects-grid" id="projectsGrid">
                 <!-- Proyecto 1: Fintech Transaction Engine -->
-                <article class="project-card" data-category="backend">
+                <article class="project-card spotlight-card tilt-card" data-category="backend">
                     <div class="project-badge badge-purple">
                         <i class="fa-solid fa-coins"></i> Backend & Fintech
                     </div>
@@ -229,7 +256,7 @@
                         <span class="tech-pill">PostgreSQL</span>
                         <span class="tech-pill">SQLAlchemy</span>
                         <span class="tech-pill">Docker</span>
-                        <span class="tech-pill">Pytest</span>
+                        <span class="tech-pill">Pytest 92%</span>
                     </div>
                     <div class="project-footer">
                         <a href="https://github.com/italo04/fintech-transaction-engine" target="_blank" rel="noopener noreferrer" class="project-link">
@@ -244,7 +271,7 @@
                 </article>
 
                 <!-- Proyecto 2: Secure Cloud Infra & Linux Hardening -->
-                <article class="project-card" data-category="security cloud">
+                <article class="project-card spotlight-card tilt-card" data-category="security cloud">
                     <div class="project-badge badge-cyan">
                         <i class="fa-solid fa-shield-virus"></i> Cloud & Ciberseguridad
                     </div>
@@ -285,9 +312,9 @@
                 </article>
 
                 <!-- Proyecto 3: LayerForge Microservices -->
-                <article class="project-card" data-category="backend cloud">
+                <article class="project-card spotlight-card tilt-card" data-category="backend cloud">
                     <div class="project-badge badge-blue">
-                        <i class="fa-solid fa-cubes"></i> Arquitectura de Microservicios
+                        <i class="fa-solid fa-cubes"></i> Arquitectura Distribuida
                     </div>
                     <div class="project-header">
                         <h3 class="project-name">LayerForge Microservices Architecture</h3>
@@ -325,7 +352,7 @@
                 </article>
 
                 <!-- Proyecto 4: DevSecOps Shift-Left Pipeline -->
-                <article class="project-card" data-category="security cloud">
+                <article class="project-card spotlight-card tilt-card" data-category="security cloud">
                     <div class="project-badge badge-green">
                         <i class="fa-solid fa-lock"></i> DevSecOps & AppSec
                     </div>
@@ -350,7 +377,7 @@
                         <span class="tech-pill">Docker Non-Root</span>
                         <span class="tech-pill">Bandit SAST</span>
                         <span class="tech-pill">Python</span>
-                        <span class="tech-pill">Flake8</span>
+                        <span class="tech-pill">Trivy</span>
                     </div>
                     <div class="project-footer">
                         <a href="https://github.com/italo04" target="_blank" rel="noopener noreferrer" class="project-link">
@@ -366,9 +393,9 @@
             </div>
         </section>
 
-        <!-- Sección de Tesis PFC 1 (Destacado de Investigación) -->
+        <!-- Sección de Tesis PFC 1 con Explorador Interactivo C4 -->
         <section id="tesis" class="thesis-section container">
-            <div class="thesis-card">
+            <div class="thesis-card spotlight-card">
                 <div class="thesis-glow"></div>
                 <div class="thesis-header">
                     <div class="section-tag">
@@ -382,24 +409,52 @@
                 </h3>
 
                 <p class="thesis-lead">
-                    Investigación y formulación arquitectónica orientada a resolver un problema crítico de inclusión financiera en el Perú: la vulnerabilidad y falta de disponibilidad de terminales de pago en zonas geográficas con conectividad intermitente o nula.
+                    Investigación y formulación arquitectónica orientada a resolver un problema crítico de inclusión financiera en el Perú: la disponibilidad y seguridad de pagos en zonas con conectividad intermitente (Persona 1: Bodeguero Rural).
                 </p>
 
                 <div class="thesis-grid">
-                    <div class="thesis-box">
+                    <div class="thesis-box spotlight-card">
                         <div class="box-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
                         <h4>El Desafío de Seguridad</h4>
-                        <p>Cuando un dispositivo opera sin conexión en línea, las transacciones quedan expuestas a ataques de repetición (replay attacks), alteración de saldo local y doble gasto al reconectar la red.</p>
+                        <p>Cuando un dispositivo opera offline, las transacciones quedan expuestas a ataques de repetición (replay attacks), alteración de saldo local y doble gasto al reconectar la red.</p>
                     </div>
-                    <div class="thesis-box">
+                    <div class="thesis-box spotlight-card">
                         <div class="box-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                        <h4>La Solución Arquitectónica</h4>
-                        <p>Diseño de protocolo criptográfico local (cifrado en reposo AES-256, firmas digitales por transacción) con encolamiento asíncrono sobre MQTT/TLS y resolución basada en el modelo PACELC.</p>
+                        <h4>La Solución Criptográfica</h4>
+                        <p>Diseño de protocolo criptográfico local (cifrado en reposo AES-256-GCM, firmas ECDSA P-256 por transacción) con encolamiento asíncrono sobre MQTT/TLS y resolución basada en el modelo PACELC.</p>
                     </div>
-                    <div class="thesis-box">
+                    <div class="thesis-box spotlight-card">
                         <div class="box-icon"><i class="fa-solid fa-cloud"></i></div>
                         <h4>Servicios Cloud e IoT</h4>
-                        <p>Integración conceptual y simulada en Wokwi para hardware ESP32 con procesamiento backend en Azure IoT Hub / AWS IoT Core, funciones serverless y almacenamiento inmutable con claves de idempotencia.</p>
+                        <p>Integración simulada en Wokwi para hardware ESP32 con procesamiento backend en Azure IoT Hub, Azure Functions serverless, almacenamiento inmutable en Cosmos DB y HSM en Key Vault.</p>
+                    </div>
+                </div>
+
+                <!-- WIDGET INTERACTIVO: EXPLORADOR DE NIVELES C4 (SIMON BROWN) -->
+                <div class="c4-interactive-wrapper">
+                    <div class="c4-interactive-header">
+                        <div>
+                            <span class="c4-mini-badge"><i class="fa-solid fa-sitemap"></i> Modelo C4 Interactivo</span>
+                            <h4 class="c4-widget-title">Explora los Niveles de Arquitectura del Sistema</h4>
+                        </div>
+                        <div class="c4-tabs-nav" role="tablist">
+                            <button class="c4-tab-btn active" data-level="1" onclick="switchC4Level(1)">
+                                <span class="c4-badge-num">N1</span> Contexto
+                            </button>
+                            <button class="c4-tab-btn" data-level="2" onclick="switchC4Level(2)">
+                                <span class="c4-badge-num">N2</span> Contenedores
+                            </button>
+                            <button class="c4-tab-btn" data-level="3" onclick="switchC4Level(3)">
+                                <span class="c4-badge-num">N3</span> Componentes
+                            </button>
+                            <button class="c4-tab-btn" data-level="4" onclick="switchC4Level(4)">
+                                <span class="c4-badge-num">N4</span> Despliegue
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="c4-stage-panel" id="c4StagePanel">
+                        <!-- El contenido del nivel C4 se renderiza dinámicamente con animaciones fluidas -->
                     </div>
                 </div>
 
@@ -412,7 +467,7 @@
                     <div style="display: flex; gap: 0.8rem; flex-wrap: wrap;">
                         <button class="btn-primary-sm" onclick="openProjectModal('thesis')">
                             <i class="fa-solid fa-diagram-project"></i>
-                            <span>Ver Arquitectura C4 & Despliegue</span>
+                            <span>Ver Ficha Técnica C4 Completa</span>
                         </button>
                         <a href="#contacto" class="btn-secondary-sm">
                             <span>Conversar sobre esta Tesis</span>
@@ -431,13 +486,13 @@
                 </div>
                 <h2 class="section-title">Habilidades & Competencias</h2>
                 <p class="section-subtitle">
-                    Balance integral entre dominio técnico de tecnologías modernas y habilidades blandas para la gestión y articulación de equipos.
+                    Balance integral entre dominio técnico de tecnologías modernas y solvencia para la articulación de equipos multidisciplinarios.
                 </p>
             </div>
 
             <div class="skills-grid">
                 <!-- Columna 1: Ciberseguridad -->
-                <div class="skill-category-card">
+                <div class="skill-category-card spotlight-card tilt-card">
                     <div class="skill-cat-header">
                         <div class="cat-icon cat-cyan"><i class="fa-solid fa-shield-halved"></i></div>
                         <div>
@@ -448,15 +503,15 @@
                     <ul class="skill-list">
                         <li><i class="fa-solid fa-chevron-right"></i> Redes de Computadoras y modelo TCP/IP, DNS, VPN</li>
                         <li><i class="fa-solid fa-chevron-right"></i> Hardening de Sistemas Operativos Linux (Ubuntu/Debian)</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Criptografía aplicada: Cifrado simétrico (AES-256) y asimétrico</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Criptografía aplicada: Cifrado simétrico (AES-256) y asimétrico (RSA/ECDSA)</li>
                         <li><i class="fa-solid fa-chevron-right"></i> Análisis de tráfico de red y paquetes con Wireshark</li>
                         <li><i class="fa-solid fa-chevron-right"></i> Identificación de vulnerabilidades y OWASP Top 10</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Plataformas prácticas: TryHackMe & Cisco Academy</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Práctica continua en TryHackMe & Cisco Networking Academy</li>
                     </ul>
                 </div>
 
                 <!-- Columna 2: Cloud & Infraestructura -->
-                <div class="skill-category-card">
+                <div class="skill-category-card spotlight-card tilt-card">
                     <div class="skill-cat-header">
                         <div class="cat-icon cat-blue"><i class="fa-solid fa-cloud"></i></div>
                         <div>
@@ -466,16 +521,16 @@
                     </div>
                     <ul class="skill-list">
                         <li><i class="fa-solid fa-chevron-right"></i> Amazon Web Services (VPC, IAM, EC2, S3, CloudWatch)</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Microsoft Azure (Fundamentos cloud, IoT Hub)</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Microsoft Azure (Fundamentos cloud, IoT Hub, Functions)</li>
                         <li><i class="fa-solid fa-chevron-right"></i> Contenedores Docker (Imágenes multi-stage, usuarios non-root)</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Automatización CI/CD con GitHub Actions</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Automatización CI/CD con GitHub Actions y SAST (Bandit/Trivy)</li>
                         <li><i class="fa-solid fa-chevron-right"></i> Principio de Mínimo Privilegio (IAM Least Privilege)</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Scripting en Bash y automatización de tareas en Linux</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Scripting en Bash y automatización de tareas operativas</li>
                     </ul>
                 </div>
 
                 <!-- Columna 3: Backend & Datos -->
-                <div class="skill-category-card">
+                <div class="skill-category-card spotlight-card tilt-card">
                     <div class="skill-cat-header">
                         <div class="cat-icon cat-purple"><i class="fa-solid fa-server"></i></div>
                         <div>
@@ -486,59 +541,90 @@
                     <ul class="skill-list">
                         <li><i class="fa-solid fa-chevron-right"></i> Python (FastAPI, desarrollo de APIs RESTful robustas)</li>
                         <li><i class="fa-solid fa-chevron-right"></i> Java (Spring Boot 3, Spring Cloud, Netflix Eureka)</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Bases de datos relacionales: PostgreSQL y MySQL</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Bases de datos relacionales: PostgreSQL (bloqueo pesimista) y MySQL</li>
                         <li><i class="fa-solid fa-chevron-right"></i> Control de concurrencia, idempotencia y prevención de bloqueos</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Arquitecturas orientadas a eventos y mensajería (MQTT)</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Arquitecturas orientadas a eventos y mensajería (MQTT/TLS)</li>
                         <li><i class="fa-solid fa-chevron-right"></i> Control de versiones estructurado con Git y GitHub</li>
                     </ul>
                 </div>
 
                 <!-- Columna 4: Gestión & Liderazgo -->
-                <div class="skill-category-card">
+                <div class="skill-category-card spotlight-card tilt-card">
                     <div class="skill-cat-header">
                         <div class="cat-icon cat-green"><i class="fa-solid fa-users-gear"></i></div>
                         <div>
-                            <h3>Gestión & Liderazgo</h3>
-                            <span>Habilidades Blandas y Metodologías</span>
+                            <h3>Gestión, I+D & Emprendimiento</h3>
+                            <span>Liderazgo y Validación Tecnológica</span>
                         </div>
                     </div>
                     <ul class="skill-list">
-                        <li><i class="fa-solid fa-chevron-right"></i> Metodologías Ágiles: Scrum Fundamentals Certified (SFC)</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Coordinación de equipos multidisciplinarios en PUCP</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Planificación y ejecución logística de eventos técnicos (180+ pax)</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Comunicación asertiva y presentación de informes técnicos</li>
-                        <li><i class="fa-solid fa-chevron-right"></i> Adaptabilidad, resolución analítica y aprendizaje autodidacta</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Scrum Fundamentals Certified (SFC) & Marcos Ágiles</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Red de Emprendimiento EQUIPU: Validación producto "Mi Derecho"</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Miembro de Investigación en IEEE PUCP: Papers y estado del arte</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Coordinación y logística de eventos técnicos (180+ asistentes)</li>
+                        <li><i class="fa-solid fa-chevron-right"></i> Comunicación técnica asertiva y empatía con usuarios</li>
                         <li><i class="fa-solid fa-chevron-right"></i> Idiomas: Español (Nativo) e Inglés (Intermedio B2)</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- Sección de Trayectoria y Educación -->
+        <!-- Sección de Trayectoria y Educación (Con IEEE PUCP y EQUIPU) -->
         <section id="trayectoria" class="section container">
             <div class="section-header">
                 <div class="section-tag">
                     <i class="fa-solid fa-timeline"></i> Experiencia y Formación
                 </div>
                 <h2 class="section-title">Trayectoria Académica & Liderazgo</h2>
+                <p class="section-subtitle">
+                    Compromiso continuo con la investigación, el liderazgo estudiantil y la creación de soluciones tecnológicas de impacto.
+                </p>
             </div>
 
             <div class="timeline">
+                <!-- Tesis PFC 1 -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content spotlight-card">
                         <div class="timeline-date">Marzo 2026 — Actualidad</div>
                         <h3 class="timeline-title">Investigador de Arquitectura y Seguridad — PFC 1 (Tesis de Grado)</h3>
                         <div class="timeline-place">Pontificia Universidad Católica del Perú (PUCP)</div>
                         <p class="timeline-desc">
-                            Formulación de la propuesta arquitectónica para transacciones financieras en entornos no conectados, diseñando mecanismos criptográficos locales, idempotencia y comunicación asíncrona segura hacia la nube.
+                            Formulación de la propuesta arquitectónica para transacciones financieras en entornos no conectados, diseñando mecanismos criptográficos locales (AES-256-GCM, ECDSA), idempotencia y comunicación asíncrona segura hacia Azure.
                         </p>
                     </div>
                 </div>
 
+                <!-- EQUIPU - Mi Derecho -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content spotlight-card">
+                        <div class="timeline-date">Septiembre 2024 — Actualidad</div>
+                        <h3 class="timeline-title">Participante en Incubadora & Validación de Producto — Proyecto "Mi Derecho"</h3>
+                        <div class="timeline-place">EQUIPU (Red de Emprendimiento Universitario — PUCP)</div>
+                        <p class="timeline-desc">
+                            Formulación y levantamiento de requerimientos de la iniciativa <em>Mi Derecho</em>, orientada a democratizar la asesoría legal mediante canales digitales accesibles. Participación en sesiones de validación con mentores de negocio, definición de stack seguro y diseño del prototipo funcional.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- IEEE PUCP Investigación -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content spotlight-card">
+                        <div class="timeline-date">Marzo 2024 — Actualidad</div>
+                        <h3 class="timeline-title">Miembro del Área de Investigación</h3>
+                        <div class="timeline-place">Rama Estudiantil IEEE PUCP</div>
+                        <p class="timeline-desc">
+                            Revisión sistemática de literatura técnica, redacción científica y seguimiento de tendencias en seguridad en la nube, sistemas distribuidos e Internet de las Cosas (IoT). Participación activa en actividades de difusión científica y académica.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Coordinador Talleres Ciberseguridad -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content spotlight-card">
                         <div class="timeline-date">Abril 2024 — Diciembre 2025</div>
                         <h3 class="timeline-title">Coordinador Técnico y de Talleres Prácticos</h3>
                         <div class="timeline-place">Capítulo Estudiantil de Ciberseguridad y Redes — PUCP</div>
@@ -548,9 +634,10 @@
                     </div>
                 </div>
 
+                <!-- Educación Universitaria -->
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
-                    <div class="timeline-content">
+                    <div class="timeline-content spotlight-card">
                         <div class="timeline-date">Marzo 2022 — Diciembre 2026 (Egreso estimado)</div>
                         <h3 class="timeline-title">Estudiante de Ingeniería Informática (9.º ciclo en curso)</h3>
                         <div class="timeline-place">Pontificia Universidad Católica del Perú (PUCP)</div>
@@ -564,7 +651,7 @@
 
         <!-- Sección de Contacto -->
         <section id="contacto" class="section container">
-            <div class="contact-card">
+            <div class="contact-card spotlight-card">
                 <div class="contact-header">
                     <div class="section-tag">
                         <i class="fa-solid fa-paper-plane"></i> Oportunidades y Colaboración
@@ -576,7 +663,7 @@
                 </div>
 
                 <div class="contact-actions-grid">
-                    <div class="contact-method-card">
+                    <div class="contact-method-card spotlight-card">
                         <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
                         <div class="method-info">
                             <span class="method-label">Correo Electrónico</span>
@@ -587,13 +674,13 @@
                                 <i class="fa-regular fa-copy"></i>
                                 <span id="copyText">Copiar</span>
                             </button>
-                            <a href="mailto:italomijail@gmail.com" class="btn-direct-mail">
+                            <a href="mailto:italomijail@gmail.com" class="btn-direct-mail" title="Enviar correo">
                                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                     </div>
 
-                    <div class="contact-method-card">
+                    <div class="contact-method-card spotlight-card">
                         <div class="method-icon"><i class="fa-brands fa-linkedin-in"></i></div>
                         <div class="method-info">
                             <span class="method-label">Red Profesional</span>
@@ -607,7 +694,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-method-card">
+                    <div class="contact-method-card spotlight-card">
                         <div class="method-icon"><i class="fa-brands fa-github"></i></div>
                         <div class="method-info">
                             <span class="method-label">Código y Repositorios</span>
@@ -621,7 +708,7 @@
                         </div>
                     </div>
 
-                    <div class="contact-method-card">
+                    <div class="contact-method-card spotlight-card">
                         <div class="method-icon"><i class="fa-solid fa-phone"></i></div>
                         <div class="method-info">
                             <span class="method-label">Teléfono & WhatsApp</span>
@@ -638,6 +725,17 @@
             </div>
         </section>
     </main>
+
+    <!-- Floating Tech Dock para Navegación Rápida -->
+    <nav class="floating-dock" aria-label="Navegación Rápida Flotante">
+        <a href="#hero" class="dock-item active" title="Inicio / Hero"><i class="fa-solid fa-house"></i></a>
+        <a href="#proyectos" class="dock-item" title="Proyectos"><i class="fa-solid fa-laptop-code"></i></a>
+        <a href="#tesis" class="dock-item" title="Tesis C4"><i class="fa-solid fa-diagram-project"></i></a>
+        <a href="#habilidades" class="dock-item" title="Habilidades"><i class="fa-solid fa-sliders"></i></a>
+        <a href="#trayectoria" class="dock-item" title="Trayectoria"><i class="fa-solid fa-timeline"></i></a>
+        <button class="dock-item dock-btn" onclick="openCvModal()" title="Ver CV Harvard ATS"><i class="fa-solid fa-file-invoice"></i></button>
+        <button class="dock-item dock-btn" onclick="focusTerminal()" title="Abrir Terminal DevSecOps"><i class="fa-solid fa-terminal"></i></button>
+    </nav>
 
     <!-- Modal para Detalles y Arquitectura de Proyectos -->
     <div class="modal-backdrop" id="projectModal" aria-hidden="true">
@@ -702,7 +800,7 @@
                             Perfil Profesional Sintético
                         </h4>
                         <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.55;">
-                            Estudiante de 9.° ciclo de Ingeniería Informática en la PUCP, enfocado en <strong>Ciberseguridad</strong>, <strong>Infraestructura Cloud (AWS/Azure)</strong> y <strong>DevSecOps</strong>. Sólida base en administración Linux, redes TCP/IP, automatización con Bash/Python y hardening. Experiencia coordinando equipos bajo Scrum, implementando políticas de seguridad y diagnosticando incidentes operativos.
+                            Estudiante de 9.° ciclo de Ingeniería Informática en la PUCP, enfocado en <strong>Ciberseguridad</strong>, <strong>Infraestructura Cloud (AWS/Azure)</strong> y <strong>DevSecOps</strong>. Sólida base en administración Linux, redes TCP/IP, automatización con Bash/Python y hardening. Investigador en IEEE PUCP y participante en la red EQUIPU (Mi Derecho).
                         </p>
                     </div>
 
@@ -723,7 +821,7 @@
                             • <strong>Tesis PFC 1 (PUCP):</strong> Diseñó arquitectura IoT-Cloud con Wokwi ESP32 y MQTT, garantizando 0 pérdida de pagos offline mediante cifrado AES-256 bajo topes regulatorios SBS (S/ 3,000).
                         </div>
                         <div class="cv-bullet-item">
-                            • <strong>Comunidad & Liderazgo:</strong> Coordinó 4 talleres de Linux y redes para 180+ asistentes (96% satisfacción) y validó 18 requerimientos en incubadora EQUIPU (Proyecto Mi Derecho).
+                            • <strong>Comunidad, I+D & Emprendimiento:</strong> Coordinó 4 talleres de Linux y redes para 180+ asistentes (96% satisfacción), miembro activo de investigación en IEEE PUCP y validación técnica en incubadora EQUIPU (Proyecto Mi Derecho).
                         </div>
                     </div>
                 </div>
@@ -750,7 +848,7 @@
         <div class="footer-content">
             <div class="footer-brand">
                 <strong>Italo Mijail Ramos Diaz</strong>
-                <span>Estudiante de Ingeniería Informática — Pontificia Universidad Católica del Perú</span>
+                <span>Estudiante de Ingeniería Informática — Pontificia Universidad Católica del Perú (PUCP)</span>
             </div>
             <div class="footer-links">
                 <a href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -759,7 +857,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Italo Ramos. Portafolio estático optimizado para alta disponibilidad y lectura global 24/7 sin dependencias de servidor ni bases de datos maestras.</p>
+            <p>&copy; 2026 Italo Ramos. Portafolio interactivo optimizado para alta disponibilidad y navegación fluida con aceleración por hardware WebGL.</p>
         </div>
     </footer>
 
