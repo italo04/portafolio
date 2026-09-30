@@ -632,7 +632,7 @@ function initFilters() {
    ============================================================================== */
 const projectData = {
     'fintech': {
-        tag: 'FastAPI + PostgreSQL + Concurrencia Estricta',
+        tag: '2026 • FastAPI + PostgreSQL + Concurrencia Estricta',
         title: 'Fintech Transaction Engine — Arquitectura Interna',
         repo: 'https://github.com/italo04/fintech-transaction-engine',
         body: `
@@ -661,7 +661,7 @@ Payload: { "origin_account": 101, "destination_account": 204, "amount": 150.00 }
         `
     },
     'cloud-sec': {
-        tag: 'AWS VPC + IAM + Linux Hardening + Bash',
+        tag: '2026 • AWS VPC + IAM + Linux Hardening + Bash',
         title: 'Secure Cloud Infra & Linux Hardening — Arquitectura Defensiva',
         repo: 'https://github.com/italo04/secure-cloud-infra',
         body: `
@@ -686,7 +686,7 @@ iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --update --se
         `
     },
     'layerforge': {
-        tag: 'Spring Boot 3 + Spring Cloud + Netflix Eureka',
+        tag: '2026 • Spring Boot 3 + Spring Cloud + Netflix Eureka',
         title: 'LayerForge Microservices — Arquitectura Distribuida',
         repo: 'https://github.com/italo04/layerforge-microservices',
         body: `
@@ -712,7 +712,7 @@ iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --update --se
         `
     },
     'devsecops': {
-        tag: 'GitHub Actions + Docker Non-Root + SAST',
+        tag: '2026 • GitHub Actions + Docker Non-Root + SAST',
         title: 'DevSecOps Shift-Left Pipeline — Seguridad Preventiva',
         repo: 'https://github.com/italo04',
         body: `
@@ -742,7 +742,7 @@ CMD ["python", "main.py"]
         `
     },
     'thesis': {
-        tag: 'Modelo C4 (Simon Brown) + Microsoft Azure + IoT Edge',
+        tag: '2026 • Modelo C4 (Simon Brown) + Microsoft Azure + IoT Edge',
         title: 'Arquitectura C4 y Flujos de Despliegue — Tesis PFC 1 (Persona 1)',
         repo: 'https://github.com/italo04',
         body: `
@@ -880,13 +880,14 @@ function initTerminal() {
                             </div>
                             <div class="neofetch-info">
                                 <div class="neofetch-line"><span class="neofetch-label">Usuario:</span> <span class="neofetch-val">italo@pucp-cloud</span></div>
-                                <div class="neofetch-line"><span class="neofetch-label">Institución:</span> <span class="neofetch-val">Pontificia Universidad Católica del Perú</span></div>
-                                <div class="neofetch-line"><span class="neofetch-label">Carrera:</span> <span class="neofetch-val">Ingeniería Informática (9.º ciclo en curso)</span></div>
+                                <div class="neofetch-line"><span class="neofetch-label">Institución:</span> <span class="neofetch-val">Pontificia Universidad Católica del Perú (PUCP)</span></div>
+                                <div class="neofetch-line"><span class="neofetch-label">Carrera:</span> <span class="neofetch-val">Ingeniería Informática (9.º ciclo en curso — 2026)</span></div>
                                 <div class="neofetch-line"><span class="neofetch-label">Enfoque:</span> <span class="neofetch-val">Ciberseguridad • Cloud (AWS/Azure) • DevSecOps</span></div>
-                                <div class="neofetch-line"><span class="neofetch-label">Investigación:</span> <span class="neofetch-val">Rama Estudiantil IEEE PUCP</span></div>
-                                <div class="neofetch-line"><span class="neofetch-label">Emprendimiento:</span> <span class="neofetch-val">Red EQUIPU (Proyecto Mi Derecho)</span></div>
+                                <div class="neofetch-line"><span class="neofetch-label">Proyectos:</span> <span class="neofetch-val">4 arquitecturas de referencia completadas en 2026</span></div>
+                                <div class="neofetch-line"><span class="neofetch-label">Investigación:</span> <span class="neofetch-val">Rama Estudiantil IEEE PUCP (2026)</span></div>
+                                <div class="neofetch-line"><span class="neofetch-label">Emprendimiento:</span> <span class="neofetch-val">Red EQUIPU (Proyecto Mi Derecho — 2026)</span></div>
                                 <div class="neofetch-line"><span class="neofetch-label">Convenio:</span> <span class="neofetch-val">Disponible para Prácticas Preprofesionales (30h/sem)</span></div>
-                                <div class="neofetch-line"><span class="neofetch-label">Uptime:</span> <span class="neofetch-val">9 semestres de formación de alta exigencia</span></div>
+                                <div class="neofetch-line"><span class="neofetch-label">Uptime:</span> <span class="neofetch-val">Formación 2022 - 2026 (Egreso estimado Dic 2026)</span></div>
                             </div>
                         </div>
                     `;
@@ -894,7 +895,7 @@ function initTerminal() {
 
                 case 'scan':
                     responseDiv.innerHTML = `
-                        <span style="color: var(--accent-cyan); font-weight: 700;">[+] INICIANDO AUDITORÍA DEFENSIVA EN SERVIDORES...</span><br>
+                        <span style="color: var(--accent-cyan); font-weight: 700;">[+] INICIANDO AUDITORÍA DEFENSIVA EN SERVIDORES (2026)...</span><br>
                         [•] Verificando puerto 443: TLS 1.3 Ciphersuites (AES-256-GCM / SHA-384) ... <span style="color: var(--accent-emerald);">[SEGURO]</span><br>
                         [•] Verificando puerto 22 SSH: Autenticación por contraseña ... <span style="color: var(--accent-emerald);">[DESHABILITADA - RSA 4096 OK]</span><br>
                         [•] Segmentación AWS VPC: Subredes privadas sin IP pública ... <span style="color: var(--accent-emerald);">[AISLADAS]</span><br>
@@ -919,7 +920,7 @@ function initTerminal() {
 
                 case 'ieee':
                     responseDiv.innerHTML = `
-                        <strong>Rama Estudiantil IEEE PUCP — Área de Investigación:</strong><br>
+                        <strong>Rama Estudiantil IEEE PUCP — Área de Investigación (2026):</strong><br>
                         • Formación continua en análisis del estado del arte, revisión bibliográfica sistemática y redacción de artículos técnicos.<br>
                         • Enfoque de investigación en seguridad de la información, modelos criptográficos en la nube y computación distribuida.
                     `;
@@ -928,25 +929,27 @@ function initTerminal() {
                 case 'miderecho':
                 case 'equipu':
                     responseDiv.innerHTML = `
-                        <strong>EQUIPU (Red de Emprendimiento Universitario) — Proyecto "Mi Derecho":</strong><br>
+                        <strong>EQUIPU (Red de Emprendimiento Universitario) — Proyecto "Mi Derecho" (2026):</strong><br>
                         • Iniciativa orientada a democratizar la orientación legal en el Perú a través de canales digitales accesibles y seguros.<br>
                         • Rol: Levantamiento de requerimientos técnicos, formulación de arquitectura de software resiliente y validación de hipótesis con mentores del ecosistema.
                     `;
                     break;
 
                 case 'whoami':
-                    responseDiv.innerHTML = `Italo Mijail Ramos Diaz | Estudiante de 9.° ciclo de Ing. Informática (PUCP) | Especialización en Ciberseguridad, Infraestructura Cloud y Arquitectura Backend de alta concurrencia.`;
+                    responseDiv.innerHTML = `Italo Mijail Ramos Diaz | Estudiante de 9.° ciclo de Ing. Informática (PUCP — 2026) | Especialización en Ciberseguridad, Infraestructura Cloud y Arquitectura Backend de alta concurrencia.`;
                     break;
 
                 case 'cv':
                 case 'curriculum':
                 case 'resume':
                     responseDiv.innerHTML = `
-                        <strong>CV Formato Harvard ATS (PUCP - 9.° ciclo):</strong><br>
+                        <strong>CV Formato Harvard ATS (PUCP - 9.° ciclo, 2026):</strong><br>
                         • Enfoque: Ciberseguridad, Infraestructura Cloud (AWS/Azure) y DevSecOps<br>
-                        • Motor Transaccional: 100% consistencia, 20 hilos concurrentes, Pytest 92%<br>
-                        • Cloud & Hardening: 80% reducción superficie expuesta, mitigación &lt; 15s con iptables<br>
-                        • Tesis PFC 1: 0 pérdida offline, Wokwi ESP32, tope SBS S/ 3,000<br>
+                        • Motor Transaccional (2026): 100% consistencia, 20 hilos concurrentes, Pytest 92%<br>
+                        • Cloud & Hardening (2026): 80% reducción superficie expuesta, mitigación &lt; 15s con iptables<br>
+                        • DevSecOps Pipeline (2026): 100% vulnerabilidades críticas en &lt; 4 min, Docker multi-stage 65% reducción<br>
+                        • Tesis PFC 1 (2026): 0 pérdida offline, Wokwi ESP32, tope SBS S/ 3,000<br>
+                        • Comunidad & Emprendimiento (2026): 180+ asistentes en talleres, IEEE PUCP, Incubadora EQUIPU<br>
                         👉 <a href="javascript:void(0)" onclick="openCvModal()" style="color: var(--accent-cyan); text-decoration: underline;">Haz clic aquí para abrir el visor interactivo del CV</a>
                     `;
                     break;
@@ -954,10 +957,10 @@ function initTerminal() {
                 case 'proyectos':
                 case 'projects':
                     responseDiv.innerHTML = `
-                        1. <strong>fintech-transaction-engine</strong>: FastAPI, PostgreSQL (SELECT FOR UPDATE), Idempotencia<br>
-                        2. <strong>secure-cloud-infra</strong>: AWS VPC, IAM Least Privilege, Linux Hardening, iptables<br>
-                        3. <strong>layerforge-microservices</strong>: Spring Boot 3, Spring Cloud Gateway, Netflix Eureka<br>
-                        4. <strong>devsecops-pipeline</strong>: GitHub Actions, Docker non-root, Bandit SAST
+                        1. <strong>fintech-transaction-engine</strong> (2026): FastAPI, PostgreSQL (SELECT FOR UPDATE), Idempotencia<br>
+                        2. <strong>secure-cloud-infra</strong> (2026): AWS VPC, IAM Least Privilege, Linux Hardening, iptables<br>
+                        3. <strong>layerforge-microservices</strong> (2026): Spring Boot 3, Spring Cloud Gateway, Netflix Eureka<br>
+                        4. <strong>devsecops-pipeline</strong> (2026): GitHub Actions, Docker non-root, Bandit SAST
                     `;
                     break;
 
