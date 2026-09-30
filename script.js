@@ -392,6 +392,117 @@ function startMatrixAnimation(canvas) {
 }
 
 /* ==============================================================================
+   5.1. CAPA DE ANIMACIÓN DE VIDEO VEO 3.1 & PROCEDURAL CORE FALLBACK
+   ============================================================================== */
+let isVeoActive = false;
+let veoFallbackAnimId = null;
+
+function toggleVeoVisualizer() {
+    const layer = document.getElementById('veoVisualizer');
+    const btn = document.getElementById('veoBtn');
+    const video = document.getElementById('veoVideo');
+    const fallbackCanvas = document.getElementById('veoFallbackCanvas');
+    if (!layer) return;
+
+    isVeoActive = !isVeoActive;
+
+    if (isVeoActive) {
+        layer.classList.add('active');
+        if (btn) btn.classList.add('active');
+        playSound('success');
+
+        // Intentar reproducir el video
+        if (video) {
+            video.currentTime = 0;
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    if (fallbackCanvas) fallbackCanvas.style.display = 'none';
+                }).catch(() => {
+                    if (fallbackCanvas) {
+                        fallbackCanvas.style.display = 'block';
+                        startVeoFallbackAnimation(fallbackCanvas);
+                    }
+                });
+            }
+        }
+    } else {
+        layer.classList.remove('active');
+        if (btn) btn.classList.remove('active');
+        if (video) video.pause();
+        if (veoFallbackAnimId) {
+            cancelAnimationFrame(veoFallbackAnimId);
+            veoFallbackAnimId = null;
+        }
+    }
+}
+
+function startVeoFallbackAnimation(canvas) {
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    canvas.width = canvas.parentElement.offsetWidth || 500;
+    canvas.height = canvas.parentElement.offsetHeight || 300;
+
+    let angle = 0;
+    let pulse = 0;
+
+    function renderFrame() {
+        if (!isVeoActive) return;
+        ctx.fillStyle = 'rgba(6, 9, 19, 0.25)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        const cx = canvas.width / 2;
+        const cy = canvas.height / 2;
+        const radius = Math.min(cx, cy) * 0.55;
+
+        angle += 0.02;
+        pulse = Math.sin(Date.now() * 0.003) * 8;
+
+        for (let i = 0; i < 3; i++) {
+            ctx.save();
+            ctx.translate(cx, cy);
+            ctx.rotate(angle * (i % 2 === 0 ? 1 : -1) + (i * Math.PI / 3));
+            ctx.scale(1, 0.45);
+
+            ctx.beginPath();
+            ctx.arc(0, 0, radius + pulse + (i * 22), 0, Math.PI * 2);
+            ctx.strokeStyle = i === 0 ? '#a855f7' : (i === 1 ? '#00f0ff' : 'rgba(56, 189, 248, 0.6)');
+            ctx.lineWidth = 1.5;
+            ctx.shadowBlur = 15;
+            ctx.shadowColor = i === 0 ? '#a855f7' : '#00f0ff';
+            ctx.stroke();
+
+            for (let j = 0; j < 4; j++) {
+                const nodeAngle = (j * Math.PI / 2) + angle * 1.5;
+                const nx = Math.cos(nodeAngle) * (radius + pulse + (i * 22));
+                const ny = Math.sin(nodeAngle) * (radius + pulse + (i * 22));
+                ctx.beginPath();
+                ctx.arc(nx, ny, 3.5, 0, Math.PI * 2);
+                ctx.fillStyle = '#ffffff';
+                ctx.fill();
+            }
+            ctx.restore();
+        }
+
+        const coreGradient = ctx.createRadialGradient(cx, cy, 5, cx, cy, 45 + pulse);
+        coreGradient.addColorStop(0, '#ffffff');
+        coreGradient.addColorStop(0.3, '#a855f7');
+        coreGradient.addColorStop(0.7, 'rgba(0, 240, 255, 0.4)');
+        coreGradient.addColorStop(1, 'transparent');
+
+        ctx.beginPath();
+        ctx.arc(cx, cy, 45 + pulse, 0, Math.PI * 2);
+        ctx.fillStyle = coreGradient;
+        ctx.fill();
+
+        veoFallbackAnimId = requestAnimationFrame(renderFrame);
+    }
+
+    if (veoFallbackAnimId) cancelAnimationFrame(veoFallbackAnimId);
+    renderFrame();
+}
+
+/* ==============================================================================
    6. WIDGET INTERACTIVO DE ARQUITECTURA C4 (SIMON BROWN)
    ============================================================================== */
 const c4LevelsData = {
@@ -855,6 +966,7 @@ function initTerminal() {
                         • <strong>neofetch</strong>: Información de sistema y perfil de ingeniería<br>
                         • <strong>scan</strong>: Simulación de escaneo de seguridad y puertos<br>
                         • <strong>matrix</strong>: Alternar lluvia digital de código en el terminal<br>
+                        • <strong>veo</strong>: Alternar visualizador de video / núcleo holográfico Veo 3.1<br>
                         • <strong>c4</strong>: Abrir e inspeccionar la arquitectura C4 de Tesis<br>
                         • <strong>ieee</strong>: Área de investigación en IEEE PUCP<br>
                         • <strong>miderecho</strong> / <strong>equipu</strong>: Proyecto de emprendimiento legaltech<br>
@@ -910,6 +1022,15 @@ function initTerminal() {
                     responseDiv.innerHTML = isMatrixActive ? 
                         `Lluvia de código Matrix <span style="color: var(--accent-emerald);">ACTIVADA</span>. Ejecuta 'matrix' de nuevo para apagarla.` :
                         `Lluvia de código Matrix <span style="color: var(--text-muted);">DESACTIVADA</span>.`;
+                    break;
+
+                case 'veo':
+                case 'video':
+                case 'ai':
+                    toggleVeoVisualizer();
+                    responseDiv.innerHTML = isVeoActive ? 
+                        `Visualizador de Núcleo Veo 3.1 <span style="color: #c084fc; font-weight: 700;">ACTIVADO</span>. Ejecuta 'veo' o presiona el botón para cerrar.` :
+                        `Visualizador de Núcleo Veo 3.1 <span style="color: var(--text-muted);">DESACTIVADO</span>.`;
                     break;
 
                 case 'c4':

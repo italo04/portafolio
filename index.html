@@ -152,12 +152,33 @@
                         <button class="term-tool-btn" onclick="toggleMatrixRain()" title="Activar/Desactivar Lluvia Matrix">
                             <i class="fa-solid fa-code"></i> Matrix
                         </button>
+                        <button class="term-tool-btn veo-btn" id="veoBtn" onclick="toggleVeoVisualizer()" title="Activar Núcleo Holográfico Veo 3.1">
+                            <i class="fa-solid fa-cube"></i> Veo 3.1
+                        </button>
                         <div class="terminal-badge">zsh</div>
                     </div>
                 </div>
 
                 <!-- Canvas de lluvia digital Matrix -->
                 <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
+
+                <!-- Capa de Animación de Video Núcleo Veo 3.1 -->
+                <div id="veoVisualizer" class="veo-visualizer-layer">
+                    <video id="veoVideo" class="veo-video-bg" autoplay loop muted playsinline preload="auto">
+                        <source src="assets/videos/cyber_hero_animation.mp4" type="video/mp4">
+                    </video>
+                    <canvas id="veoFallbackCanvas" class="veo-fallback-canvas" style="display: none;"></canvas>
+                    <div class="veo-hud-overlay">
+                        <div class="veo-hud-header">
+                            <span class="hud-status-badge"><i class="fa-solid fa-circle-dot blink"></i> VEO 3.1 NEURAL CORE</span>
+                            <span class="hud-fps" id="veoFpsBadge">60 FPS</span>
+                        </div>
+                        <div class="veo-hud-footer">
+                            <div class="veo-hud-title">SECURE ARCHITECTURE VISUALIZER</div>
+                            <div class="veo-hud-desc">Google DeepMind Veo 3.1 • Animación Cinematográfica</div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="terminal-body" id="terminalBody">
                     <div class="terminal-line">
