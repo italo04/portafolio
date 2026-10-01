@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFilters();
     initTerminal();
     initC4Explorer();
+    initParallaxVideo();
     initMobileMenu();
     initScrollSpy();
     initDockActiveState();
@@ -392,114 +393,39 @@ function startMatrixAnimation(canvas) {
 }
 
 /* ==============================================================================
-   5.1. CAPA DE ANIMACIÓN DE VIDEO VEO 3.1 & PROCEDURAL CORE FALLBACK
+   5.1. PARALLAX SCROLL PARA VIDEO DE ESPACIO DE TRABAJO Y ARQUITECTURA
    ============================================================================== */
-let isVeoActive = false;
-let veoFallbackAnimId = null;
+function initParallaxVideo() {
+    const video = document.getElementById('scrollParallaxVideo');
+    const section = document.getElementById('workspace-lab');
+    if (!video || !section) return;
 
-function toggleVeoVisualizer() {
-    const layer = document.getElementById('veoVisualizer');
-    const btn = document.getElementById('veoBtn');
-    const video = document.getElementById('veoVideo');
-    const fallbackCanvas = document.getElementById('veoFallbackCanvas');
-    if (!layer) return;
+    let ticking = false;
 
-    isVeoActive = !isVeoActive;
+    function updateParallax() {
+        const rect = section.getBoundingClientRect();
+        const winHeight = window.innerHeight;
 
-    if (isVeoActive) {
-        layer.classList.add('active');
-        if (btn) btn.classList.add('active');
-        playSound('success');
+        if (rect.top <= winHeight && rect.bottom >= 0) {
+            const progress = (winHeight - rect.top) / (winHeight + rect.height);
+            const offset = (progress - 0.5) * 80;
+            video.style.transform = `translateY(${offset.toFixed(1)}px)`;
 
-        // Intentar reproducir el video
-        if (video) {
-            video.currentTime = 0;
-            const playPromise = video.play();
-            if (playPromise !== undefined) {
-                playPromise.then(() => {
-                    if (fallbackCanvas) fallbackCanvas.style.display = 'none';
-                }).catch(() => {
-                    if (fallbackCanvas) {
-                        fallbackCanvas.style.display = 'block';
-                        startVeoFallbackAnimation(fallbackCanvas);
-                    }
-                });
+            if (video.paused) {
+                video.play().catch(() => {});
             }
         }
-    } else {
-        layer.classList.remove('active');
-        if (btn) btn.classList.remove('active');
-        if (video) video.pause();
-        if (veoFallbackAnimId) {
-            cancelAnimationFrame(veoFallbackAnimId);
-            veoFallbackAnimId = null;
-        }
-    }
-}
-
-function startVeoFallbackAnimation(canvas) {
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    canvas.width = canvas.parentElement.offsetWidth || 500;
-    canvas.height = canvas.parentElement.offsetHeight || 300;
-
-    let angle = 0;
-    let pulse = 0;
-
-    function renderFrame() {
-        if (!isVeoActive) return;
-        ctx.fillStyle = 'rgba(6, 9, 19, 0.25)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        const cx = canvas.width / 2;
-        const cy = canvas.height / 2;
-        const radius = Math.min(cx, cy) * 0.55;
-
-        angle += 0.02;
-        pulse = Math.sin(Date.now() * 0.003) * 8;
-
-        for (let i = 0; i < 3; i++) {
-            ctx.save();
-            ctx.translate(cx, cy);
-            ctx.rotate(angle * (i % 2 === 0 ? 1 : -1) + (i * Math.PI / 3));
-            ctx.scale(1, 0.45);
-
-            ctx.beginPath();
-            ctx.arc(0, 0, radius + pulse + (i * 22), 0, Math.PI * 2);
-            ctx.strokeStyle = i === 0 ? '#a855f7' : (i === 1 ? '#00f0ff' : 'rgba(56, 189, 248, 0.6)');
-            ctx.lineWidth = 1.5;
-            ctx.shadowBlur = 15;
-            ctx.shadowColor = i === 0 ? '#a855f7' : '#00f0ff';
-            ctx.stroke();
-
-            for (let j = 0; j < 4; j++) {
-                const nodeAngle = (j * Math.PI / 2) + angle * 1.5;
-                const nx = Math.cos(nodeAngle) * (radius + pulse + (i * 22));
-                const ny = Math.sin(nodeAngle) * (radius + pulse + (i * 22));
-                ctx.beginPath();
-                ctx.arc(nx, ny, 3.5, 0, Math.PI * 2);
-                ctx.fillStyle = '#ffffff';
-                ctx.fill();
-            }
-            ctx.restore();
-        }
-
-        const coreGradient = ctx.createRadialGradient(cx, cy, 5, cx, cy, 45 + pulse);
-        coreGradient.addColorStop(0, '#ffffff');
-        coreGradient.addColorStop(0.3, '#a855f7');
-        coreGradient.addColorStop(0.7, 'rgba(0, 240, 255, 0.4)');
-        coreGradient.addColorStop(1, 'transparent');
-
-        ctx.beginPath();
-        ctx.arc(cx, cy, 45 + pulse, 0, Math.PI * 2);
-        ctx.fillStyle = coreGradient;
-        ctx.fill();
-
-        veoFallbackAnimId = requestAnimationFrame(renderFrame);
+        ticking = false;
     }
 
-    if (veoFallbackAnimId) cancelAnimationFrame(veoFallbackAnimId);
-    renderFrame();
+    window.addEventListener('scroll', () => {
+        if (!ticking) {
+            window.requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    updateParallax();
 }
 
 /* ==============================================================================
@@ -934,24 +860,70 @@ window.addEventListener('keydown', (e) => {
 });
 
 /* ==============================================================================
-   9. TERMINAL INTERACTIVO AVANZADO DEVSECOPS
+   9. TERMINAL INTERACTIVO AVANZADO DEVSECOPS (CONSOLA CLI REAL)
    ============================================================================== */
+let termHistory = [];
+let termHistoryIdx = -1;
+
+function clearTerminalScreen() {
+    playSound('blip');
+    const terminalBody = document.getElementById('terminalBody');
+    const interactiveLine = document.querySelector('.terminal-interactive-line');
+    if (!terminalBody || !interactiveLine) return;
+    const lines = terminalBody.querySelectorAll('.terminal-line, .term-output');
+    lines.forEach(l => l.remove());
+    terminalBody.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 function initTerminal() {
     const terminalInput = document.getElementById('terminalInput');
     const terminalBody = document.getElementById('terminalBody');
     if (!terminalInput || !terminalBody) return;
 
     terminalInput.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (termHistory.length > 0) {
+                if (termHistoryIdx === -1) termHistoryIdx = termHistory.length - 1;
+                else if (termHistoryIdx > 0) termHistoryIdx--;
+                terminalInput.value = termHistory[termHistoryIdx] || '';
+            }
+            return;
+        }
+        if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (termHistory.length > 0 && termHistoryIdx !== -1) {
+                if (termHistoryIdx < termHistory.length - 1) {
+                    termHistoryIdx++;
+                    terminalInput.value = termHistory[termHistoryIdx] || '';
+                } else {
+                    termHistoryIdx = -1;
+                    terminalInput.value = '';
+                }
+            }
+            return;
+        }
+
         if (e.key === 'Enter') {
-            const command = terminalInput.value.trim().toLowerCase();
+            const rawCmd = terminalInput.value.trim();
+            const command = rawCmd.toLowerCase();
             terminalInput.value = '';
+            termHistoryIdx = -1;
+
+            if (!command) return;
+            termHistory.push(rawCmd);
 
             playSound('blip');
 
-            // Mostrar el comando ejecutado
+            if (command === 'clear' || command === 'cls') {
+                clearTerminalScreen();
+                return;
+            }
+
+            // Mostrar el comando ejecutado con estilo de terminal auténtico
             const cmdLine = document.createElement('div');
-            cmdLine.className = 'terminal-line';
-            cmdLine.innerHTML = `<span class="term-prompt">$</span> <span class="term-cmd">${escapeHtml(command)}</span>`;
+            cmdLine.className = 'terminal-line command-highlight';
+            cmdLine.innerHTML = `<span class="term-prompt"><span class="term-user">italo@pucp</span>:<span class="term-path">~</span>$</span> <span class="term-cmd">${escapeHtml(rawCmd)}</span>`;
             terminalBody.insertBefore(cmdLine, terminalInput.parentElement);
 
             // Generar respuesta
@@ -966,7 +938,6 @@ function initTerminal() {
                         • <strong>neofetch</strong>: Información de sistema y perfil de ingeniería<br>
                         • <strong>scan</strong>: Simulación de escaneo de seguridad y puertos<br>
                         • <strong>matrix</strong>: Alternar lluvia digital de código en el terminal<br>
-                        • <strong>veo</strong>: Alternar visualizador de video / núcleo holográfico Veo 3.1<br>
                         • <strong>c4</strong>: Abrir e inspeccionar la arquitectura C4 de Tesis<br>
                         • <strong>ieee</strong>: Área de investigación en IEEE PUCP<br>
                         • <strong>miderecho</strong> / <strong>equipu</strong>: Proyecto de emprendimiento legaltech<br>
@@ -1022,15 +993,6 @@ function initTerminal() {
                     responseDiv.innerHTML = isMatrixActive ? 
                         `Lluvia de código Matrix <span style="color: var(--accent-emerald);">ACTIVADA</span>. Ejecuta 'matrix' de nuevo para apagarla.` :
                         `Lluvia de código Matrix <span style="color: var(--text-muted);">DESACTIVADA</span>.`;
-                    break;
-
-                case 'veo':
-                case 'video':
-                case 'ai':
-                    toggleVeoVisualizer();
-                    responseDiv.innerHTML = isVeoActive ? 
-                        `Visualizador de Núcleo Veo 3.1 <span style="color: #c084fc; font-weight: 700;">ACTIVADO</span>. Ejecuta 'veo' o presiona el botón para cerrar.` :
-                        `Visualizador de Núcleo Veo 3.1 <span style="color: var(--text-muted);">DESACTIVADO</span>.`;
                     break;
 
                 case 'c4':
@@ -1107,8 +1069,7 @@ function initTerminal() {
 
                 case 'clear':
                 case 'cls':
-                    const lines = terminalBody.querySelectorAll('.terminal-line, .term-output');
-                    lines.forEach(l => l.remove());
+                    clearTerminalScreen();
                     return;
 
                 case '':
@@ -1119,7 +1080,25 @@ function initTerminal() {
             }
 
             terminalBody.insertBefore(responseDiv, terminalInput.parentElement);
-            terminalBody.scrollTop = terminalBody.scrollHeight;
+
+            // AUTO-SCROLL A LA PARTE SUPERIOR DEL COMANDO CLI
+            // 1. Scroll interno de la terminal: posiciona la parte superior del comando recién ejecutado
+            setTimeout(() => {
+                const targetScroll = cmdLine.offsetTop - terminalBody.offsetTop - 8;
+                terminalBody.scrollTo({
+                    top: Math.max(0, targetScroll),
+                    behavior: 'smooth'
+                });
+            }, 30);
+
+            // 2. Scroll de página: si la terminal CLI está parcialmente fuera de vista, alinearla arriba
+            const terminalCard = document.querySelector('.hero-terminal');
+            if (terminalCard) {
+                const rect = terminalCard.getBoundingClientRect();
+                if (rect.top < 70 || rect.bottom > window.innerHeight) {
+                    terminalCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
         }
     });
 }

@@ -152,33 +152,15 @@
                         <button class="term-tool-btn" onclick="toggleMatrixRain()" title="Activar/Desactivar Lluvia Matrix">
                             <i class="fa-solid fa-code"></i> Matrix
                         </button>
-                        <button class="term-tool-btn veo-btn" id="veoBtn" onclick="toggleVeoVisualizer()" title="Activar Núcleo Holográfico Veo 3.1">
-                            <i class="fa-solid fa-cube"></i> Veo 3.1
+                        <button class="term-tool-btn" onclick="clearTerminalScreen()" title="Limpiar salida de la consola (clear)">
+                            <i class="fa-solid fa-eraser"></i> Limpiar
                         </button>
-                        <div class="terminal-badge">zsh</div>
+                        <div class="terminal-badge"><i class="fa-solid fa-terminal"></i> zsh</div>
                     </div>
                 </div>
 
                 <!-- Canvas de lluvia digital Matrix -->
                 <canvas id="matrixCanvas" class="matrix-canvas"></canvas>
-
-                <!-- Capa de Animación de Video Núcleo Veo 3.1 -->
-                <div id="veoVisualizer" class="veo-visualizer-layer">
-                    <video id="veoVideo" class="veo-video-bg" autoplay loop muted playsinline preload="auto">
-                        <source src="assets/videos/cyber_hero_animation.mp4" type="video/mp4">
-                    </video>
-                    <canvas id="veoFallbackCanvas" class="veo-fallback-canvas" style="display: none;"></canvas>
-                    <div class="veo-hud-overlay">
-                        <div class="veo-hud-header">
-                            <span class="hud-status-badge"><i class="fa-solid fa-circle-dot blink"></i> VEO 3.1 NEURAL CORE</span>
-                            <span class="hud-fps" id="veoFpsBadge">60 FPS</span>
-                        </div>
-                        <div class="veo-hud-footer">
-                            <div class="veo-hud-title">SECURE ARCHITECTURE VISUALIZER</div>
-                            <div class="veo-hud-desc">Google DeepMind Veo 3.1 • Animación Cinematográfica</div>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="terminal-body" id="terminalBody">
                     <div class="terminal-line">
@@ -423,6 +405,50 @@
                         </button>
                     </div>
                 </article>
+            </div>
+        </section>
+
+        <!-- Sección Cinemática con Video de Fondo en Scroll (Workspace & Diagramas) -->
+        <section class="video-scroll-section" id="workspace-lab">
+            <div class="video-scroll-bg-wrapper">
+                <video class="video-scroll-bg" id="scrollParallaxVideo" autoplay loop muted playsinline preload="auto">
+                    <source src="assets/videos/workspace_monitor_loop.mp4" type="video/mp4">
+                </video>
+                <div class="video-scroll-overlay"></div>
+                <div class="video-scroll-vignette"></div>
+            </div>
+            
+            <div class="container video-scroll-content">
+                <div class="video-scroll-badge">
+                    <span class="live-dot"></span>
+                    <span>INGENIERÍA INFORMÁTICA PUCP • LABORATORIO SEC-OPS</span>
+                </div>
+                
+                <h2 class="video-scroll-title">
+                    Diseño de Arquitecturas Seguras & <span class="gradient-cyan">Observabilidad Continua</span>
+                </h2>
+                
+                <p class="video-scroll-desc">
+                    Modelado de flujos críticos, particionamiento de microservicios, seguridad criptográfica offline-first y observabilidad en tiempo real sobre entornos de misión crítica.
+                </p>
+
+                <div class="video-scroll-cards">
+                    <div class="v-card spotlight-card">
+                        <div class="v-card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                        <div class="v-card-title">Modelado C4 & Flujos</div>
+                        <div class="v-card-desc">Diagramas formales de Contexto, Contenedores y Componentes para desacoplar responsabilidades.</div>
+                    </div>
+                    <div class="v-card spotlight-card">
+                        <div class="v-card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div class="v-card-title">Ciberseguridad Defensiva</div>
+                        <div class="v-card-desc">Cifrado AES-256-GCM, TLS 1.3, firmas digitales ECDSA P-256 y escaneo estático en CI/CD.</div>
+                    </div>
+                    <div class="v-card spotlight-card">
+                        <div class="v-card-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                        <div class="v-card-title">Infraestructura Cloud</div>
+                        <div class="v-card-desc">Despliegue contenerizado en AWS y Azure con arquitectura de eventos asíncronos y alta resiliencia.</div>
+                    </div>
+                </div>
             </div>
         </section>
 
