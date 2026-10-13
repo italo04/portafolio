@@ -3,31 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f4f4ed" />
-    <title>Italo Ramos — Software, cloud & sistemas conectados</title>
+    <meta name="theme-color" content="#0A0A0F" />
+    <title>Italo Ramos — Cloud, DevSecOps & Software Architecture</title>
     <meta
       name="description"
-      content="Soy Italo Ramos, estudiante de Ingeniería Informática en la PUCP. Explora mis proyectos de arquitectura de software, cloud y seguridad, y mi participación en EQUIPU e IEEE."
+      content="Portafolio de Italo Ramos, estudiante de 9.º ciclo de Ingeniería Informática en la PUCP. Especializado en Cloud (AWS), DevSecOps, Hardening Linux, Backend de alto rendimiento e IA."
     />
     <meta name="author" content="Italo Mijail Ramos Diaz" />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Italo Ramos — Ideas claras. Sistemas conectados."
-    />
+    <meta property="og:title" content="Italo Ramos — Cloud, DevSecOps & Software Architecture" />
     <meta
       property="og:description"
-      content="Ingeniería Informática · PUCP. Proyectos de arquitectura de software, cloud y seguridad. Buscando mi próxima oportunidad de prácticas."
+      content="Estudiante de 9.º ciclo PUCP. Infraestructura Cloud segura, Linux Hardening, CI/CD y Backend concurrente."
     />
     <meta property="og:url" content="https://italo04.github.io/portafolio/" />
     <link rel="canonical" href="https://italo04.github.io/portafolio/" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+
+    <!-- Fuentes locales (Space Grotesk, Manrope, Instrument Serif) -->
     <link rel="stylesheet" href="assets/fonts/fonts.css" />
+
+    <!-- Estilos de Lenis y arquitectura visual -->
     <link rel="stylesheet" href="assets/vendor/lenis.css" />
     <link rel="stylesheet" href="styles.css" />
+
+    <!-- Script de inicialización rápida -->
     <script>
       document.documentElement.classList.add("js");
     </script>
+
+    <!-- Librerías locales de movimiento -->
     <script src="assets/vendor/gsap.min.js" defer></script>
     <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
     <script src="assets/vendor/lenis.min.js" defer></script>
@@ -35,820 +40,798 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <a class="skip-link" href="#contenido">Saltar al contenido</a>
-    <div class="boot-screen" aria-hidden="true">
-      <span>italo<span class="boot-dot">.</span></span
-      ><small>IDEAS → SISTEMAS</small>
+    <!-- Skip link para accesibilidad -->
+    <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+    <!-- Preloader elegante con revelación futurista -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader-inner">
+        <div class="preloader-badge">SYSTEM // INITIALIZING</div>
+        <div class="preloader-logo">
+          <span class="logo-text">italo<span class="neon-dot">.</span></span>
+        </div>
+        <div class="preloader-bar">
+          <div class="preloader-progress" id="preloader-progress"></div>
+        </div>
+        <div class="preloader-caption">CLOUD · DEVSECOPS · ARCHITECTURE</div>
+      </div>
     </div>
-    <div class="scroll-progress" aria-hidden="true"></div>
-    <div class="cursor-follower" aria-hidden="true"><span>VER</span></div>
-    <svg
-      class="svg-symbols"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
+
+    <!-- Barra de progreso de scroll fija -->
+    <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Cursor personalizado elástico (solo puntero fino) -->
+    <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
+      <div class="cursor-glow"></div>
+      <div class="cursor-label" id="cursor-label"></div>
+    </div>
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+
+    <!-- Símbolos SVG reutilizables -->
+    <svg class="svg-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display: none;">
       <symbol id="icon-arrow" viewBox="0 0 24 24">
-        <path d="M5 19 19 5M5 5h14v14" />
+        <path d="M5 19 19 5M5 5h14v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
-      <symbol id="icon-right" viewBox="0 0 24 24">
-        <path d="M4 12h16m-6-6 6 6-6 6" />
+      <symbol id="icon-external" viewBox="0 0 24 24">
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
-      <symbol id="icon-down" viewBox="0 0 24 24">
-        <path d="M12 4v16m-6-6 6 6 6-6" />
+      <symbol id="icon-github" viewBox="0 0 24 24">
+        <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" fill="currentColor"/>
+      </symbol>
+      <symbol id="icon-linkedin" viewBox="0 0 24 24">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
       <symbol id="icon-copy" viewBox="0 0 24 24">
-        <rect x="8" y="8" width="12" height="12" rx="2" />
-        <path d="M15 8V4H4v11h4" />
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
-      <symbol id="icon-close" viewBox="0 0 24 24">
-        <path d="m6 6 12 12M18 6 6 18" />
+      <symbol id="icon-check" viewBox="0 0 24 24">
+        <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
-      <symbol id="icon-spark" viewBox="0 0 32 32">
-        <path d="M16 0v32M0 16h32M5 5l22 22M5 27 22-22" />
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
+      <symbol id="icon-terminal" viewBox="0 0 24 24">
+        <polyline points="4 17 10 11 4 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <line x1="12" y1="19" x2="20" y2="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
     </svg>
+
+    <!-- Header / Navbar Inteligente -->
     <header class="site-header" id="site-header">
-      <div class="header-inner wrap">
-        <a class="wordmark" href="#inicio" aria-label="Italo Ramos, inicio"
-          >italo<span>.</span></a
-        ><span class="header-note">INGENIERÍA & CURIOSIDAD</span>
+      <div class="header-container wrap">
+        <a class="brand magnetic" href="#inicio" aria-label="Italo Ramos, inicio">
+          <span class="brand-code">&lt;</span>italo<span class="brand-dot">.</span><span class="brand-code">&gt;</span>
+        </a>
+
+        <div class="header-status">
+          <span class="status-indicator"></span>
+          <span class="status-text">DISPONIBLE PRÁCTICAS 2027</span>
+        </div>
+
         <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
-          <a href="#proyectos">Proyectos</a><a href="#enfoque">Enfoque</a
-          ><a href="#sobre-mi">Sobre mí</a
-          ><a class="nav-contact" href="#contacto"
-            >Hablemos <svg class="icon"><use href="#icon-arrow" /></svg
-          ></a>
+          <a class="nav-link" href="#proyectos">Proyectos</a>
+          <a class="nav-link" href="#habilidades">Habilidades</a>
+          <a class="nav-link" href="#sobre-mi">Sobre mí</a>
+          <a class="nav-link" href="#experiencia">Experiencia</a>
+          <a class="nav-cta magnetic" href="#contacto">
+            <span>Hablemos</span>
+            <svg class="icon"><use href="#icon-arrow" /></svg>
+          </a>
         </nav>
+
         <button
           class="menu-toggle"
+          id="menu-toggle"
           type="button"
           aria-expanded="false"
           aria-controls="main-nav"
-          aria-label="Abrir menú"
+          aria-label="Alternar menú de navegación"
         >
-          <span></span><span></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
         </button>
       </div>
     </header>
+
     <main id="contenido">
-      <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
-        <div class="hero-topline">
-          <span class="eyebrow"
-            ><span class="status-dot"></span> BUSCANDO PRÁCTICAS
-            PREPROFESIONALES</span
-          ><span class="location">LIMA, PERÚ <span id="lima-time"></span></span>
-        </div>
-        <div class="hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow hero-intro" data-hero>HOLA, SOY ITALO RAMOS</p>
-            <h1 id="hero-title">
-              <span class="word-mask"
-                ><span class="hero-word">Ideas claras.</span></span
-              ><span class="word-mask"
-                ><span class="hero-word">Sistemas</span></span
-              ><span class="word-mask"
-                ><span class="hero-word serif-word">conectados.</span></span
-              >
-            </h1>
-            <p class="hero-description" data-hero>
-              Entre el software, la nube y el mundo físico.<br />Estudio
-              Ingeniería Informática en la PUCP y exploro cómo construir
-              sistemas seguros y bien pensados.
-            </p>
-            <div class="hero-actions" data-hero>
-              <a class="button button-dark magnetic" href="#proyectos"
-                >Explorar proyectos
-                <svg class="icon"><use href="#icon-arrow" /></svg></a
-              ><a
-                class="text-link"
-                href="https://github.com/italo04"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Mi GitHub <svg class="icon"><use href="#icon-arrow" /></svg
-              ></a>
-            </div>
-          </div>
-          <div class="hero-visual" data-hero>
-            <div class="visual-label">
-              <span class="small-cross">+</span
-              ><span>EXPLORACIÓN 001 / SISTEMAS</span
-              ><span class="small-cross">+</span>
-            </div>
-            <div class="system-scene" data-tilt="hero">
-              <div class="scene-grid" aria-hidden="true"></div>
-              <img
-                class="system-object"
-                src="assets/system-object.svg"
-                width="640"
-                height="620"
-                alt="Composición conceptual de capas conectadas: software, cloud y dispositivos."
-                fetchpriority="high"
-              /><span class="scene-coordinate coord-top" aria-hidden="true"
-                >12°02′ S</span
-              ><span class="scene-coordinate coord-bottom" aria-hidden="true"
-                >77°01′ W</span
-              ><span class="scene-pill"
-                ><span class="status-dot"></span> TODO ESTÁ CONECTADO</span
-              >
-            </div>
-            <div
-              class="focus-switch"
-              role="group"
-              aria-label="Explorar mis intereses"
-            >
-              <button type="button" data-focus="cloud" aria-pressed="true">
-                Cloud</button
-              ><button
-                type="button"
-                data-focus="devsecops"
-                aria-pressed="false"
-              >
-                DevSecOps</button
-              ><button type="button" data-focus="iot" aria-pressed="false">
-                IoT
-              </button>
-            </div>
-            <p class="focus-caption" id="focus-caption" aria-live="polite">
-              Infraestructura con la seguridad desde el diseño.
-            </p>
-          </div>
-        </div>
-        <div class="hero-bottom">
-          <span
-            >ESTUDIANTE PUCP <span class="tiny-divider">/</span> 9.º CICLO</span
-          ><span class="hero-bottom-center">APRENDER. CONSTRUIR. CONECTAR.</span
-          ><a href="#proyectos" aria-label="Bajar a proyectos"
-            >DESLIZA PARA EXPLORAR
-            <svg class="icon"><use href="#icon-down" /></svg
-          ></a>
-        </div>
-      </section>
-      <section
-        class="about section wrap"
-        id="sobre-mi"
-        aria-labelledby="about-title"
-      >
-        <p class="eyebrow section-index reveal">01 / DETRÁS DEL CÓDIGO</p>
-        <div class="about-grid">
-          <div class="identity-card reveal">
-            <div class="identity-card-top">
-              <span>ITALO MIJAIL<br />RAMOS DIAZ</span
-              ><svg class="icon"><use href="#icon-arrow" /></svg>
-            </div>
-            <div
-              class="avatar-art"
-              role="img"
-              aria-label="Avatar tipográfico de Italo Ramos"
-            >
-              <div class="avatar-orbit orbit-one"></div>
-              <div class="avatar-orbit orbit-two"></div>
-              <span>ir<span class="avatar-dot">.</span></span
-              ><span class="avatar-cross">+</span>
-            </div>
-            <div class="identity-card-bottom">
-              <span>LIMA, PERÚ</span
-              ><span>EST. INGENIERÍA<br />INFORMÁTICA / PUCP</span>
-            </div>
-          </div>
-          <div class="about-copy">
-            <h2 class="reveal" id="about-title">
-              Curiosidad como<br />punto de <em>partida.</em>
-            </h2>
-            <p class="about-lead reveal">
-              Soy Italo, estudiante de 9.º ciclo de Ingeniería Informática en la
-              Pontificia Universidad Católica del Perú.
-            </p>
-            <p class="reveal">
-              Me interesa el espacio donde se encuentran la arquitectura de
-              software, la infraestructura cloud y la seguridad. Quiero orientar
-              mi carrera hacia cloud security y sistemas IoT, construyendo una
-              base técnica a través de proyectos y colaboración.
-            </p>
-            <p class="reveal">
-              Hoy participo en el desarrollo de TuDerecho con EQUIPU y en la
-              elaboración de papers sobre inteligencia artificial en IEEE. Busco
-              prácticas preprofesionales para seguir aprendiendo junto a un
-              equipo de ingeniería.
-            </p>
-            <dl class="about-facts reveal">
-              <div>
-                <dt>CICLO EN PUCP</dt>
-                <dd><span data-count="9">9</span><sup>º</sup></dd>
-              </div>
-              <div>
-                <dt>INGLÉS</dt>
-                <dd class="fact-word">Avanzado</dd>
-              </div>
-              <div>
-                <dt>MI SIGUIENTE PASO</dt>
-                <dd class="fact-word">
-                  Prácticas <svg class="icon"><use href="#icon-arrow" /></svg>
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-      </section>
-      <section
-        class="projects section wrap"
-        id="proyectos"
-        aria-labelledby="projects-title"
-      >
-        <div class="section-heading reveal">
-          <p class="eyebrow section-index">02 / TRABAJO SELECCIONADO</p>
-          <div class="heading-row">
-            <h2 id="projects-title">Del concepto<br />al <em>código.</em></h2>
-            <p>
-              Proyectos para entender cómo se conectan<br
-                class="desktop-break"
-              />
-              las piezas. Y qué pasa cuando algo falla.
-            </p>
-          </div>
-        </div>
-        <div class="projects-toolbar reveal">
-          <div class="filters" role="group" aria-label="Filtrar proyectos">
-            <button type="button" data-filter="all" aria-pressed="true">
-              Todos <span>04</span></button
-            ><button
-              type="button"
-              data-filter="architecture"
-              aria-pressed="false"
-            >
-              Arquitectura</button
-            ><button type="button" data-filter="cloud" aria-pressed="false">
-              Cloud & seguridad
-            </button>
-          </div>
-          <span class="projects-note">CÓDIGO ABIERTO + COLABORACIÓN</span>
-        </div>
-        <p class="sr-only" id="filter-status" role="status"></p>
-        <div class="project-grid">
-          <article
-            class="project-card project-wide reveal"
-            data-category="cloud"
-            id="project-cloud"
-          >
-            <button
-              class="project-preview cloud-preview"
-              type="button"
-              data-project="cloud"
-              data-tilt
-              aria-label="Explorar Secure Cloud Infrastructure"
-            >
-              <span class="preview-topline"
-                ><span>01 / INFRASTRUCTURE</span
-                ><span class="preview-corner">↗</span></span
-              >
-              <div class="cloud-diagram" aria-hidden="true">
-                <span class="diagram-kicker">AWS · DEFENSE IN DEPTH</span>
-                <div class="vpc-boundary">
-                  <span class="vpc-label">VPC / RED SEGMENTADA</span>
-                  <div class="cloud-nodes">
-                    <div class="cloud-node">
-                      <span class="node-mark">↳</span><strong>Access</strong
-                      ><small>IAM · SSH</small>
-                    </div>
-                    <span class="node-connector"></span>
-                    <div class="cloud-node node-primary">
-                      <span class="node-mark">▦</span><strong>Compute</strong
-                      ><small>EC2 · Linux</small>
-                    </div>
-                    <span class="node-connector"></span>
-                    <div class="cloud-node">
-                      <span class="node-mark">⊙</span><strong>Protect</strong
-                      ><small>Logs · Firewall</small>
-                    </div>
-                  </div>
-                  <div class="cloud-baseline">
-                    <span>NETWORK</span><span>IDENTITY</span><span>HOST</span>
-                  </div>
-                </div>
-                <span class="diagram-bottom"
-                  >INFRASTRUCTURE AS CODE <span>terraform /</span></span
-                >
-              </div>
-              <span class="preview-bottomline"
-                >SEGMENTAR. OBSERVAR. PROTEGER.<span
-                  >VER PROYECTO
-                  <svg class="icon"><use href="#icon-arrow" /></svg></span
-              ></span>
-            </button>
-            <div class="project-info">
-              <div>
-                <p class="project-type">CLOUD & CIBERSEGURIDAD</p>
-                <h3>Secure Cloud Infrastructure</h3>
-              </div>
-              <a
-                class="round-link"
-                href="https://github.com/italo04/secure-cloud-infra"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Repositorio de Secure Cloud Infrastructure"
-                ><svg class="icon"><use href="#icon-arrow" /></svg
-              ></a>
-            </div>
-            <p class="project-description">
-              Infraestructura como código, segmentación de red y hardening de
-              Linux. Una exploración de seguridad por capas.
-            </p>
-            <ul class="tags" aria-label="Tecnologías">
-              <li>AWS</li>
-              <li>Terraform</li>
-              <li>Python</li>
-              <li>Bash</li>
-            </ul>
-          </article>
-          <article
-            class="project-card reveal"
-            data-category="architecture"
-            id="project-layerforge"
-          >
-            <button
-              class="project-preview layer-preview"
-              type="button"
-              data-project="layerforge"
-              data-tilt
-              aria-label="Explorar LayerForge"
-            >
-              <span class="preview-topline"
-                ><span>02 / DISTRIBUTED SYSTEMS</span
-                ><span class="preview-corner">↗</span></span
-              >
-              <div class="layer-diagram" aria-hidden="true">
-                <span class="layer-wordmark">LayerForge<span>/</span></span>
-                <div class="gateway">API GATEWAY <span>↓</span></div>
-                <div class="layer-services">
-                  <div><span class="service-icon">▧</span>Printer catalog</div>
-                  <span class="service-between">↔</span>
-                  <div><span class="service-icon">▤</span>Print jobs</div>
-                </div>
-                <div class="discovery-line">
-                  <span></span>SERVICE DISCOVERY<span></span>
-                </div>
-              </div>
-              <span class="preview-bottomline"
-                >CADA SERVICIO, SU RESPONSABILIDAD.<span
-                  >VER <svg class="icon"><use href="#icon-arrow" /></svg></span
-              ></span>
-            </button>
-            <div class="project-info">
-              <div>
-                <p class="project-type">ARQUITECTURA · PROYECTO ACADÉMICO</p>
-                <h3>LayerForge</h3>
-              </div>
-              <a
-                class="round-link"
-                href="https://github.com/italo04/layerforge-microservices"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Repositorio de LayerForge"
-                ><svg class="icon"><use href="#icon-arrow" /></svg
-              ></a>
-            </div>
-            <p class="project-description">
-              Microservicios para gestionar un catálogo de impresoras 3D y sus
-              órdenes de impresión, con gateway y descubrimiento de servicios.
-            </p>
-            <ul class="tags" aria-label="Tecnologías">
-              <li>Java</li>
-              <li>Spring Boot</li>
-              <li>Spring Cloud</li>
-            </ul>
-          </article>
-          <article
-            class="project-card reveal"
-            data-category="architecture"
-            id="project-fintech"
-          >
-            <button
-              class="project-preview fintech-preview"
-              type="button"
-              data-project="fintech"
-              data-tilt
-              aria-label="Explorar Fintech Transaction Engine"
-            >
-              <span class="preview-topline"
-                ><span>03 / TRANSACTION DESIGN</span
-                ><span class="preview-corner">↗</span></span
-              >
-              <div class="ledger-diagram" aria-hidden="true">
-                <span class="ledger-symbol">ƒ<span>↗</span></span>
-                <div class="ledger-title">
-                  Una operación.<br />Dos movimientos.
-                </div>
-                <div class="ledger-entry">
-                  <span>DEBIT</span><span class="ledger-dots"></span><b>−</b>
-                </div>
-                <div class="ledger-entry">
-                  <span>CREDIT</span><span class="ledger-dots"></span><b>+</b>
-                </div>
-                <span class="ledger-caption">DOBLE PARTIDA / IDEMPOTENCIA</span>
-              </div>
-              <span class="preview-bottomline"
-                >LA CONSISTENCIA IMPORTA.<span
-                  >VER <svg class="icon"><use href="#icon-arrow" /></svg></span
-              ></span>
-            </button>
-            <div class="project-info">
-              <div>
-                <p class="project-type">ARQUITECTURA DE DATOS</p>
-                <h3>Fintech Transaction Engine</h3>
-              </div>
-              <a
-                class="round-link"
-                href="https://github.com/italo04/fintech-transaction-engine"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Repositorio de Fintech Transaction Engine"
-                ><svg class="icon"><use href="#icon-arrow" /></svg
-              ></a>
-            </div>
-            <p class="project-description">
-              Motor de transferencias que explora consistencia transaccional,
-              idempotencia y contabilidad de doble partida.
-            </p>
-            <ul class="tags" aria-label="Tecnologías">
-              <li>Python</li>
-              <li>FastAPI</li>
-              <li>PostgreSQL</li>
-              <li>Docker</li>
-            </ul>
-          </article>
-          <article
-            class="project-card project-wide reveal"
-            data-category="architecture"
-            id="project-tuderecho"
-          >
-            <button
-              class="project-preview legal-preview"
-              type="button"
-              data-project="tuderecho"
-              data-tilt
-              aria-label="Conocer mi participación en TuDerecho"
-            >
-              <span class="preview-topline"
-                ><span>04 / COLABORACIÓN · EQUIPU</span
-                ><span class="preview-corner">↗</span></span
-              >
-              <div class="legal-diagram" aria-hidden="true">
-                <div class="legal-monogram">td<span>↗</span></div>
-                <span class="legal-wordmark">TuDerecho<span>.</span></span>
-                <div class="legal-connection">
-                  <span>CLIENTES</span><i></i
-                  ><span class="legal-main-node">ABOGADOS</span><i></i
-                  ><span>COLEGAS</span>
-                </div>
-                <p>Un punto de encuentro.<br />Nuevas formas de colaborar.</p>
-              </div>
-              <span class="preview-bottomline"
-                >PLATAFORMA EN DESARROLLO<span
-                  >CONOCER MÁS
-                  <svg class="icon"><use href="#icon-arrow" /></svg></span
-              ></span>
-            </button>
-            <div class="project-info">
-              <div>
-                <p class="project-type">LEGALTECH · DESARROLLO EN EQUIPO</p>
-                <h3>TuDerecho</h3>
-              </div>
-              <button
-                class="round-link"
-                type="button"
-                data-project="tuderecho"
-                aria-label="Detalles de TuDerecho"
-              >
-                <svg class="icon"><use href="#icon-arrow" /></svg>
-              </button>
-            </div>
-            <p class="project-description">
-              Participo como desarrollador en una plataforma que conecta
-              clientes y abogados, y facilita propuestas entre profesionales.
-            </p>
-            <ul class="tags" aria-label="Contexto del proyecto">
-              <li>EQUIPU</li>
-              <li>Colaboración</li>
-              <li>En desarrollo</li>
-            </ul>
-          </article>
-        </div>
-        <a
-          class="all-projects text-link reveal"
-          href="https://github.com/italo04?tab=repositories"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Más código y documentación en GitHub
-          <svg class="icon"><use href="#icon-arrow" /></svg
-        ></a>
-      </section>
-      <section class="focus-section" id="enfoque" aria-labelledby="focus-title">
-        <div class="wrap">
-          <div class="focus-section-top reveal">
-            <p class="eyebrow section-index">03 / LO QUE ME MUEVE</p>
-            <svg class="focus-spark" aria-hidden="true">
-              <use href="#icon-spark" />
-            </svg>
-          </div>
-          <div class="focus-layout">
-            <h2 class="reveal" id="focus-title">
-              No solo cómo<br />funciona.<br /><em>Cómo se conecta.</em>
-            </h2>
-            <div class="focus-details">
-              <p class="focus-lead reveal">
-                Mi interés está en la arquitectura: las decisiones que hacen que
-                un sistema pueda crecer, desplegarse y mantenerse seguro.
-              </p>
-              <div class="focus-item reveal">
-                <span>01</span>
-                <div>
-                  <h3>Arquitectura & cloud</h3>
-                  <p>
-                    Servicios, límites y comunicación. Entender las decisiones
-                    detrás de una infraestructura.
-                  </p>
-                </div>
-                <svg class="icon"><use href="#icon-arrow" /></svg>
-              </div>
-              <div class="focus-item reveal">
-                <span>02</span>
-                <div>
-                  <h3>DevOps & DevSecOps</h3>
-                  <p>
-                    Acercar desarrollo y operación, con automatización, CI/CD y
-                    seguridad durante el proceso.
-                  </p>
-                </div>
-                <svg class="icon"><use href="#icon-arrow" /></svg>
-              </div>
-              <div class="focus-item reveal">
-                <span>03</span>
-                <div>
-                  <h3>IoT & ciberseguridad</h3>
-                  <p>
-                    Explorar la conexión entre dispositivos, datos y cloud,
-                    pensando en sus riesgos desde el inicio.
-                  </p>
-                </div>
-                <svg class="icon"><use href="#icon-arrow" /></svg>
-              </div>
-            </div>
-          </div>
-          <div class="skills-heading reveal">
-            <p class="eyebrow">HERRAMIENTAS PRESENTES EN MIS PROYECTOS</p>
-            <span>APRENDER HACIENDO ↗</span>
-          </div>
-          <div class="skills-grid reveal">
-            <div>
-              <h3>LENGUAJES</h3>
-              <ul>
-                <li>Python</li>
-                <li>Java</li>
-                <li>Bash</li>
-              </ul>
-            </div>
-            <div>
-              <h3>FRAMEWORKS & DATOS</h3>
-              <ul>
-                <li>Spring Boot</li>
-                <li>FastAPI</li>
-                <li>PostgreSQL</li>
-              </ul>
-            </div>
-            <div>
-              <h3>CLOUD & HERRAMIENTAS</h3>
-              <ul>
-                <li>AWS</li>
-                <li>Terraform</li>
-                <li>Docker</li>
-                <li>Git / GitHub</li>
-              </ul>
-            </div>
-            <div>
-              <h3>EN EXPLORACIÓN</h3>
-              <ul>
-                <li>CI/CD</li>
-                <li>DevSecOps</li>
-                <li>IoT</li>
-                <li>Azure</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="interest-marquee" aria-hidden="true">
-          <div class="marquee-track">
-            <span
-              >SOFTWARE ARCHITECTURE <i>✳</i> CLOUD SECURITY
-              <i>✳</i> CONNECTED SYSTEMS <i>✳</i> </span
-            ><span
-              >SOFTWARE ARCHITECTURE <i>✳</i> CLOUD SECURITY
-              <i>✳</i> CONNECTED SYSTEMS <i>✳</i>
+      <!-- 1. HERO SECTION con Canvas Interactivo de Partículas -->
+      <section class="hero-section" id="inicio" aria-labelledby="hero-title">
+        <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-overlay" aria-hidden="true"></div>
+
+        <div class="wrap hero-content">
+          <div class="hero-meta reveal-up">
+            <span class="hero-badge">
+              <svg class="icon"><use href="#icon-shield" /></svg>
+              <span>9.º CICLO INGENIERÍA INFORMÁTICA · PUCP</span>
             </span>
+            <span class="hero-location">LIMA, PERÚ · <span id="current-time">UTC-5</span></span>
+          </div>
+
+          <h1 class="hero-headline" id="hero-title">
+            <span class="headline-row"><span class="headline-word">Arquitectura</span> <span class="headline-word neon-cyan">Cloud.</span></span>
+            <span class="headline-row"><span class="headline-word neon-violet">Ciberseguridad.</span></span>
+            <span class="headline-row"><span class="headline-word">Sistemas</span> <span class="headline-word serif-word">resilientes.</span></span>
+          </h1>
+
+          <p class="hero-subheadline reveal-up">
+            Diseño infraestructura en <strong>AWS</strong> bajo el principio de mínimo privilegio, automatizo despliegues con <strong>Docker & CI/CD</strong>, bastiono entornos <strong>Linux</strong> y desarrollo motores backend concurrentes en <strong>Python / FastAPI</strong>.
+          </p>
+
+          <div class="hero-actions reveal-up">
+            <a class="btn btn-primary magnetic" href="#proyectos">
+              <span>Explorar Proyectos</span>
+              <svg class="icon"><use href="#icon-arrow" /></svg>
+            </a>
+            <a class="btn btn-secondary magnetic" href="#contacto">
+              <span>Contactar Ahora</span>
+            </a>
+            <a
+              class="btn btn-ghost magnetic"
+              href="https://github.com/italo04"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Ver perfil de GitHub de Italo Ramos"
+            >
+              <svg class="icon"><use href="#icon-github" /></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <!-- Métricas de pie de Hero -->
+          <div class="hero-ticker reveal-up">
+            <div class="ticker-item">
+              <span class="ticker-label">UNIVERSIDAD</span>
+              <span class="ticker-value">PUCP (Top 1 Perú)</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-label">CERTIFICACIÓN TARGET</span>
+              <span class="ticker-value">AWS Cloud Practitioner (Nov 2026)</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-label">IDIOMAS</span>
+              <span class="ticker-value">Inglés Fluido (Work & Travel USA)</span>
+            </div>
+            <div class="ticker-item">
+              <span class="ticker-label">STACK CLAVE</span>
+              <span class="ticker-value">Linux · AWS · Docker · FastAPI</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <section
-        class="journey section wrap"
-        id="formacion"
-        aria-labelledby="journey-title"
-      >
-        <div class="journey-intro reveal">
-          <p class="eyebrow">04 / EXPERIENCIA & FORMACIÓN</p>
-          <h3 id="journey-title">Aprendizaje<br />en movimiento.</h3>
-          <p>
-            Mi recorrido combina formación universitaria, desarrollo
-            colaborativo e investigación.
-          </p>
+      <!-- 2. SECCIÓN SOBRE MÍ (Bento Grid con Datos Animados) -->
+      <section class="about-section section-padding wrap" id="sobre-mi" aria-labelledby="about-title">
+        <div class="section-tag reveal-up">
+          <span class="tag-number">01</span>
+          <span class="tag-title">PERFIL PROFESIONAL</span>
         </div>
-        <ol class="timeline">
-          <li class="timeline-item reveal">
-            <span class="timeline-dot"></span>
-            <div class="timeline-meta">
-              <span>FORMACIÓN</span><span>9.º CICLO</span>
+
+        <div class="about-bento">
+          <!-- Tarjeta Avatar & Identidad -->
+          <div class="about-card identity-card bento-item reveal-up">
+            <div class="cyber-frame">
+              <div class="cyber-corner top-left"></div>
+              <div class="cyber-corner top-right"></div>
+              <div class="cyber-corner bottom-left"></div>
+              <div class="cyber-corner bottom-right"></div>
             </div>
-            <h4>Ingeniería Informática</h4>
-            <p class="timeline-org">Pontificia Universidad Católica del Perú</p>
-            <p>
-              Formación universitaria y proyectos de ingeniería para conectar
-              fundamentos con decisiones de diseño.
-            </p>
-          </li>
-          <li class="timeline-item reveal">
-            <span class="timeline-dot"></span>
-            <div class="timeline-meta">
-              <span>DESARROLLO COLABORATIVO</span><span>EN CURSO</span>
+
+            <div class="avatar-visual">
+              <div class="avatar-orbit orbit-outer"></div>
+              <div class="avatar-orbit orbit-inner"></div>
+              <div class="avatar-glow"></div>
+              <div class="avatar-monogram">
+                <span>IR<span class="neon-dot">_</span></span>
+              </div>
             </div>
-            <h4>TuDerecho</h4>
-            <p class="timeline-org">EQUIPU · Desarrollador</p>
-            <p>
-              Participación en una plataforma para la interacción entre clientes
-              y abogados, y la colaboración entre abogados mediante propuestas.
-            </p>
-          </li>
-          <li class="timeline-item reveal">
-            <span class="timeline-dot"></span>
-            <div class="timeline-meta">
-              <span>INVESTIGACIÓN</span><span>EN PREPARACIÓN</span>
+
+            <div class="identity-info">
+              <h3>ITALO MIJAIL RAMOS DIAZ</h3>
+              <p class="identity-role">Ingeniero Informático en Formación</p>
+              <div class="identity-pill">
+                <span class="status-indicator"></span>
+                <span>Enfocado en Cloud & DevSecOps</span>
+              </div>
             </div>
-            <h4>Inteligencia artificial</h4>
-            <p class="timeline-org">IEEE · Elaboración de papers</p>
-            <p>
-              Participación en la preparación de artículos asociados a IA, como
-              parte de mi experiencia extracurricular.
-            </p>
-          </li>
-        </ol>
-      </section>
-      <section
-        class="contact section"
-        id="contacto"
-        aria-labelledby="contact-title"
-      >
-        <div class="wrap">
-          <div class="contact-top reveal">
-            <p class="eyebrow section-index">05 / LA PRÓXIMA CONEXIÓN</p>
-            <span class="availability"
-              ><span class="status-dot"></span> ABIERTO A OPORTUNIDADES DE
-              PRÁCTICAS</span
-            >
           </div>
-          <h2 class="reveal" id="contact-title">
-            Las buenas ideas<br />empiezan con un <em>hola.</em
-            ><svg aria-hidden="true" class="contact-arrow">
-              <use href="#icon-arrow" />
-            </svg>
-          </h2>
-          <div class="contact-grid">
-            <div class="contact-copy reveal">
-              <p>
-                ¿Tu equipo trabaja en cloud, arquitectura o seguridad?<br />Me
-                gustaría conocerlo.
+
+          <!-- Tarjeta Biografía -->
+          <div class="about-card bio-card bento-item reveal-up">
+            <h2 id="about-title" class="about-headline">
+              Ingeniería sólida donde el software se encuentra con la <em>infraestructura.</em>
+            </h2>
+            <p class="about-text">
+              Estudio 9.º ciclo en la <strong>Pontificia Universidad Católica del Perú (PUCP)</strong>. Mi foco no es solo escribir código que funcione, sino entender qué ocurre en la red, en el sistema operativo y en la nube cuando un sistema escala o sufre un ataque.
+            </p>
+            <p class="about-text">
+              Combino desarrollo backend resiliente con prácticas de <strong>DevSecOps</strong>: contenerización multi-etapa <em>non-root</em>, análisis estático de vulnerabilidades (SAST con Bandit/Trivy), bastionado de servidores Linux y control estricto de identidades con <strong>AWS IAM</strong>.
+            </p>
+            <p class="about-text">
+              Actualmente desarrollo en la incubadora <strong>EQUIPU PUCP</strong>, colaboro en investigación con <strong>IEEE PUCP</strong> y curso materias avanzadas de <strong>Machine Learning y Deep Learning</strong>.
+            </p>
+          </div>
+
+          <!-- Contadores de datos clave -->
+          <div class="about-card stat-card bento-item reveal-up">
+            <span class="stat-number" data-target="9">0</span>
+            <span class="stat-suffix">.º</span>
+            <span class="stat-label">Ciclo en la PUCP</span>
+            <p class="stat-desc">Convenio de 30h/sem para prácticas preprofesionales.</p>
+          </div>
+
+          <div class="about-card stat-card bento-item reveal-up">
+            <span class="stat-badge-text">USA</span>
+            <span class="stat-label">Work & Travel (Lifeguard)</span>
+            <p class="stat-desc">Inglés conversacional nativo y protocolos de seguridad bajo presión.</p>
+          </div>
+
+          <div class="about-card stat-card bento-item reveal-up">
+            <span class="stat-badge-text">NOV '26</span>
+            <span class="stat-label">AWS CLF-C02</span>
+            <p class="stat-desc">Certificación Cloud Practitioner en preparación activa final.</p>
+          </div>
+
+          <div class="about-card stat-card bento-item reveal-up">
+            <span class="stat-number" data-target="5">0</span>
+            <span class="stat-suffix">+</span>
+            <span class="stat-label">Proyectos Verificables</span>
+            <p class="stat-desc">Arquitecturas funcionales con código auditable en GitHub.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. SECCIÓN PROYECTOS (Bento Grid con 3D Tilt) -->
+      <section class="projects-section section-padding wrap" id="proyectos" aria-labelledby="projects-title">
+        <div class="projects-header reveal-up">
+          <div class="section-tag">
+            <span class="tag-number">02</span>
+            <span class="tag-title">TRABAJO SELECCIONADO</span>
+          </div>
+          <div class="header-flex">
+            <div>
+              <h2 id="projects-title" class="section-title">
+                Arquitecturas construidas para <em>resistir.</em>
+              </h2>
+              <p class="section-subtitle">
+                Proyectos reales con código abierto, decisiones de seguridad y control de concurrencia.
               </p>
-              <a class="email-link" href="mailto:italomijail@gmail.com"
-                >italomijail@gmail.com
-                <svg class="icon"><use href="#icon-arrow" /></svg></a
-              ><button class="copy-email text-link" type="button">
-                <svg class="icon"><use href="#icon-copy" /></svg
-                ><span>Copiar correo</span>
-              </button>
-              <div class="social-links">
-                <a
-                  href="https://github.com/italo04"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >GitHub <svg class="icon"><use href="#icon-arrow" /></svg></a
-                ><a
-                  href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  >LinkedIn <svg class="icon"><use href="#icon-arrow" /></svg
-                ></a>
-              </div>
             </div>
-            <form
-              class="contact-form reveal"
-              id="contact-form"
-              action="mailto:italomijail@gmail.com"
-              method="get"
-            >
-              <div class="form-row">
-                <div class="form-field">
-                  <label for="contact-name">Tu nombre</label
-                  ><input
-                    id="contact-name"
-                    name="name"
-                    placeholder="¿Cómo te llamas?"
-                    autocomplete="name"
-                    required
-                    maxlength="100"
-                  />
-                </div>
-                <div class="form-field">
-                  <label for="contact-email">Tu correo</label
-                  ><input
-                    id="contact-email"
-                    name="email"
-                    type="email"
-                    placeholder="hola@tuempresa.com"
-                    autocomplete="email"
-                    required
-                    maxlength="180"
-                  />
+            <div class="projects-filter-group" role="group" aria-label="Filtrar proyectos">
+              <button class="filter-btn active" data-filter="all" type="button">Todos (05)</button>
+              <button class="filter-btn" data-filter="cloud" type="button">Cloud & Seguridad</button>
+              <button class="filter-btn" data-filter="backend" type="button">Backend & IA</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="projects-bento">
+          <!-- PROYECTO 1: AI Security Log Analyzer (Bento Grande - 2 columnas) -->
+          <article class="project-card bento-span-2 bento-item reveal-up" data-category="cloud backend" data-tilt>
+            <div class="project-content">
+              <div class="project-top">
+                <span class="project-badge neon-badge">PROYECTO DESTACADO // DEVSECOPS & IA</span>
+                <div class="project-links">
+                  <a
+                    class="project-link-icon magnetic"
+                    href="https://github.com/italo04"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver código en GitHub"
+                  >
+                    <svg class="icon"><use href="#icon-github" /></svg>
+                  </a>
+                  <button class="project-link-icon modal-trigger magnetic" data-modal="ai-log-analyzer" aria-label="Ver detalles arquitectónicos">
+                    <svg class="icon"><use href="#icon-external" /></svg>
+                  </button>
                 </div>
               </div>
-              <div class="form-field">
-                <label for="contact-message">Conversemos sobre...</label
-                ><textarea
-                  id="contact-message"
-                  name="body"
-                  placeholder="Cuéntame sobre la oportunidad o tu proyecto."
-                  required
-                  rows="3"
-                  maxlength="3000"
-                ></textarea>
+
+              <h3 class="project-title">AI-Powered Security Log Analyzer & Threat Detector</h3>
+              <p class="project-summary">
+                Motor en Python (FastAPI) que ingesta registros de servidores Linux (<code>/var/log/auth.log</code>) y aplica modelos de Machine Learning (Isolation Forest) junto con inferencia de IA para detectar patrones de fuerza bruta SSH y anomalías de tráfico en tiempo real.
+              </p>
+
+              <div class="project-terminal-preview">
+                <div class="term-header">
+                  <span class="term-dot red"></span>
+                  <span class="term-dot yellow"></span>
+                  <span class="term-dot green"></span>
+                  <span class="term-title">threat_analyzer.py — containerized:non-root</span>
+                </div>
+                <div class="term-body">
+                  <code>[INFO] Monitoring /var/log/auth.log for brute-force attacks...</code>
+                  <code>[ALERT] Anomaly detected: IP 198.51.100.23 -> 47 failed auth attempts.</code>
+                  <code>[AI MITIGATION] Isolation Forest score: -0.84 (High Risk). Triggering iptables DROP rule.</code>
+                </div>
               </div>
-              <div class="form-bottom">
-                <p id="form-help">
-                  Se abrirá tu aplicación de correo con el mensaje preparado.
-                </p>
-                <button
-                  class="button button-dark magnetic"
-                  type="submit"
-                  aria-describedby="form-help"
-                >
-                  Preparar correo
+
+              <div class="project-footer">
+                <div class="tech-stack-chips">
+                  <span class="chip">FastAPI</span>
+                  <span class="chip">Python</span>
+                  <span class="chip">Docker (non-root)</span>
+                  <span class="chip">Scikit-learn</span>
+                  <span class="chip">Linux auth.log</span>
+                  <span class="chip">GitHub Actions CI/CD</span>
+                </div>
+                <button class="btn btn-outline modal-trigger magnetic" data-modal="ai-log-analyzer">
+                  <span>Detalles de Arquitectura</span>
                   <svg class="icon"><use href="#icon-arrow" /></svg>
                 </button>
               </div>
-              <p class="form-status" id="form-status" role="status"></p>
+            </div>
+          </article>
+
+          <!-- PROYECTO 2: Fintech Transaction Engine -->
+          <article class="project-card bento-item reveal-up" data-category="backend" data-tilt>
+            <div class="project-content">
+              <div class="project-top">
+                <span class="project-badge">FINTECH & CONCURRENCIA</span>
+                <div class="project-links">
+                  <a
+                    class="project-link-icon magnetic"
+                    href="https://github.com/italo04/fintech-transaction-engine"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver código en GitHub"
+                  >
+                    <svg class="icon"><use href="#icon-github" /></svg>
+                  </a>
+                  <button class="project-link-icon modal-trigger magnetic" data-modal="fintech-engine" aria-label="Ver detalles arquitectónicos">
+                    <svg class="icon"><use href="#icon-external" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <h3 class="project-title">Fintech Transaction Engine</h3>
+              <p class="project-summary">
+                API REST en FastAPI y PostgreSQL con aislamiento Serializable, bloqueos a nivel de fila (<code>SELECT FOR UPDATE</code>) y claves de idempotencia para garantizar consistencia transaccional absoluta y prevenir <em>race conditions</em>.
+              </p>
+
+              <div class="project-footer">
+                <div class="tech-stack-chips">
+                  <span class="chip">FastAPI</span>
+                  <span class="chip">PostgreSQL</span>
+                  <span class="chip">SQLAlchemy</span>
+                  <span class="chip">Pytest</span>
+                  <span class="chip">Docker</span>
+                </div>
+                <button class="btn btn-outline modal-trigger magnetic" data-modal="fintech-engine">
+                  <span>Arquitectura C4</span>
+                  <svg class="icon"><use href="#icon-arrow" /></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROYECTO 3: Secure Cloud Infra & Linux Hardening -->
+          <article class="project-card bento-item reveal-up" data-category="cloud" data-tilt>
+            <div class="project-content">
+              <div class="project-top">
+                <span class="project-badge">CLOUD & DEVSECOPS</span>
+                <div class="project-links">
+                  <a
+                    class="project-link-icon magnetic"
+                    href="https://github.com/italo04/secure-cloud-infra"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Ver código en GitHub"
+                  >
+                    <svg class="icon"><use href="#icon-github" /></svg>
+                  </a>
+                  <button class="project-link-icon modal-trigger magnetic" data-modal="secure-cloud" aria-label="Ver detalles arquitectónicos">
+                    <svg class="icon"><use href="#icon-external" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <h3 class="project-title">Secure Cloud Infra & Linux Hardening</h3>
+              <p class="project-summary">
+                Infraestructura Zero-Trust en AWS orquestada con Terraform (VPC, subredes públicas/privadas, Security Groups e IAM de mínimo privilegio) y bastionado automatizado de servidores Linux con <em>iptables</em>, llaves SSH y auditoría.
+              </p>
+
+              <div class="project-footer">
+                <div class="tech-stack-chips">
+                  <span class="chip">AWS VPC & IAM</span>
+                  <span class="chip">Terraform</span>
+                  <span class="chip">Linux Hardening</span>
+                  <span class="chip">Bash</span>
+                  <span class="chip">fail2ban</span>
+                </div>
+                <button class="btn btn-outline modal-trigger magnetic" data-modal="secure-cloud">
+                  <span>Seguridad AWS</span>
+                  <svg class="icon"><use href="#icon-arrow" /></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROYECTO 4: Tesis PFC 1 (PUCP) -->
+          <article class="project-card bento-item reveal-up" data-category="cloud backend" data-tilt>
+            <div class="project-content">
+              <div class="project-top">
+                <span class="project-badge">TESIS DE GRADO PUCP // PFC 1</span>
+                <div class="project-links">
+                  <button class="project-link-icon modal-trigger magnetic" data-modal="tesis-pucp" aria-label="Ver detalles de investigación">
+                    <svg class="icon"><use href="#icon-external" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <h3 class="project-title">Arquitectura Cloud & IoT Offline para Pagos Seguros</h3>
+              <p class="project-summary">
+                Diseño arquitectónico para terminales IoT (ESP32) en zonas sin conectividad estable: transacciones cifradas localmente con AES-256, canal seguro MQTT/TLS y sincronización asíncrona hacia servicios Cloud asegurando consistencia eventual.
+              </p>
+
+              <div class="project-footer">
+                <div class="tech-stack-chips">
+                  <span class="chip">IoT (ESP32)</span>
+                  <span class="chip">AWS / Azure</span>
+                  <span class="chip">AES-256</span>
+                  <span class="chip">MQTT / TLS</span>
+                  <span class="chip">Modelo PACELC</span>
+                </div>
+                <button class="btn btn-outline modal-trigger magnetic" data-modal="tesis-pucp">
+                  <span>Modelo de Datos</span>
+                  <svg class="icon"><use href="#icon-arrow" /></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROYECTO 5: TuDerecho (EQUIPU PUCP) -->
+          <article class="project-card bento-item reveal-up" data-category="backend" data-tilt>
+            <div class="project-content">
+              <div class="project-top">
+                <span class="project-badge">INCUBADORA EQUIPU PUCP</span>
+                <div class="project-links">
+                  <button class="project-link-icon modal-trigger magnetic" data-modal="tuderecho" aria-label="Ver detalles de incubación">
+                    <svg class="icon"><use href="#icon-external" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <h3 class="project-title">Plataforma LegalTech "TuDerecho"</h3>
+              <p class="project-summary">
+                Desarrollo backend y arquitectura orientada a la asistencia de consultas ciudadanas y conexión cliente-abogado. Modelado de datos en PostgreSQL, integración segura de servicios en FastAPI y trabajo ágil en Scrum.
+              </p>
+
+              <div class="project-footer">
+                <div class="tech-stack-chips">
+                  <span class="chip">FastAPI</span>
+                  <span class="chip">PostgreSQL</span>
+                  <span class="chip">Arquitectura C4</span>
+                  <span class="chip">Scrum</span>
+                  <span class="chip">EQUIPU PUCP</span>
+                </div>
+                <button class="btn btn-outline modal-trigger magnetic" data-modal="tuderecho">
+                  <span>Caso de Uso</span>
+                  <svg class="icon"><use href="#icon-arrow" /></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="projects-cta-center reveal-up">
+          <a
+            class="btn btn-ghost magnetic"
+            href="https://github.com/italo04?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>Ver más código y repositorios en GitHub</span>
+            <svg class="icon"><use href="#icon-arrow" /></svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- 4. SECCIÓN HABILIDADES (Chips Flotantes + Marquee Infinito) -->
+      <section class="skills-section section-padding" id="habilidades" aria-labelledby="skills-title">
+        <!-- Marquee Infinito Neón -->
+        <div class="skills-marquee" aria-hidden="true">
+          <div class="marquee-content">
+            <span>AWS CLOUD ✳ DOCKER CONTAINERS ✳ LINUX HARDENING ✳ FASTAPI ✳ TERRAFORM IAC ✳ GITHUB ACTIONS CI/CD ✳ OWASP TOP 10 ✳ POSTGRESQL ✳ PYTHON ✳ MACHINE LEARNING ✳ DEEP LEARNING ✳ PYTORCH ✳ </span>
+            <span>AWS CLOUD ✳ DOCKER CONTAINERS ✳ LINUX HARDENING ✳ FASTAPI ✳ TERRAFORM IAC ✳ GITHUB ACTIONS CI/CD ✳ OWASP TOP 10 ✳ POSTGRESQL ✳ PYTHON ✳ MACHINE LEARNING ✳ DEEP LEARNING ✳ PYTORCH ✳ </span>
+          </div>
+        </div>
+
+        <div class="wrap skills-container">
+          <div class="section-tag reveal-up">
+            <span class="tag-number">03</span>
+            <span class="tag-title">ARSENAL TÉCNICO</span>
+          </div>
+
+          <h2 id="skills-title" class="section-title reveal-up">
+            Herramientas evaluadas en proyectos, <em>no solo en teoría.</em>
+          </h2>
+
+          <div class="skills-bento">
+            <!-- Categoría 1: Cloud & DevOps -->
+            <div class="skills-card bento-item reveal-up">
+              <div class="skills-cat-header">
+                <span class="cat-icon neon-violet">☁</span>
+                <h3>Cloud & DevOps</h3>
+              </div>
+              <p class="skills-cat-desc">Infraestructura como código, contenedores y automatización de pipelines.</p>
+              <div class="skill-chips-cloud">
+                <span class="skill-tag">AWS (EC2, VPC, S3, IAM)</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Docker Compose</span>
+                <span class="skill-tag">GitHub Actions (CI/CD)</span>
+                <span class="skill-tag">Terraform (IaC)</span>
+                <span class="skill-tag">Git & GitHub</span>
+              </div>
+            </div>
+
+            <!-- Categoría 2: Seguridad & Redes -->
+            <div class="skills-card bento-item reveal-up">
+              <div class="skills-cat-header">
+                <span class="cat-icon neon-cyan">🛡</span>
+                <h3>Ciberseguridad & Redes</h3>
+              </div>
+              <p class="skills-cat-desc">Seguridad defensiva, análisis de vulnerabilidades y redes base.</p>
+              <div class="skill-chips-cloud">
+                <span class="skill-tag">Linux Hardening</span>
+                <span class="skill-tag">Redes TCP/IP & DNS</span>
+                <span class="skill-tag">Firewalls (iptables, UFW)</span>
+                <span class="skill-tag">OWASP Top 10</span>
+                <span class="skill-tag">SAST (Bandit, Trivy)</span>
+                <span class="skill-tag">Análisis con Wireshark</span>
+              </div>
+            </div>
+
+            <!-- Categoría 3: Backend & Datos -->
+            <div class="skills-card bento-item reveal-up">
+              <div class="skills-cat-header">
+                <span class="cat-icon">⚙</span>
+                <h3>Backend & Datos</h3>
+              </div>
+              <p class="skills-cat-desc">APIs REST de alta concurrencia, persistencia transaccional y pruebas.</p>
+              <div class="skill-chips-cloud">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">FastAPI</span>
+                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag">SQLAlchemy</span>
+                <span class="skill-tag">Java & Spring Boot</span>
+                <span class="skill-tag">Pytest</span>
+              </div>
+            </div>
+
+            <!-- Categoría 4: Inteligencia Artificial & Sistemas -->
+            <div class="skills-card bento-item reveal-up">
+              <div class="skills-cat-header">
+                <span class="cat-icon">🧠</span>
+                <h3>IA & Sistemas Base</h3>
+              </div>
+              <p class="skills-cat-desc">Modelos de aprendizaje profundo, scripting de automatización y SO.</p>
+              <div class="skill-chips-cloud">
+                <span class="skill-tag">Machine Learning</span>
+                <span class="skill-tag">Deep Learning (PyTorch)</span>
+                <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">Integración APIs de LLMs</span>
+                <span class="skill-tag">Bash Scripting</span>
+                <span class="skill-tag">Linux (Ubuntu / Debian)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. SECCIÓN EXPERIENCIA & FORMACIÓN (Línea de Tiempo ScrollTrigger) -->
+      <section class="timeline-section section-padding wrap" id="experiencia" aria-labelledby="timeline-title">
+        <div class="section-tag reveal-up">
+          <span class="tag-number">04</span>
+          <span class="tag-title">TRAYECTORIA & FORMACIÓN</span>
+        </div>
+
+        <h2 id="timeline-title" class="section-title reveal-up">
+          Experiencia real, investigación y <em>disciplina.</em>
+        </h2>
+
+        <div class="timeline-container">
+          <div class="timeline-spine" aria-hidden="true">
+            <div class="timeline-progress-fill"></div>
+          </div>
+
+          <!-- Item 1: PUCP -->
+          <div class="timeline-entry reveal-up">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-time">MARZO 2022 — DICIEMBRE 2026 (EST.)</div>
+              <h3 class="timeline-role">Estudiante de Ingeniería Informática (9.º ciclo en curso)</h3>
+              <h4 class="timeline-company">Pontificia Universidad Católica del Perú (PUCP)</h4>
+              <p class="timeline-body">
+                Formación rigurosa en Sistemas Distribuidos, Redes, Sistemas Operativos, Seguridad Informática y Tesis de Fin de Carrera (PFC 1) en arquitecturas Cloud/IoT. Actualmente cursando asignaturas de la línea de investigación IA-PUCP (Machine Learning y Deep Learning).
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 2: EQUIPU PUCP -->
+          <div class="timeline-entry reveal-up">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-time">ENERO 2026 — ACTUALIDAD</div>
+              <h3 class="timeline-role">Desarrollo Backend & Arquitectura (Incubación)</h3>
+              <h4 class="timeline-company">Red de Emprendimiento EQUIPU (PUCP) — Proyecto "TuDerecho"</h4>
+              <p class="timeline-body">
+                Diseño de la arquitectura C4 y servicios backend en FastAPI con persistencia en PostgreSQL para una plataforma LegalTech orientada a consultas ciudadanas, implementando control de accesos y sprints bajo marco Scrum.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 3: IEEE PUCP -->
+          <div class="timeline-entry reveal-up">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-time">ENERO 2026 — ACTUALIDAD</div>
+              <h3 class="timeline-role">Miembro Estudiantil del Área de Investigación</h3>
+              <h4 class="timeline-company">Rama Estudiantil IEEE PUCP</h4>
+              <p class="timeline-body">
+                Análisis de literatura científica y papers en torno a modelos generativos de Deep Learning, seguridad en redes distribuidas y arquitecturas de nube.
+              </p>
+            </div>
+          </div>
+
+          <!-- Item 4: Work & Travel USA -->
+          <div class="timeline-entry reveal-up">
+            <div class="timeline-marker">
+              <div class="marker-dot"></div>
+            </div>
+            <div class="timeline-card">
+              <div class="timeline-time">TEMPORADA DE VERANO</div>
+              <h3 class="timeline-role">Lifeguard Certificado (Experiencia Laboral Internacional)</h3>
+              <h4 class="timeline-company">Programa Cultural Work & Travel USA — Estados Unidos</h4>
+              <p class="timeline-body">
+                Desempeño laboral 100% en inglés en entorno nativo estadounidense. Gestión estricta de protocolos de seguridad acuática, prevención de riesgos, atención al cliente y toma de decisiones críticas bajo presión.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. SECCIÓN CONTACTO (Call to Action + Botones Magnéticos + Formulario) -->
+      <section class="contact-section section-padding wrap" id="contacto" aria-labelledby="contact-title">
+        <div class="contact-card reveal-up">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <div class="section-tag">
+                <span class="tag-number">05</span>
+                <span class="tag-title">CONTACTO DIRECTO</span>
+              </div>
+              <h2 id="contact-title" class="contact-headline">
+                Construyamos infraestructura <em>segura</em> y de alto impacto.
+              </h2>
+              <p class="contact-subtext">
+                Disponible para <strong>prácticas preprofesionales</strong> (convenio PUCP de 30h/sem o tiempo completo en verano 2027) en roles de <strong>Cloud, DevSecOps, Ciberseguridad, TI o Backend</strong>.
+              </p>
+
+              <div class="contact-details">
+                <div class="contact-detail-row">
+                  <span class="detail-label">CORREO ELECTRÓNICO</span>
+                  <a class="detail-value email-link" href="mailto:italomijail@gmail.com">italomijail@gmail.com</a>
+                </div>
+                <div class="contact-detail-row">
+                  <span class="detail-label">UBICACIÓN</span>
+                  <span class="detail-value">Lima, Perú (Disponibilidad Presencial / Híbrida / Remota)</span>
+                </div>
+              </div>
+
+              <div class="contact-actions">
+                <button class="btn btn-outline copy-email-btn magnetic" id="copy-email-btn" type="button">
+                  <svg class="icon"><use href="#icon-copy" /></svg>
+                  <span id="copy-text">Copiar Correo</span>
+                </button>
+                <a
+                  class="btn btn-ghost magnetic"
+                  href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <svg class="icon"><use href="#icon-linkedin" /></svg>
+                  <span>LinkedIn</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Formulario de Contacto -->
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-group">
+                <label for="contact-name">Tu Nombre o Empresa</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  placeholder="Ej. Martín González (Tech Lead)"
+                  required
+                  maxlength="80"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-email">Tu Correo de Contacto</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  placeholder="ejemplo@empresa.com"
+                  required
+                  maxlength="100"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="contact-role">Área o Tipo de Oportunidad</label>
+                <select id="contact-role" name="role">
+                  <option value="DevSecOps / Cloud">DevSecOps / Cloud Infrastructure</option>
+                  <option value="Ciberseguridad / SOC">Ciberseguridad / Seguridad de la Información</option>
+                  <option value="Desarrollo Backend">Desarrollo Backend / Sistemas Distribuidos</option>
+                  <option value="Investigación / Pasantía">Investigación / Pasantía Internacional</option>
+                  <option value="Otro">Otro proyecto</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="contact-message">Mensaje</label>
+                <textarea
+                  id="contact-message"
+                  name="message"
+                  rows="4"
+                  placeholder="Hola Italo, queremos coordinar una entrevista técnica para nuestro equipo..."
+                  required
+                  maxlength="1000"
+                ></textarea>
+              </div>
+
+              <button class="btn btn-primary btn-block magnetic" type="submit" id="submit-btn">
+                <span>Preparar Mensaje</span>
+                <svg class="icon"><use href="#icon-arrow" /></svg>
+              </button>
+              <p class="form-note">
+                El formulario prepara tu mensaje para enviarlo directamente vía correo sin recopilación de datos privados.
+              </p>
             </form>
           </div>
         </div>
       </section>
     </main>
-    <footer class="site-footer wrap">
-      <a class="wordmark" href="#inicio" aria-label="Volver al inicio"
-        >italo<span>.</span></a
-      >
-      <p>HECHO CON INTENCIÓN. SIEMPRE EN EVOLUCIÓN.</p>
-      <div>
-        <button class="motion-toggle" type="button" aria-pressed="false">
-          Pausar animaciones <span aria-hidden="true">Ⅱ</span></button
-        ><a class="back-top" href="#inicio" aria-label="Volver arriba"
-          ><svg class="icon"><use href="#icon-arrow" /></svg
-        ></a>
+
+    <!-- 7. FOOTER MINIMALISTA -->
+    <footer class="site-footer">
+      <div class="wrap footer-container">
+        <div class="footer-left">
+          <span class="footer-brand">&lt;italo.<span class="neon-dot">_</span>&gt;</span>
+          <span class="footer-copy">© 2026 Italo Mijail Ramos Diaz · Diseñado con precisión y estándares de ingeniería.</span>
+        </div>
+        <div class="footer-links">
+          <a class="magnetic" href="https://github.com/italo04" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a class="magnetic" href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="magnetic" href="mailto:italomijail@gmail.com">Email</a>
+          <a class="magnetic scroll-top-btn" href="#inicio" aria-label="Volver arriba">↑ Arriba</a>
+        </div>
       </div>
     </footer>
-    <div class="toast" id="toast" role="status"></div>
-    <dialog
-      class="project-dialog"
-      id="project-dialog"
-      aria-labelledby="dialog-title"
-      data-lenis-prevent
-    >
-      <button
-        class="dialog-close round-link"
-        type="button"
-        aria-label="Cerrar proyecto"
-      >
-        <svg class="icon"><use href="#icon-close" /></svg>
-      </button>
-      <div class="dialog-content">
-        <p class="eyebrow" id="dialog-category"></p>
-        <h2 id="dialog-title"></h2>
-        <p class="dialog-summary" id="dialog-summary"></p>
-        <div class="dialog-rule"></div>
-        <h3>Qué explora el proyecto</h3>
-        <ul id="dialog-details"></ul>
-        <div id="dialog-stack" class="tags"></div>
-        <p class="dialog-note" id="dialog-note"></p>
-        <a
-          class="button button-dark"
-          id="dialog-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Ver repositorio <svg class="icon"><use href="#icon-arrow" /></svg
-        ></a>
+
+    <!-- MODAL NATIVO ACCESIBLE PARA DETALLES DE PROYECTO -->
+    <dialog class="project-modal" id="project-modal" aria-labelledby="modal-title">
+      <div class="modal-wrapper">
+        <div class="modal-header">
+          <span class="modal-badge" id="modal-badge">DETALLES TÉCNICOS</span>
+          <button class="modal-close-btn magnetic" id="modal-close-btn" type="button" aria-label="Cerrar modal">
+            ✕
+          </button>
+        </div>
+        <div class="modal-content-area" id="modal-content">
+          <!-- Contenido inyectado dinámicamente por script.js -->
+        </div>
       </div>
     </dialog>
   </body>
