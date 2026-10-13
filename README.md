@@ -1,41 +1,49 @@
-# Portafolio Profesional — Italo Mijail Ramos Diaz
+# Italo Ramos — portafolio
 
-> **Estudiante de 9.° ciclo de Ingeniería Informática — Pontificia Universidad Católica del Perú (PUCP)**  
-> Especializado en **Ciberseguridad**, **Cloud Computing (AWS/Azure)** y **Arquitectura Backend de Alta Concurrencia**.
+Web de una sola página, con dirección editorial, tipografía expresiva y gráficos conceptuales de sistemas. Actualiza el portafolio existente de GitHub Pages.
 
----
+## Vista previa
 
-## 🌐 Enlace de Acceso 24/7 (GitHub Pages)
+No requiere instalación ni compilación. Abre `index.html` o ejecuta un servidor estático desde esta carpeta:
 
-El portafolio se encuentra alojado mediante una arquitectura estática global con CDN y certificado SSL activo las 24 horas del día, los 7 días de la semana, sin costos de mantenimiento ni servidores backend:
+```sh
+python -m http.server 4174 --bind 127.0.0.1
+```
 
-👉 **URL Pública:** [https://italo04.github.io/portafolio/](https://italo04.github.io/portafolio/)
+Abre `http://127.0.0.1:4174/`. Las fuentes y librerías se sirven localmente. La copia de correo depende de Clipboard API y de un contexto seguro (localhost o HTTPS); si no está disponible, se muestra el correo para copiarlo manualmente.
 
----
+## Archivos
 
-## 🚀 Proyectos Integrados en el Portafolio
+- `index.html`: contenido, navegación, proyectos y formulario.
+- `styles.css`: tokens, composición y adaptación a pantallas pequeñas.
+- `script.js`: datos de proyectos, filtros, modales, movimiento y contacto.
+- `assets/system-object.svg`: ilustración vectorial original de sistemas conectados.
+- `assets/fonts/`: Space Grotesk, Manrope e Instrument Serif, servidas localmente.
+- `assets/vendor/`: GSAP 3.13.0, ScrollTrigger, Lenis 1.3.26 y Motion DOM de Framer Motion 13.4.6.
+- `docs/content-notes.md`: fuentes y límites del contenido profesional.
 
-1. **[Fintech Transaction Engine](https://github.com/italo04/fintech-transaction-engine)**  
-   *FastAPI, PostgreSQL, Docker, Pytest.*  
-   Motor de transferencias financieras de alta concurrencia con aislamiento Serializable, prevención de race conditions e idempotencia estricta.
+## Movimiento e interacción
 
-2. **[Secure Cloud Infra & Linux Hardening](https://github.com/italo04/secure-cloud-infra)**  
-   *AWS (VPC, IAM, EC2), Bash Scripting, Terraform, iptables, fail2ban.*  
-   Infraestructura cloud segmentada en AWS bajo principio de mínimo privilegio y bastionado automatizado de servidores Linux.
+Lenis se sincroniza con el ticker de GSAP. ScrollTrigger controla las entradas y el parallax; Motion DOM se usa para las interacciones de puntero con resortes y el modal. La página no necesita React.
 
-3. **[LayerForge Microservices Architecture](https://github.com/italo04/layerforge-microservices)**  
-   *Java 17, Spring Boot 3, Spring Cloud, Netflix Eureka, Docker Compose.*  
-   Arquitectura de microservicios distribuida con service discovery, API gateway reactivo y desacoplamiento de capas.
+- Reveal del título y entradas al hacer scroll.
+- Proyectos con filtros, tilt suave y detalles en un diálogo nativo.
+- Botones magnéticos y cursor decorativo, solo para puntero fino.
+- Barra de progreso y cabecera que responde al desplazamiento.
+- Navegación móvil, cierre con Escape y retorno del foco desde los proyectos.
+- `prefers-reduced-motion`, botón de pausa persistente y suspensión del marquee en pestañas ocultas.
+- El contenido y los enlaces a repositorios permanecen accesibles sin las librerías de animación.
 
-4. **Tesis de Grado (PFC 1 — PUCP)**  
-   *Azure IoT Hub / AWS, AES-256, MQTT/TLS, Wokwi ESP32, Modelo PACELC.*  
-   Diseño arquitectónico para transacciones financieras en terminales IoT desconectados con sincronización asíncrona segura.
+## Contacto
 
----
+El formulario valida los campos y prepara un enlace `mailto:` con asunto y cuerpo codificados. **No envía el mensaje desde un servidor.** El visitante completa el envío en su aplicación de correo. No se almacenan los datos del formulario ni se incluyen analíticas.
 
-## 🛠️ Tecnologías del Portafolio
+## Publicación
 
-- **Frontend:** HTML5 Semántico, CSS3 Moderno (Glassmorphism, CSS Custom Properties, Responsive Grid), JavaScript Vanilla (ES6+).
-- **Interactividad:** Terminal interactivo con simulación de comandos (`whoami`, `proyectos`, `tesis`, `contacto`), filtros dinámicos por área, modales de arquitectura y copiado rápido de correo con feedback visual.
-- **Hosting:** GitHub Pages con despliegue automático mediante GitHub Actions (`.github/workflows/deploy.yml`).
-- **Disponibilidad:** 99.99% uptime sobre la red de borde (CDN) global de GitHub sin bases de datos ni servidores que mantener.
+Se conserva `.github/workflows/deploy.yml`, que publica el directorio estático en GitHub Pages al hacer push a `main`. Esta actualización se prepara localmente; no implica que haya sido publicada.
+
+## Dependencias y licencias
+
+Motion y Lenis conservan sus avisos MIT en `assets/vendor/`. GSAP y ScrollTrigger conservan el aviso de licencia en sus cabeceras; condiciones: https://gsap.com/standard-license/. Las licencias OFL de las fuentes se incluyen en `assets/fonts/`.
+
+Los vídeos de la versión anterior se conservan en `assets/videos/`, pero la nueva web no los descarga ni reproduce.
