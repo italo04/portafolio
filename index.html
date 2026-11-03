@@ -3,31 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0A0A0F" />
-    <title>Italo Ramos — Cloud, DevSecOps & Software Architecture</title>
+    <meta name="theme-color" content="#0C0D0E" />
+    <title>Italo Ramos — Cloud, DevSecOps & Architecture</title>
     <meta
       name="description"
-      content="Portafolio de Italo Ramos, estudiante de 9.º ciclo de Ingeniería Informática en la PUCP. Especializado en Cloud (AWS), DevSecOps, Hardening Linux, Backend de alto rendimiento e IA."
+      content="Portafolio Acid Brutal de Italo Ramos, estudiante de 9.º ciclo de Ingeniería Informática en la PUCP. Especializado en Cloud (AWS), DevSecOps, Hardening Linux, Backend concurrente e IA."
     />
     <meta name="author" content="Italo Mijail Ramos Diaz" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Italo Ramos — Cloud, DevSecOps & Software Architecture" />
+    <meta property="og:title" content="Italo Ramos — Cloud, DevSecOps & Systems Architecture" />
     <meta
       property="og:description"
-      content="Estudiante de 9.º ciclo PUCP. Infraestructura Cloud segura, Linux Hardening, CI/CD y Backend concurrente."
+      content="Estudiante de 9.º ciclo PUCP. Infraestructura Cloud Zero-Trust, DevSecOps, Linux Hardening y APIs concurrentes."
     />
     <meta property="og:url" content="https://italo04.github.io/portafolio/" />
     <link rel="canonical" href="https://italo04.github.io/portafolio/" />
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
-    <!-- Fuentes locales (Space Grotesk, Manrope, Instrument Serif) -->
+    <!-- Google Fonts: Bebas Neue, Anton, Space Mono & Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Fuentes locales complementarias -->
     <link rel="stylesheet" href="assets/fonts/fonts.css" />
 
-    <!-- Estilos de Lenis y arquitectura visual -->
+    <!-- Vendor y Estilos Principales -->
     <link rel="stylesheet" href="assets/vendor/lenis.css" />
     <link rel="stylesheet" href="styles.css" />
 
-    <!-- Script de inicialización rápida -->
     <script>
       document.documentElement.classList.add("js");
     </script>
@@ -39,28 +46,31 @@
     <script src="assets/vendor/motion.js" defer></script>
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="theme-acid-brutal">
+    <!-- Overlay de grano/textura táctil de papel -->
+    <div class="noise-overlay" aria-hidden="true"></div>
+
     <!-- Skip link para accesibilidad -->
     <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
-    <!-- Preloader elegante con revelación futurista -->
+    <!-- Preloader Acid Brutal -->
     <div class="preloader" id="preloader" aria-hidden="true">
       <div class="preloader-inner">
-        <div class="preloader-badge">SYSTEM // INITIALIZING</div>
+        <div class="preloader-meta">ID: IR/2026/09 // BOOTLOADER</div>
         <div class="preloader-logo">
-          <span class="logo-text">italo<span class="neon-dot">.</span></span>
+          <span class="logo-acid">ITALO</span><span class="logo-dot">_</span>
         </div>
         <div class="preloader-bar">
           <div class="preloader-progress" id="preloader-progress"></div>
         </div>
-        <div class="preloader-caption">CLOUD · DEVSECOPS · ARCHITECTURE</div>
+        <div class="preloader-caption">SYSTEM // ARCHITECTURE · CLOUD · DEVSECOPS</div>
       </div>
     </div>
 
-    <!-- Barra de progreso de scroll fija -->
+    <!-- Barra de progreso de scroll -->
     <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
 
-    <!-- Cursor personalizado elástico (solo puntero fino) -->
+    <!-- Cursor personalizado elástico con mira técnica -->
     <div class="custom-cursor" id="custom-cursor" aria-hidden="true">
       <div class="cursor-glow"></div>
       <div class="cursor-label" id="cursor-label"></div>
@@ -70,53 +80,72 @@
     <!-- Símbolos SVG reutilizables -->
     <svg class="svg-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="display: none;">
       <symbol id="icon-arrow" viewBox="0 0 24 24">
-        <path d="M5 19 19 5M5 5h14v14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5 19 19 5M5 5h14v14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"/>
       </symbol>
       <symbol id="icon-external" viewBox="0 0 24 24">
-        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
       </symbol>
       <symbol id="icon-github" viewBox="0 0 24 24">
         <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" fill="currentColor"/>
       </symbol>
       <symbol id="icon-linkedin" viewBox="0 0 24 24">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"/>
       </symbol>
       <symbol id="icon-copy" viewBox="0 0 24 24">
-        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <rect x="9" y="9" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" fill="none" stroke="currentColor" stroke-width="2"/>
       </symbol>
       <symbol id="icon-check" viewBox="0 0 24 24">
-        <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </symbol>
-      <symbol id="icon-shield" viewBox="0 0 24 24">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </symbol>
-      <symbol id="icon-terminal" viewBox="0 0 24 24">
-        <polyline points="4 17 10 11 4 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <line x1="12" y1="19" x2="20" y2="19" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20 6L9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3"/>
       </symbol>
     </svg>
 
-    <!-- Header / Navbar Inteligente -->
+    <!-- 0. BARRA TÉCNICA SUPERIOR (Acid Brutal Header Bar) -->
+    <div class="technical-top-bar wrap">
+      <div class="tech-col-left">
+        <span class="tech-label">SYSTEMS ARCHITECT // CLOUD & DEVSECOPS</span>
+        <svg class="mini-wire-globe" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="16" cy="16" r="14"/>
+          <ellipse cx="16" cy="16" rx="14" ry="5.5"/>
+          <ellipse cx="16" cy="16" rx="14" ry="10.5"/>
+          <line x1="16" y1="2" x2="16" y2="30"/>
+        </svg>
+      </div>
+      <div class="tech-col-center">
+        <span>BASED IN LIMA, PERÚ</span>
+        <span class="tech-cross">+</span>
+        <span id="current-time">19:00:00 (LIMA)</span>
+      </div>
+      <div class="tech-col-right">
+        <span class="copyright-tag">2026©</span>
+        <div class="tech-battery">
+          <span class="bat-cell active"></span>
+          <span class="bat-cell active"></span>
+          <span class="bat-cell active"></span>
+          <span class="bat-label">ONLINE</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header / Navbar Principal -->
     <header class="site-header" id="site-header">
       <div class="header-container wrap">
         <a class="brand magnetic" href="#inicio" aria-label="Italo Ramos, inicio">
-          <span class="brand-code">&lt;</span>italo<span class="brand-dot">.</span><span class="brand-code">&gt;</span>
+          <span class="brand-bracket">[</span>ITALO.RAMOS<span class="brand-bracket">]</span>
         </a>
 
         <div class="header-status">
           <span class="status-indicator"></span>
-          <span class="status-text">DISPONIBLE PRÁCTICAS 2027</span>
+          <span class="status-text">DISPONIBLE PRÁCTICAS PRE 2027</span>
         </div>
 
         <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
           <a class="nav-link" href="#proyectos">Proyectos</a>
-          <a class="nav-link" href="#habilidades">Habilidades</a>
-          <a class="nav-link" href="#sobre-mi">Sobre mí</a>
-          <a class="nav-link" href="#experiencia">Experiencia</a>
+          <a class="nav-link" href="#proceso">Metodología</a>
+          <a class="nav-link" href="#habilidades">Matriz Técnica</a>
+          <a class="nav-link" href="#trayectoria">Trayectoria</a>
           <a class="nav-cta magnetic" href="#contacto">
-            <span>Hablemos</span>
-            <svg class="icon"><use href="#icon-arrow" /></svg>
+            <span>Contactar ↗</span>
           </a>
         </nav>
 
@@ -126,7 +155,7 @@
           type="button"
           aria-expanded="false"
           aria-controls="main-nav"
-          aria-label="Alternar menú de navegación"
+          aria-label="Alternar menú"
         >
           <span class="menu-bar"></span>
           <span class="menu-bar"></span>
@@ -135,701 +164,602 @@
     </header>
 
     <main id="contenido">
-      <!-- 1. HERO SECTION con Canvas Interactivo de Partículas -->
-      <section class="hero-section" id="inicio" aria-labelledby="hero-title">
+      <!-- ====================================================================
+           1. HERO POSTER: ACID BRUTAL SPLIT
+           ==================================================================== -->
+      <section class="hero-poster wrap" id="inicio" aria-labelledby="hero-title">
         <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
-        <div class="hero-overlay" aria-hidden="true"></div>
 
-        <div class="wrap hero-content">
-          <div class="hero-meta reveal-up">
-            <span class="hero-badge">
-              <svg class="icon"><use href="#icon-shield" /></svg>
-              <span>9.º CICLO INGENIERÍA INFORMÁTICA · PUCP</span>
-            </span>
-            <span class="hero-location">LIMA, PERÚ · <span id="current-time">UTC-5</span></span>
+        <div class="hero-grid">
+          <!-- Columna Izquierda: Tipografía Monumental "ITALO RAMOS" -->
+          <div class="hero-typo-col">
+            <div class="brutal-meta-tag">
+              <span class="bracket">[</span> PUCP · 9.º CICLO · ING. INFORMÁTICA <span class="bracket">]</span>
+            </div>
+
+            <h1 class="monumental-headline" id="hero-title">
+              <span class="word-chalk">ITALO</span>
+              <span class="word-acid">RAMOS</span>
+            </h1>
+
+            <div class="hero-subline">
+              <span class="subline-title">DEVSECOPS & CLOUD PORTFOLIO</span>
+              <span class="subline-arrow">↗</span>
+            </div>
           </div>
 
-          <h1 class="hero-headline" id="hero-title">
-            <span class="headline-row"><span class="headline-word">Arquitectura</span> <span class="headline-word neon-cyan">Cloud.</span></span>
-            <span class="headline-row"><span class="headline-word neon-violet">Ciberseguridad.</span></span>
-            <span class="headline-row"><span class="headline-word">Sistemas</span> <span class="headline-word serif-word">resilientes.</span></span>
-          </h1>
-
-          <p class="hero-subheadline reveal-up">
-            Diseño infraestructura en <strong>AWS</strong> bajo el principio de mínimo privilegio, automatizo despliegues con <strong>Docker & CI/CD</strong>, bastiono entornos <strong>Linux</strong> y desarrollo motores backend concurrentes en <strong>Python / FastAPI</strong>.
-          </p>
-
-          <div class="hero-actions reveal-up">
-            <a class="btn btn-primary magnetic" href="#proyectos">
-              <span>Explorar Proyectos</span>
-              <svg class="icon"><use href="#icon-arrow" /></svg>
-            </a>
-            <a class="btn btn-secondary magnetic" href="#contacto">
-              <span>Contactar Ahora</span>
-            </a>
-            <a
-              class="btn btn-ghost magnetic"
-              href="https://github.com/italo04"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Ver perfil de GitHub de Italo Ramos"
-            >
-              <svg class="icon"><use href="#icon-github" /></svg>
-              <span>GitHub</span>
-            </a>
-          </div>
-
-          <!-- Métricas de pie de Hero -->
-          <div class="hero-ticker reveal-up">
-            <div class="ticker-item">
-              <span class="ticker-label">UNIVERSIDAD</span>
-              <span class="ticker-value">PUCP (Top 1 Perú)</span>
+          <!-- Columna Derecha: Badge Avatar Circular + Tarjeta INTRODUCTION Kraft -->
+          <div class="hero-right-col">
+            <!-- Badge Circular Acid Green con Retrato / Monograma y Glitch -->
+            <div class="acid-avatar-container">
+              <div class="acid-circle">
+                <div class="circle-grid-pattern"></div>
+                <div class="portrait-graphic">
+                  <!-- Retrato de Alto Contraste Gráfico -->
+                  <div class="monogram-heavy">
+                    <span>IR</span>
+                  </div>
+                  <div class="cyber-scanlines"></div>
+                </div>
+                <!-- Franja Glitch / Barcode horizontal -->
+                <div class="glitch-strip">
+                  <div class="barcode-lines"></div>
+                </div>
+              </div>
+              <div class="avatar-tag-id">ID: IR/2026/09</div>
             </div>
-            <div class="ticker-item">
-              <span class="ticker-label">CERTIFICACIÓN TARGET</span>
-              <span class="ticker-value">AWS Cloud Practitioner (Nov 2026)</span>
-            </div>
-            <div class="ticker-item">
-              <span class="ticker-label">IDIOMAS</span>
-              <span class="ticker-value">Inglés Fluido (Work & Travel USA)</span>
-            </div>
-            <div class="ticker-item">
-              <span class="ticker-label">STACK CLAVE</span>
-              <span class="ticker-value">Linux · AWS · Docker · FastAPI</span>
+
+            <!-- Tarjeta INTRODUCTION estilo Kraft Paper con flecha doblada -->
+            <div class="card-introduction" data-tilt>
+              <div class="intro-header">
+                <span class="intro-arrow">↘</span>
+                <span class="intro-title">INTRODUCTION</span>
+              </div>
+              <p class="intro-text">
+                Estudiante de 9.º ciclo de Ingeniería Informática en la <strong>PUCP</strong>. Diseño arquitecturas cloud Zero-Trust en <strong>AWS</strong>, automatizo flujos <strong>DevSecOps</strong> con contenedores multi-etapa y construyo motores backend concurrentes que cortan el ruido y entregan impacto real.
+              </p>
+              <div class="intro-tags-grid">
+                <div class="intro-tag-item">CLOUD INFRASTRUCTURE</div>
+                <div class="intro-tag-item">DEVSECOPS & SAST</div>
+                <div class="intro-tag-item">BACKEND CONCURRENCY</div>
+                <div class="intro-tag-item">LINUX HARDENING</div>
+              </div>
+              <div class="intro-footer">
+                <svg class="wire-globe-sm" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="50" cy="50" r="46"/>
+                  <ellipse cx="50" cy="50" rx="46" ry="18"/>
+                  <ellipse cx="50" cy="50" rx="46" ry="34"/>
+                  <line x1="50" y1="4" x2="50" y2="96"/>
+                  <line x1="4" y1="50" x2="96" y2="50"/>
+                </svg>
+                <div class="crosshairs-pair">
+                  <span>+</span>
+                  <span class="green">+</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 2. SECCIÓN SOBRE MÍ (Bento Grid con Datos Animados) -->
-      <section class="about-section section-padding wrap" id="sobre-mi" aria-labelledby="about-title">
-        <div class="section-tag reveal-up">
-          <span class="tag-number">01</span>
-          <span class="tag-title">PERFIL PROFESIONAL</span>
-        </div>
-
-        <div class="about-bento">
-          <!-- Tarjeta Avatar & Identidad -->
-          <div class="about-card identity-card bento-item reveal-up">
-            <div class="cyber-frame">
-              <div class="cyber-corner top-left"></div>
-              <div class="cyber-corner top-right"></div>
-              <div class="cyber-corner bottom-left"></div>
-              <div class="cyber-corner bottom-right"></div>
-            </div>
-
-            <div class="avatar-visual">
-              <div class="avatar-orbit orbit-outer"></div>
-              <div class="avatar-orbit orbit-inner"></div>
-              <div class="avatar-glow"></div>
-              <div class="avatar-monogram">
-                <span>IR<span class="neon-dot">_</span></span>
+      <!-- ====================================================================
+           2. CUERPO SPLIT: SELECTED PROJECTS (IZQ) vs PROCESS NOTES (DER)
+           ==================================================================== -->
+      <section class="split-body-section wrap" id="proyectos" aria-labelledby="selected-projects-title">
+        <div class="split-grid">
+          <!-- COLUMNA IZQUIERDA: SELECTED PROJECTS -->
+          <div class="projects-column">
+            <div class="column-header-brutal">
+              <h2 id="selected-projects-title" class="col-title">SELECTED PROJECTS</h2>
+              <div class="col-header-line"></div>
+              <div class="col-header-bars">
+                <span></span><span></span><span></span>
               </div>
             </div>
 
-            <div class="identity-info">
-              <h3>ITALO MIJAIL RAMOS DIAZ</h3>
-              <p class="identity-role">Ingeniero Informático en Formación</p>
-              <div class="identity-pill">
-                <span class="status-indicator"></span>
-                <span>Enfocado en Cloud & DevSecOps</span>
-              </div>
+            <div class="project-list-brutal">
+              <!-- PROYECTO 01: Threat Analyzer -->
+              <article class="project-row-item reveal-up" data-category="cloud backend" data-tilt>
+                <div class="num-block">
+                  <span class="stencil-num">01</span>
+                  <div class="num-equalizer" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <div class="project-thumb-preview modal-trigger" data-modal="ai-log-analyzer" role="button" tabindex="0">
+                  <div class="thumb-header">
+                    <span class="term-status-dot"></span>
+                    <span class="thumb-label">THREAT_ANALYZER.PY</span>
+                  </div>
+                  <div class="thumb-body">
+                    <div class="term-line green">[INFO] Monitoring /var/log/auth.log</div>
+                    <div class="term-line">[AI] Isolation Forest anomaly: 98.4%</div>
+                    <div class="term-line acid-box">[ACTION] iptables DROP 198.51.100.23</div>
+                  </div>
+                </div>
+
+                <div class="project-meta-info">
+                  <div class="proj-title-row">
+                    <h3 class="proj-name">AI THREAT DETECTOR</h3>
+                    <button class="arrow-trigger modal-trigger" data-modal="ai-log-analyzer" aria-label="Ver detalles de Threat Detector">↗</button>
+                  </div>
+                  <div class="proj-category">
+                    <span>FASTAPI · SCIKIT-LEARN · DOCKER NON-ROOT · LINUX</span>
+                    <span class="proj-year">2026 ↗</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- PROYECTO 02: Fintech Engine -->
+              <article class="project-row-item reveal-up" data-category="backend" data-tilt>
+                <div class="num-block">
+                  <span class="stencil-num">02</span>
+                  <div class="num-equalizer" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <div class="project-thumb-preview modal-trigger" data-modal="fintech-engine" role="button" tabindex="0">
+                  <div class="thumb-header">
+                    <span class="term-status-dot"></span>
+                    <span class="thumb-label">POSTGRESQL // ACID_CORE</span>
+                  </div>
+                  <div class="thumb-body">
+                    <div class="term-line green">SELECT FOR UPDATE NOWAIT;</div>
+                    <div class="term-line">Idempotency UUIDv4 -> VALIDATED</div>
+                    <div class="term-line acid-box">50 PARALLEL THREADS: 0 DRIFT</div>
+                  </div>
+                </div>
+
+                <div class="project-meta-info">
+                  <div class="proj-title-row">
+                    <h3 class="proj-name">FINTECH TRANSACTION ENGINE</h3>
+                    <button class="arrow-trigger modal-trigger" data-modal="fintech-engine" aria-label="Ver detalles de Fintech Engine">↗</button>
+                  </div>
+                  <div class="proj-category">
+                    <span>POSTGRESQL · FASTAPI · PYTEST · CONCURRENCY</span>
+                    <span class="proj-year">2026 ↗</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- PROYECTO 03: Secure Cloud Infra -->
+              <article class="project-row-item reveal-up" data-category="cloud" data-tilt>
+                <div class="num-block">
+                  <span class="stencil-num">03</span>
+                  <div class="num-equalizer" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <div class="project-thumb-preview modal-trigger" data-modal="secure-cloud" role="button" tabindex="0">
+                  <div class="thumb-header">
+                    <span class="term-status-dot"></span>
+                    <span class="thumb-label">TERRAFORM // AWS_VPC</span>
+                  </div>
+                  <div class="thumb-body">
+                    <div class="term-line green">module.vpc.subnets: private/isolated</div>
+                    <div class="term-line">IAM minimum privilege: 0 wildcards</div>
+                    <div class="term-line acid-box">FAIL2BAN + SSH KEY ONLY: ACTIVE</div>
+                  </div>
+                </div>
+
+                <div class="project-meta-info">
+                  <div class="proj-title-row">
+                    <h3 class="proj-name">SECURE CLOUD & LINUX HARDENING</h3>
+                    <button class="arrow-trigger modal-trigger" data-modal="secure-cloud" aria-label="Ver detalles de Secure Cloud">↗</button>
+                  </div>
+                  <div class="proj-category">
+                    <span>AWS VPC · TERRAFORM · UBUNTU · ZERO-TRUST</span>
+                    <span class="proj-year">2026 ↗</span>
+                  </div>
+                </div>
+              </article>
+
+              <!-- PROYECTO 04: Tesis PFC 1 -->
+              <article class="project-row-item reveal-up" data-category="cloud backend" data-tilt>
+                <div class="num-block">
+                  <span class="stencil-num">04</span>
+                  <div class="num-equalizer" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                </div>
+
+                <div class="project-thumb-preview modal-trigger" data-modal="tesis-pucp" role="button" tabindex="0">
+                  <div class="thumb-header">
+                    <span class="term-status-dot"></span>
+                    <span class="thumb-label">PUCP // PFC_1_THESIS</span>
+                  </div>
+                  <div class="thumb-body">
+                    <div class="term-line green">ESP32 Flash: AES-256-GCM Encrypted</div>
+                    <div class="term-line">MQTT over TLS -> Async Queue</div>
+                    <div class="term-line acid-box">PACELC AP/SEC -> RECONCILED</div>
+                  </div>
+                </div>
+
+                <div class="project-meta-info">
+                  <div class="proj-title-row">
+                    <h3 class="proj-name">OFFLINE CLOUD-IOT PAYMENTS</h3>
+                    <button class="arrow-trigger modal-trigger" data-modal="tesis-pucp" aria-label="Ver detalles de Tesis PUCP">↗</button>
+                  </div>
+                  <div class="proj-category">
+                    <span>TESIS PUCP · ESP32 · MQTT · AES-256 · PACELC</span>
+                    <span class="proj-year">2026 ↗</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- Botón View Full Archive -->
+            <div class="archive-footer-btn reveal-up">
+              <a
+                class="btn-brutal-full magnetic"
+                href="https://github.com/italo04?tab=repositories"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>VIEW FULL PROJECT ARCHIVE (GITHUB)</span>
+                <span class="plus-icon">+</span>
+              </a>
             </div>
           </div>
 
-          <!-- Tarjeta Biografía -->
-          <div class="about-card bio-card bento-item reveal-up">
-            <h2 id="about-title" class="about-headline">
-              Ingeniería sólida donde el software se encuentra con la <em>infraestructura.</em>
+          <!-- COLUMNA DERECHA: PROCESS NOTES -->
+          <div class="process-column" id="proceso">
+            <div class="column-header-brutal">
+              <h2 class="col-title text-acid">PROCESS NOTES</h2>
+              <div class="col-header-line acid-line"></div>
+              <span class="step-counter">[05 STEPS]</span>
+            </div>
+
+            <div class="process-steps-list">
+              <!-- Step 1: Research -->
+              <div class="process-step-item reveal-up">
+                <div class="step-icon-box">
+                  <svg class="wire-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                    <polyline points="2 12 12 17 22 12"/>
+                    <polyline points="2 17 12 22 22 17"/>
+                  </svg>
+                </div>
+                <div class="step-content">
+                  <h3 class="step-title">01 // RESEARCH</h3>
+                  <p class="step-desc">
+                    Mapeo exhaustivo de vectores de ataque, requisitos de consistencia eventual, concurrencia y límites operativos según normativas y contexto del negocio.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 2: Architecture -->
+              <div class="process-step-item reveal-up">
+                <div class="step-icon-box">
+                  <svg class="wire-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <line x1="12" y1="2" x2="12" y2="22"/>
+                    <line x1="2" y1="12" x2="22" y2="12"/>
+                    <line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/>
+                    <line x1="4.93" y1="19.07" x2="19.07" y2="4.93"/>
+                  </svg>
+                </div>
+                <div class="step-content">
+                  <h3 class="step-title">02 // ARCHITECTURE</h3>
+                  <p class="step-desc">
+                    Modelado de arquitectura en C4. Desacoplamiento mediante colas asíncronas, definición de esquemas relacionales 3FN y garantías transaccionales ACID.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 3: Hardening -->
+              <div class="process-step-item reveal-up">
+                <div class="step-icon-box">
+                  <svg class="wire-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="3"/>
+                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-30 12 12)"/>
+                    <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(30 12 12)"/>
+                  </svg>
+                </div>
+                <div class="step-content">
+                  <h3 class="step-title">03 // HARDENING</h3>
+                  <p class="step-desc">
+                    Políticas de mínimo privilegio en AWS IAM, reglas Zero-Trust en Security Groups, bastionado de servidores Linux con iptables y fail2ban, y cifrado AES-256.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 4: Automation -->
+              <div class="process-step-item reveal-up">
+                <div class="step-icon-box">
+                  <svg class="wire-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="10"/>
+                    <ellipse cx="12" cy="12" rx="10" ry="4"/>
+                    <line x1="12" y1="2" x2="12" y2="22"/>
+                  </svg>
+                </div>
+                <div class="step-content">
+                  <h3 class="step-title">04 // AUTOMATION</h3>
+                  <p class="step-desc">
+                    Pipelines de CI/CD automatizados en GitHub Actions: pruebas unitarias en Pytest, análisis estático SAST (Bandit), escaneo de contenedores (Trivy) e IaC con Terraform.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Step 5: Deliver & SRE -->
+              <div class="process-step-item reveal-up">
+                <div class="step-icon-box">
+                  <svg class="wire-glyph" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12"/>
+                  </svg>
+                </div>
+                <div class="step-content">
+                  <h3 class="step-title">05 // DELIVER & SRE</h3>
+                  <p class="step-desc">
+                    Pruebas de estrés y benchmarking de concurrencia. Observabilidad con logs estructurados, monitoreo de métricas operativas y resiliencia en producción.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           3. BENTO INFERIOR: SKILLS MATRIX + QUOTE + TOOLS (COMO EL PÓSTER)
+           ==================================================================== -->
+      <section class="bottom-bento-section wrap" id="habilidades" aria-labelledby="skills-matrix-title">
+        <div class="bento-three-columns">
+          <!-- Tarjeta 1: SKILLS MATRIX (Heatmap / Pixel Equalizer) -->
+          <div class="bento-box skills-matrix-box reveal-up">
+            <div class="box-tag-header">
+              <span class="box-label" id="skills-matrix-title">SKILLS MATRIX</span>
+              <span class="box-code">[DEVSECOPS_EVAL]</span>
+            </div>
+
+            <div class="matrix-heatmap">
+              <!-- Row 1: AWS / Cloud -->
+              <div class="matrix-row">
+                <span class="skill-name">AWS / CLOUD</span>
+                <div class="pixel-cells" data-level="6">
+                  <span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell"></span><span class="cell"></span>
+                </div>
+              </div>
+              <!-- Row 2: Docker & CI/CD -->
+              <div class="matrix-row">
+                <span class="skill-name">DOCKER & CI/CD</span>
+                <div class="pixel-cells" data-level="7">
+                  <span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell"></span>
+                </div>
+              </div>
+              <!-- Row 3: Python / FastAPI -->
+              <div class="matrix-row">
+                <span class="skill-name">PYTHON / FASTAPI</span>
+                <div class="pixel-cells" data-level="7">
+                  <span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell"></span>
+                </div>
+              </div>
+              <!-- Row 4: Linux Hardening -->
+              <div class="matrix-row">
+                <span class="skill-name">LINUX HARDENING</span>
+                <div class="pixel-cells" data-level="6">
+                  <span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell"></span><span class="cell"></span>
+                </div>
+              </div>
+              <!-- Row 5: PostgreSQL / SQL -->
+              <div class="matrix-row">
+                <span class="skill-name">POSTGRESQL / SQL</span>
+                <div class="pixel-cells" data-level="6">
+                  <span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell"></span><span class="cell"></span>
+                </div>
+              </div>
+              <!-- Row 6: DevSecOps / SAST -->
+              <div class="matrix-row">
+                <span class="skill-name">DEVSECOPS / SAST</span>
+                <div class="pixel-cells" data-level="6">
+                  <span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell"></span><span class="cell"></span>
+                </div>
+              </div>
+              <!-- Row 7: Terraform (IaC) -->
+              <div class="matrix-row">
+                <span class="skill-name">TERRAFORM IAC</span>
+                <div class="pixel-cells" data-level="5">
+                  <span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell active"></span><span class="cell"></span><span class="cell"></span><span class="cell"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="matrix-scale">
+              <span class="scale-label">BASIC</span>
+              <div class="scale-ruler">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <span class="scale-label">EXPERT</span>
+            </div>
+          </div>
+
+          <!-- Tarjeta 2: Quote Central Acid Green -->
+          <div class="bento-box quote-banner-box reveal-up">
+            <div class="quote-asterisk-top">✳</div>
+            <blockquote class="acid-quote">
+              “SECURITY IS ARCHITECTURE MADE VISIBLE.”
+            </blockquote>
+            <div class="quote-footer-ornament">
+              <svg class="wire-globe-quote" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.8">
+                <circle cx="50" cy="50" r="46"/>
+                <ellipse cx="50" cy="50" rx="46" ry="18"/>
+                <ellipse cx="50" cy="50" rx="46" ry="34"/>
+                <line x1="50" y1="4" x2="50" y2="96"/>
+                <line x1="4" y1="50" x2="96" y2="50"/>
+              </svg>
+              <span class="cross-icon">+</span>
+            </div>
+          </div>
+
+          <!-- Tarjeta 3: TOOLS (Kraft Card con Asterisco Brutalista) -->
+          <div class="bento-box tools-kraft-box reveal-up" data-tilt>
+            <div class="tools-corner-tag">
+              <span>TOOLS</span>
+              <span class="corner-bracket">┐</span>
+            </div>
+
+            <ul class="tools-list">
+              <li>AWS (EC2, VPC, IAM, S3)</li>
+              <li>TERRAFORM (IAC)</li>
+              <li>DOCKER & COMPOSE</li>
+              <li>GITHUB ACTIONS (CI/CD)</li>
+              <li>FASTAPI & PYTHON</li>
+              <li>POSTGRESQL & SQL</li>
+              <li>LINUX (UBUNTU / BASH)</li>
+              <li>TRIVY, BANDIT & OWASP</li>
+            </ul>
+
+            <div class="tools-footer-symbol">
+              <!-- Asterisco Chunky Brutal 8-Point -->
+              <svg class="brutal-asterisk" viewBox="0 0 100 100" fill="currentColor">
+                <rect x="42" y="6" width="16" height="88" rx="2" />
+                <rect x="6" y="42" width="88" height="16" rx="2" />
+                <rect x="42" y="6" width="16" height="88" rx="2" transform="rotate(45 50 50)" />
+                <rect x="42" y="6" width="16" height="88" rx="2" transform="rotate(-45 50 50)" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           4. TRAYECTORIA / FORMACIÓN (Brutalist Timeline)
+           ==================================================================== -->
+      <section class="trajectory-section wrap" id="trayectoria" aria-labelledby="trayectoria-title">
+        <div class="column-header-brutal">
+          <h2 id="trayectoria-title" class="col-title">TRAYECTORIA & FORMACIÓN</h2>
+          <div class="col-header-line"></div>
+          <span class="step-counter">[PUCP · 9.º CICLO]</span>
+        </div>
+
+        <div class="trajectory-table">
+          <!-- Entry 1 -->
+          <div class="traj-row reveal-up">
+            <div class="traj-year">2022 — 2026</div>
+            <div class="traj-role">
+              <h3>Ingeniería Informática (9.º ciclo en curso)</h3>
+              <p>Pontificia Universidad Católica del Perú (PUCP) — Tesis PFC 1 en Cloud/IoT y línea IA-PUCP.</p>
+            </div>
+            <div class="traj-badge">ACADÉMICO</div>
+          </div>
+
+          <!-- Entry 2 -->
+          <div class="traj-row reveal-up">
+            <div class="traj-year">2026 — ACT.</div>
+            <div class="traj-role">
+              <h3>Desarrollo Backend & Arquitectura (Incubación)</h3>
+              <p>Red de Emprendimiento EQUIPU PUCP — Proyecto "TuDerecho" (LegalTech en FastAPI/PostgreSQL bajo Scrum).</p>
+            </div>
+            <div class="traj-badge">INNOVACIÓN</div>
+          </div>
+
+          <!-- Entry 3 -->
+          <div class="traj-row reveal-up">
+            <div class="traj-year">2026 — ACT.</div>
+            <div class="traj-role">
+              <h3>Miembro Estudiantil de Investigación</h3>
+              <p>Rama Estudiantil IEEE PUCP — Benchmarking de literatura científica en Deep Learning y Cloud.</p>
+            </div>
+            <div class="traj-badge">RESEARCH</div>
+          </div>
+
+          <!-- Entry 4 -->
+          <div class="traj-row reveal-up">
+            <div class="traj-year">VERANO</div>
+            <div class="traj-role">
+              <h3>Lifeguard Certificado (Experiencia Laboral en EE. UU.)</h3>
+              <p>Work & Travel USA — Comunicación 100% en inglés, gestión de riesgos y respuesta rápida bajo presión.</p>
+            </div>
+            <div class="traj-badge">INTERNACIONAL</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. FOOTER HERO / BIG FINISH (LET'S BUILD SOMETHING RESILIENT)
+           ==================================================================== -->
+      <section class="footer-hero-section wrap" id="contacto" aria-labelledby="footer-cta-title">
+        <div class="footer-hero-grid">
+          <!-- Columna Izquierda: Tipografía Colosal de Cierre -->
+          <div class="footer-massive-typo">
+            <h2 id="footer-cta-title" class="footer-headline">
+              <span class="row-chalk">LET'S BUILD <span class="chalk-arrow">↗</span></span>
+              <span class="row-acid">SOMETHING REAL.</span>
             </h2>
-            <p class="about-text">
-              Estudio 9.º ciclo en la <strong>Pontificia Universidad Católica del Perú (PUCP)</strong>. Mi foco no es solo escribir código que funcione, sino entender qué ocurre en la red, en el sistema operativo y en la nube cuando un sistema escala o sufre un ataque.
-            </p>
-            <p class="about-text">
-              Combino desarrollo backend resiliente con prácticas de <strong>DevSecOps</strong>: contenerización multi-etapa <em>non-root</em>, análisis estático de vulnerabilidades (SAST con Bandit/Trivy), bastionado de servidores Linux y control estricto de identidades con <strong>AWS IAM</strong>.
-            </p>
-            <p class="about-text">
-              Actualmente desarrollo en la incubadora <strong>EQUIPU PUCP</strong>, colaboro en investigación con <strong>IEEE PUCP</strong> y curso materias avanzadas de <strong>Machine Learning y Deep Learning</strong>.
-            </p>
           </div>
 
-          <!-- Contadores de datos clave -->
-          <div class="about-card stat-card bento-item reveal-up">
-            <span class="stat-number" data-target="9">0</span>
-            <span class="stat-suffix">.º</span>
-            <span class="stat-label">Ciclo en la PUCP</span>
-            <p class="stat-desc">Convenio de 30h/sem para prácticas preprofesionales.</p>
-          </div>
+          <!-- Columna Derecha: Contacto, Redes y Caja de Advertencia WORK TOGETHER -->
+          <div class="footer-action-col">
+            <div class="footer-meta-block">
+              <div class="meta-section">
+                <span class="meta-label">CONTACT</span>
+                <a class="meta-link" href="mailto:italomijail@gmail.com">italomijail@gmail.com</a>
+                <span class="meta-sub">+51 940 770 077</span>
+              </div>
 
-          <div class="about-card stat-card bento-item reveal-up">
-            <span class="stat-badge-text">USA</span>
-            <span class="stat-label">Work & Travel (Lifeguard)</span>
-            <p class="stat-desc">Inglés conversacional nativo y protocolos de seguridad bajo presión.</p>
-          </div>
-
-          <div class="about-card stat-card bento-item reveal-up">
-            <span class="stat-badge-text">NOV '26</span>
-            <span class="stat-label">AWS CLF-C02</span>
-            <p class="stat-desc">Certificación Cloud Practitioner en preparación activa final.</p>
-          </div>
-
-          <div class="about-card stat-card bento-item reveal-up">
-            <span class="stat-number" data-target="5">0</span>
-            <span class="stat-suffix">+</span>
-            <span class="stat-label">Proyectos Verificables</span>
-            <p class="stat-desc">Arquitecturas funcionales con código auditable en GitHub.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- 3. SECCIÓN PROYECTOS (Bento Grid con 3D Tilt) -->
-      <section class="projects-section section-padding wrap" id="proyectos" aria-labelledby="projects-title">
-        <div class="projects-header reveal-up">
-          <div class="section-tag">
-            <span class="tag-number">02</span>
-            <span class="tag-title">TRABAJO SELECCIONADO</span>
-          </div>
-          <div class="header-flex">
-            <div>
-              <h2 id="projects-title" class="section-title">
-                Arquitecturas construidas para <em>resistir.</em>
-              </h2>
-              <p class="section-subtitle">
-                Proyectos reales con código abierto, decisiones de seguridad y control de concurrencia.
-              </p>
-            </div>
-            <div class="projects-filter-group" role="group" aria-label="Filtrar proyectos">
-              <button class="filter-btn active" data-filter="all" type="button">Todos (05)</button>
-              <button class="filter-btn" data-filter="cloud" type="button">Cloud & Seguridad</button>
-              <button class="filter-btn" data-filter="backend" type="button">Backend & IA</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="projects-bento">
-          <!-- PROYECTO 1: AI Security Log Analyzer (Bento Grande - 2 columnas) -->
-          <article class="project-card bento-span-2 bento-item reveal-up" data-category="cloud backend" data-tilt>
-            <div class="project-content">
-              <div class="project-top">
-                <span class="project-badge neon-badge">PROYECTO DESTACADO // DEVSECOPS & IA</span>
-                <div class="project-links">
-                  <a
-                    class="project-link-icon magnetic"
-                    href="https://github.com/italo04"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Ver código en GitHub"
-                  >
-                    <svg class="icon"><use href="#icon-github" /></svg>
-                  </a>
-                  <button class="project-link-icon modal-trigger magnetic" data-modal="ai-log-analyzer" aria-label="Ver detalles arquitectónicos">
-                    <svg class="icon"><use href="#icon-external" /></svg>
-                  </button>
+              <div class="meta-section">
+                <span class="meta-label">FOLLOW</span>
+                <div class="meta-links-pair">
+                  <a href="https://github.com/italo04" target="_blank" rel="noopener noreferrer">@italo04 (GitHub)</a>
+                  <a href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/" target="_blank" rel="noopener noreferrer">/in/italo-mijail-ramos-diaz</a>
                 </div>
               </div>
-
-              <h3 class="project-title">AI-Powered Security Log Analyzer & Threat Detector</h3>
-              <p class="project-summary">
-                Motor en Python (FastAPI) que ingesta registros de servidores Linux (<code>/var/log/auth.log</code>) y aplica modelos de Machine Learning (Isolation Forest) junto con inferencia de IA para detectar patrones de fuerza bruta SSH y anomalías de tráfico en tiempo real.
-              </p>
-
-              <div class="project-terminal-preview">
-                <div class="term-header">
-                  <span class="term-dot red"></span>
-                  <span class="term-dot yellow"></span>
-                  <span class="term-dot green"></span>
-                  <span class="term-title">threat_analyzer.py — containerized:non-root</span>
-                </div>
-                <div class="term-body">
-                  <code>[INFO] Monitoring /var/log/auth.log for brute-force attacks...</code>
-                  <code>[ALERT] Anomaly detected: IP 198.51.100.23 -> 47 failed auth attempts.</code>
-                  <code>[AI MITIGATION] Isolation Forest score: -0.84 (High Risk). Triggering iptables DROP rule.</code>
-                </div>
-              </div>
-
-              <div class="project-footer">
-                <div class="tech-stack-chips">
-                  <span class="chip">FastAPI</span>
-                  <span class="chip">Python</span>
-                  <span class="chip">Docker (non-root)</span>
-                  <span class="chip">Scikit-learn</span>
-                  <span class="chip">Linux auth.log</span>
-                  <span class="chip">GitHub Actions CI/CD</span>
-                </div>
-                <button class="btn btn-outline modal-trigger magnetic" data-modal="ai-log-analyzer">
-                  <span>Detalles de Arquitectura</span>
-                  <svg class="icon"><use href="#icon-arrow" /></svg>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROYECTO 2: Fintech Transaction Engine -->
-          <article class="project-card bento-item reveal-up" data-category="backend" data-tilt>
-            <div class="project-content">
-              <div class="project-top">
-                <span class="project-badge">FINTECH & CONCURRENCIA</span>
-                <div class="project-links">
-                  <a
-                    class="project-link-icon magnetic"
-                    href="https://github.com/italo04/fintech-transaction-engine"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Ver código en GitHub"
-                  >
-                    <svg class="icon"><use href="#icon-github" /></svg>
-                  </a>
-                  <button class="project-link-icon modal-trigger magnetic" data-modal="fintech-engine" aria-label="Ver detalles arquitectónicos">
-                    <svg class="icon"><use href="#icon-external" /></svg>
-                  </button>
-                </div>
-              </div>
-
-              <h3 class="project-title">Fintech Transaction Engine</h3>
-              <p class="project-summary">
-                API REST en FastAPI y PostgreSQL con aislamiento Serializable, bloqueos a nivel de fila (<code>SELECT FOR UPDATE</code>) y claves de idempotencia para garantizar consistencia transaccional absoluta y prevenir <em>race conditions</em>.
-              </p>
-
-              <div class="project-footer">
-                <div class="tech-stack-chips">
-                  <span class="chip">FastAPI</span>
-                  <span class="chip">PostgreSQL</span>
-                  <span class="chip">SQLAlchemy</span>
-                  <span class="chip">Pytest</span>
-                  <span class="chip">Docker</span>
-                </div>
-                <button class="btn btn-outline modal-trigger magnetic" data-modal="fintech-engine">
-                  <span>Arquitectura C4</span>
-                  <svg class="icon"><use href="#icon-arrow" /></svg>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROYECTO 3: Secure Cloud Infra & Linux Hardening -->
-          <article class="project-card bento-item reveal-up" data-category="cloud" data-tilt>
-            <div class="project-content">
-              <div class="project-top">
-                <span class="project-badge">CLOUD & DEVSECOPS</span>
-                <div class="project-links">
-                  <a
-                    class="project-link-icon magnetic"
-                    href="https://github.com/italo04/secure-cloud-infra"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Ver código en GitHub"
-                  >
-                    <svg class="icon"><use href="#icon-github" /></svg>
-                  </a>
-                  <button class="project-link-icon modal-trigger magnetic" data-modal="secure-cloud" aria-label="Ver detalles arquitectónicos">
-                    <svg class="icon"><use href="#icon-external" /></svg>
-                  </button>
-                </div>
-              </div>
-
-              <h3 class="project-title">Secure Cloud Infra & Linux Hardening</h3>
-              <p class="project-summary">
-                Infraestructura Zero-Trust en AWS orquestada con Terraform (VPC, subredes públicas/privadas, Security Groups e IAM de mínimo privilegio) y bastionado automatizado de servidores Linux con <em>iptables</em>, llaves SSH y auditoría.
-              </p>
-
-              <div class="project-footer">
-                <div class="tech-stack-chips">
-                  <span class="chip">AWS VPC & IAM</span>
-                  <span class="chip">Terraform</span>
-                  <span class="chip">Linux Hardening</span>
-                  <span class="chip">Bash</span>
-                  <span class="chip">fail2ban</span>
-                </div>
-                <button class="btn btn-outline modal-trigger magnetic" data-modal="secure-cloud">
-                  <span>Seguridad AWS</span>
-                  <svg class="icon"><use href="#icon-arrow" /></svg>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROYECTO 4: Tesis PFC 1 (PUCP) -->
-          <article class="project-card bento-item reveal-up" data-category="cloud backend" data-tilt>
-            <div class="project-content">
-              <div class="project-top">
-                <span class="project-badge">TESIS DE GRADO PUCP // PFC 1</span>
-                <div class="project-links">
-                  <button class="project-link-icon modal-trigger magnetic" data-modal="tesis-pucp" aria-label="Ver detalles de investigación">
-                    <svg class="icon"><use href="#icon-external" /></svg>
-                  </button>
-                </div>
-              </div>
-
-              <h3 class="project-title">Arquitectura Cloud & IoT Offline para Pagos Seguros</h3>
-              <p class="project-summary">
-                Diseño arquitectónico para terminales IoT (ESP32) en zonas sin conectividad estable: transacciones cifradas localmente con AES-256, canal seguro MQTT/TLS y sincronización asíncrona hacia servicios Cloud asegurando consistencia eventual.
-              </p>
-
-              <div class="project-footer">
-                <div class="tech-stack-chips">
-                  <span class="chip">IoT (ESP32)</span>
-                  <span class="chip">AWS / Azure</span>
-                  <span class="chip">AES-256</span>
-                  <span class="chip">MQTT / TLS</span>
-                  <span class="chip">Modelo PACELC</span>
-                </div>
-                <button class="btn btn-outline modal-trigger magnetic" data-modal="tesis-pucp">
-                  <span>Modelo de Datos</span>
-                  <svg class="icon"><use href="#icon-arrow" /></svg>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <!-- PROYECTO 5: TuDerecho (EQUIPU PUCP) -->
-          <article class="project-card bento-item reveal-up" data-category="backend" data-tilt>
-            <div class="project-content">
-              <div class="project-top">
-                <span class="project-badge">INCUBADORA EQUIPU PUCP</span>
-                <div class="project-links">
-                  <button class="project-link-icon modal-trigger magnetic" data-modal="tuderecho" aria-label="Ver detalles de incubación">
-                    <svg class="icon"><use href="#icon-external" /></svg>
-                  </button>
-                </div>
-              </div>
-
-              <h3 class="project-title">Plataforma LegalTech "TuDerecho"</h3>
-              <p class="project-summary">
-                Desarrollo backend y arquitectura orientada a la asistencia de consultas ciudadanas y conexión cliente-abogado. Modelado de datos en PostgreSQL, integración segura de servicios en FastAPI y trabajo ágil en Scrum.
-              </p>
-
-              <div class="project-footer">
-                <div class="tech-stack-chips">
-                  <span class="chip">FastAPI</span>
-                  <span class="chip">PostgreSQL</span>
-                  <span class="chip">Arquitectura C4</span>
-                  <span class="chip">Scrum</span>
-                  <span class="chip">EQUIPU PUCP</span>
-                </div>
-                <button class="btn btn-outline modal-trigger magnetic" data-modal="tuderecho">
-                  <span>Caso de Uso</span>
-                  <svg class="icon"><use href="#icon-arrow" /></svg>
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="projects-cta-center reveal-up">
-          <a
-            class="btn btn-ghost magnetic"
-            href="https://github.com/italo04?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span>Ver más código y repositorios en GitHub</span>
-            <svg class="icon"><use href="#icon-arrow" /></svg>
-          </a>
-        </div>
-      </section>
-
-      <!-- 4. SECCIÓN HABILIDADES (Chips Flotantes + Marquee Infinito) -->
-      <section class="skills-section section-padding" id="habilidades" aria-labelledby="skills-title">
-        <!-- Marquee Infinito Neón -->
-        <div class="skills-marquee" aria-hidden="true">
-          <div class="marquee-content">
-            <span>AWS CLOUD ✳ DOCKER CONTAINERS ✳ LINUX HARDENING ✳ FASTAPI ✳ TERRAFORM IAC ✳ GITHUB ACTIONS CI/CD ✳ OWASP TOP 10 ✳ POSTGRESQL ✳ PYTHON ✳ MACHINE LEARNING ✳ DEEP LEARNING ✳ PYTORCH ✳ </span>
-            <span>AWS CLOUD ✳ DOCKER CONTAINERS ✳ LINUX HARDENING ✳ FASTAPI ✳ TERRAFORM IAC ✳ GITHUB ACTIONS CI/CD ✳ OWASP TOP 10 ✳ POSTGRESQL ✳ PYTHON ✳ MACHINE LEARNING ✳ DEEP LEARNING ✳ PYTORCH ✳ </span>
-          </div>
-        </div>
-
-        <div class="wrap skills-container">
-          <div class="section-tag reveal-up">
-            <span class="tag-number">03</span>
-            <span class="tag-title">ARSENAL TÉCNICO</span>
-          </div>
-
-          <h2 id="skills-title" class="section-title reveal-up">
-            Herramientas evaluadas en proyectos, <em>no solo en teoría.</em>
-          </h2>
-
-          <div class="skills-bento">
-            <!-- Categoría 1: Cloud & DevOps -->
-            <div class="skills-card bento-item reveal-up">
-              <div class="skills-cat-header">
-                <span class="cat-icon neon-violet">☁</span>
-                <h3>Cloud & DevOps</h3>
-              </div>
-              <p class="skills-cat-desc">Infraestructura como código, contenedores y automatización de pipelines.</p>
-              <div class="skill-chips-cloud">
-                <span class="skill-tag">AWS (EC2, VPC, S3, IAM)</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Docker Compose</span>
-                <span class="skill-tag">GitHub Actions (CI/CD)</span>
-                <span class="skill-tag">Terraform (IaC)</span>
-                <span class="skill-tag">Git & GitHub</span>
-              </div>
             </div>
 
-            <!-- Categoría 2: Seguridad & Redes -->
-            <div class="skills-card bento-item reveal-up">
-              <div class="skills-cat-header">
-                <span class="cat-icon neon-cyan">🛡</span>
-                <h3>Ciberseguridad & Redes</h3>
-              </div>
-              <p class="skills-cat-desc">Seguridad defensiva, análisis de vulnerabilidades y redes base.</p>
-              <div class="skill-chips-cloud">
-                <span class="skill-tag">Linux Hardening</span>
-                <span class="skill-tag">Redes TCP/IP & DNS</span>
-                <span class="skill-tag">Firewalls (iptables, UFW)</span>
-                <span class="skill-tag">OWASP Top 10</span>
-                <span class="skill-tag">SAST (Bandit, Trivy)</span>
-                <span class="skill-tag">Análisis con Wireshark</span>
-              </div>
-            </div>
-
-            <!-- Categoría 3: Backend & Datos -->
-            <div class="skills-card bento-item reveal-up">
-              <div class="skills-cat-header">
-                <span class="cat-icon">⚙</span>
-                <h3>Backend & Datos</h3>
-              </div>
-              <p class="skills-cat-desc">APIs REST de alta concurrencia, persistencia transaccional y pruebas.</p>
-              <div class="skill-chips-cloud">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">FastAPI</span>
-                <span class="skill-tag">PostgreSQL</span>
-                <span class="skill-tag">SQLAlchemy</span>
-                <span class="skill-tag">Java & Spring Boot</span>
-                <span class="skill-tag">Pytest</span>
-              </div>
-            </div>
-
-            <!-- Categoría 4: Inteligencia Artificial & Sistemas -->
-            <div class="skills-card bento-item reveal-up">
-              <div class="skills-cat-header">
-                <span class="cat-icon">🧠</span>
-                <h3>IA & Sistemas Base</h3>
-              </div>
-              <p class="skills-cat-desc">Modelos de aprendizaje profundo, scripting de automatización y SO.</p>
-              <div class="skill-chips-cloud">
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Deep Learning (PyTorch)</span>
-                <span class="skill-tag">Scikit-learn</span>
-                <span class="skill-tag">Integración APIs de LLMs</span>
-                <span class="skill-tag">Bash Scripting</span>
-                <span class="skill-tag">Linux (Ubuntu / Debian)</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 5. SECCIÓN EXPERIENCIA & FORMACIÓN (Línea de Tiempo ScrollTrigger) -->
-      <section class="timeline-section section-padding wrap" id="experiencia" aria-labelledby="timeline-title">
-        <div class="section-tag reveal-up">
-          <span class="tag-number">04</span>
-          <span class="tag-title">TRAYECTORIA & FORMACIÓN</span>
-        </div>
-
-        <h2 id="timeline-title" class="section-title reveal-up">
-          Experiencia real, investigación y <em>disciplina.</em>
-        </h2>
-
-        <div class="timeline-container">
-          <div class="timeline-spine" aria-hidden="true">
-            <div class="timeline-progress-fill"></div>
-          </div>
-
-          <!-- Item 1: PUCP -->
-          <div class="timeline-entry reveal-up">
-            <div class="timeline-marker">
-              <div class="marker-dot"></div>
-            </div>
-            <div class="timeline-card">
-              <div class="timeline-time">MARZO 2022 — DICIEMBRE 2026 (EST.)</div>
-              <h3 class="timeline-role">Estudiante de Ingeniería Informática (9.º ciclo en curso)</h3>
-              <h4 class="timeline-company">Pontificia Universidad Católica del Perú (PUCP)</h4>
-              <p class="timeline-body">
-                Formación rigurosa en Sistemas Distribuidos, Redes, Sistemas Operativos, Seguridad Informática y Tesis de Fin de Carrera (PFC 1) en arquitecturas Cloud/IoT. Actualmente cursando asignaturas de la línea de investigación IA-PUCP (Machine Learning y Deep Learning).
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 2: EQUIPU PUCP -->
-          <div class="timeline-entry reveal-up">
-            <div class="timeline-marker">
-              <div class="marker-dot"></div>
-            </div>
-            <div class="timeline-card">
-              <div class="timeline-time">ENERO 2026 — ACTUALIDAD</div>
-              <h3 class="timeline-role">Desarrollo Backend & Arquitectura (Incubación)</h3>
-              <h4 class="timeline-company">Red de Emprendimiento EQUIPU (PUCP) — Proyecto "TuDerecho"</h4>
-              <p class="timeline-body">
-                Diseño de la arquitectura C4 y servicios backend en FastAPI con persistencia en PostgreSQL para una plataforma LegalTech orientada a consultas ciudadanas, implementando control de accesos y sprints bajo marco Scrum.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 3: IEEE PUCP -->
-          <div class="timeline-entry reveal-up">
-            <div class="timeline-marker">
-              <div class="marker-dot"></div>
-            </div>
-            <div class="timeline-card">
-              <div class="timeline-time">ENERO 2026 — ACTUALIDAD</div>
-              <h3 class="timeline-role">Miembro Estudiantil del Área de Investigación</h3>
-              <h4 class="timeline-company">Rama Estudiantil IEEE PUCP</h4>
-              <p class="timeline-body">
-                Análisis de literatura científica y papers en torno a modelos generativos de Deep Learning, seguridad en redes distribuidas y arquitecturas de nube.
-              </p>
-            </div>
-          </div>
-
-          <!-- Item 4: Work & Travel USA -->
-          <div class="timeline-entry reveal-up">
-            <div class="timeline-marker">
-              <div class="marker-dot"></div>
-            </div>
-            <div class="timeline-card">
-              <div class="timeline-time">TEMPORADA DE VERANO</div>
-              <h3 class="timeline-role">Lifeguard Certificado (Experiencia Laboral Internacional)</h3>
-              <h4 class="timeline-company">Programa Cultural Work & Travel USA — Estados Unidos</h4>
-              <p class="timeline-body">
-                Desempeño laboral 100% en inglés en entorno nativo estadounidense. Gestión estricta de protocolos de seguridad acuática, prevención de riesgos, atención al cliente y toma de decisiones críticas bajo presión.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- 6. SECCIÓN CONTACTO (Call to Action + Botones Magnéticos + Formulario) -->
-      <section class="contact-section section-padding wrap" id="contacto" aria-labelledby="contact-title">
-        <div class="contact-card reveal-up">
-          <div class="contact-grid">
-            <div class="contact-info">
-              <div class="section-tag">
-                <span class="tag-number">05</span>
-                <span class="tag-title">CONTACTO DIRECTO</span>
-              </div>
-              <h2 id="contact-title" class="contact-headline">
-                Construyamos infraestructura <em>segura</em> y de alto impacto.
-              </h2>
-              <p class="contact-subtext">
-                Disponible para <strong>prácticas preprofesionales</strong> (convenio PUCP de 30h/sem o tiempo completo en verano 2027) en roles de <strong>Cloud, DevSecOps, Ciberseguridad, TI o Backend</strong>.
-              </p>
-
-              <div class="contact-details">
-                <div class="contact-detail-row">
-                  <span class="detail-label">CORREO ELECTRÓNICO</span>
-                  <a class="detail-value email-link" href="mailto:italomijail@gmail.com">italomijail@gmail.com</a>
-                </div>
-                <div class="contact-detail-row">
-                  <span class="detail-label">UBICACIÓN</span>
-                  <span class="detail-value">Lima, Perú (Disponibilidad Presencial / Híbrida / Remota)</span>
-                </div>
-              </div>
-
-              <div class="contact-actions">
-                <button class="btn btn-outline copy-email-btn magnetic" id="copy-email-btn" type="button">
-                  <svg class="icon"><use href="#icon-copy" /></svg>
-                  <span id="copy-text">Copiar Correo</span>
-                </button>
-                <a
-                  class="btn btn-ghost magnetic"
-                  href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <svg class="icon"><use href="#icon-linkedin" /></svg>
-                  <span>LinkedIn</span>
+            <!-- Caja WORK TOGETHER con franjas diagonales de advertencia Hazard -->
+            <div class="hazard-action-card magnetic" data-tilt>
+              <div class="hazard-stripes-frame">
+                <a class="hazard-inner-btn" href="mailto:italomijail@gmail.com?subject=Propuesta%20Prácticas%20Preprofesionales%202027">
+                  <span class="hazard-text">WORK TOGETHER</span>
+                  <span class="hazard-arrow">↗</span>
                 </a>
               </div>
             </div>
 
-            <!-- Formulario de Contacto -->
-            <form class="contact-form" id="contact-form" novalidate>
-              <div class="form-group">
-                <label for="contact-name">Tu Nombre o Empresa</label>
-                <input
-                  type="text"
-                  id="contact-name"
-                  name="name"
-                  placeholder="Ej. Martín González (Tech Lead)"
-                  required
-                  maxlength="80"
-                />
-              </div>
+            <!-- Botón Copiar Correo Directo -->
+            <button class="btn-copy-terminal" id="copy-email-btn" type="button">
+              <span class="btn-terminal-prompt">&gt;</span>
+              <span id="copy-text">COPIAR EMAIL [italomijail@gmail.com]</span>
+            </button>
+          </div>
+        </div>
 
-              <div class="form-group">
-                <label for="contact-email">Tu Correo de Contacto</label>
-                <input
-                  type="email"
-                  id="contact-email"
-                  name="email"
-                  placeholder="ejemplo@empresa.com"
-                  required
-                  maxlength="100"
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="contact-role">Área o Tipo de Oportunidad</label>
-                <select id="contact-role" name="role">
-                  <option value="DevSecOps / Cloud">DevSecOps / Cloud Infrastructure</option>
-                  <option value="Ciberseguridad / SOC">Ciberseguridad / Seguridad de la Información</option>
-                  <option value="Desarrollo Backend">Desarrollo Backend / Sistemas Distribuidos</option>
-                  <option value="Investigación / Pasantía">Investigación / Pasantía Internacional</option>
-                  <option value="Otro">Otro proyecto</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="contact-message">Mensaje</label>
-                <textarea
-                  id="contact-message"
-                  name="message"
-                  rows="4"
-                  placeholder="Hola Italo, queremos coordinar una entrevista técnica para nuestro equipo..."
-                  required
-                  maxlength="1000"
-                ></textarea>
-              </div>
-
-              <button class="btn btn-primary btn-block magnetic" type="submit" id="submit-btn">
-                <span>Preparar Mensaje</span>
-                <svg class="icon"><use href="#icon-arrow" /></svg>
-              </button>
-              <p class="form-note">
-                El formulario prepara tu mensaje para enviarlo directamente vía correo sin recopilación de datos privados.
-              </p>
-            </form>
+        <!-- Barra de Ticker de Créditos y Cierre del Póster -->
+        <div class="poster-bottom-ticker">
+          <div class="ticker-left">
+            <span>ITALO RAMOS STUDIO // PUCP</span>
+          </div>
+          <div class="ticker-center">
+            <span>CLOUD · DEVSECOPS · ARCHITECTURE</span>
+          </div>
+          <div class="ticker-right">
+            <span>THANKS FOR SCROLLING</span>
+            <span class="ticker-square">■</span>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- 7. FOOTER MINIMALISTA -->
-    <footer class="site-footer">
-      <div class="wrap footer-container">
-        <div class="footer-left">
-          <span class="footer-brand">&lt;italo.<span class="neon-dot">_</span>&gt;</span>
-          <span class="footer-copy">© 2026 Italo Mijail Ramos Diaz · Diseñado con precisión y estándares de ingeniería.</span>
-        </div>
-        <div class="footer-links">
-          <a class="magnetic" href="https://github.com/italo04" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a class="magnetic" href="https://www.linkedin.com/in/italo-mijail-ramos-diaz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="magnetic" href="mailto:italomijail@gmail.com">Email</a>
-          <a class="magnetic scroll-top-btn" href="#inicio" aria-label="Volver arriba">↑ Arriba</a>
-        </div>
-      </div>
-    </footer>
-
-    <!-- MODAL NATIVO ACCESIBLE PARA DETALLES DE PROYECTO -->
-    <dialog class="project-modal" id="project-modal" aria-labelledby="modal-title">
-      <div class="modal-wrapper">
-        <div class="modal-header">
-          <span class="modal-badge" id="modal-badge">DETALLES TÉCNICOS</span>
-          <button class="modal-close-btn magnetic" id="modal-close-btn" type="button" aria-label="Cerrar modal">
-            ✕
+    <!-- ====================================================================
+         MODAL DE ARQUITECTURA TÉCNICA (ESTILO ACID BRUTAL TERMINAL)
+         ==================================================================== -->
+    <dialog
+      class="modal-backdrop"
+      id="project-modal"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal-window brutal-window" role="document">
+        <div class="modal-top-bar">
+          <div class="modal-title-code">[SYSTEM // ARCHITECTURE INSPECTOR]</div>
+          <button class="modal-close-btn" id="modal-close-btn" type="button" aria-label="Cerrar modal">
+            <span>[ESC / CERRAR ✕]</span>
           </button>
         </div>
-        <div class="modal-content-area" id="modal-content">
+
+        <div class="modal-body" id="modal-content">
           <!-- Contenido inyectado dinámicamente por script.js -->
         </div>
       </div>

@@ -167,7 +167,7 @@
         vx: (Math.random() - 0.5) * 0.65,
         vy: (Math.random() - 0.5) * 0.65,
         size: Math.random() * 1.8 + 1,
-        color: i % 2 === 0 ? "rgba(0, 229, 255, 0.7)" : "rgba(124, 92, 255, 0.7)"
+        color: i % 2 === 0 ? "rgba(157, 255, 0, 0.75)" : "rgba(229, 229, 221, 0.65)"
       });
     }
 
@@ -199,13 +199,13 @@
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Conectar con líneas cercanas
+        // Conectar con líneas cercanas en Acid Green
         for (let j = i + 1; j < particles.length; j++) {
           const p2 = particles[j];
           const dist2 = Math.hypot(p.x - p2.x, p.y - p2.y);
           if (dist2 < 120) {
             const alpha = 1 - dist2 / 120;
-            ctx.strokeStyle = `rgba(124, 92, 255, ${alpha * 0.18})`;
+            ctx.strokeStyle = `rgba(157, 255, 0, ${alpha * 0.16})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
@@ -598,14 +598,16 @@
       const email = "italomijail@gmail.com";
       try {
         await navigator.clipboard.writeText(email);
-        copyText.textContent = "¡Copiado!";
-        copyBtn.style.borderColor = "var(--neon-green)";
-        copyBtn.style.color = "var(--neon-green)";
+        copyText.textContent = "[EMAIL COPIADO AL PORTAPAPELES ✓]";
+        copyBtn.style.borderColor = "var(--acid-green)";
+        copyBtn.style.color = "#000";
+        copyBtn.style.backgroundColor = "var(--acid-green)";
 
         setTimeout(() => {
-          copyText.textContent = "Copiar Correo";
+          copyText.textContent = "COPIAR EMAIL [italomijail@gmail.com]";
           copyBtn.style.borderColor = "";
           copyBtn.style.color = "";
+          copyBtn.style.backgroundColor = "";
         }, 2200);
       } catch (err) {
         window.location.href = "mailto:" + email;
